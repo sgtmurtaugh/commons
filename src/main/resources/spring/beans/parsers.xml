@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+       <bean id="typeParseUtils" class="de.ckraus.commons.parser.type.TypeParserUtils">
+              <property name="registeredTypeParsers">
+                     <util:map map-class="java.util.concurrent.ConcurrentHashMap" key-type="java.lang.Class" value-type="de.ckraus.commons.parser.type.ITypeParser">
+                            <entry key="de.ckraus.commons.parser.type.BigDecimalParser" value-ref="defaultBigDecimalParser" />
+                            <entry key="de.ckraus.commons.parser.type.BigIntegerParser" value-ref="defaultBigIntegerParser" />
+                            <entry key="de.ckraus.commons.parser.type.BooleanParser" value-ref="defaultBooleanParser" />
+                            <entry key="de.ckraus.commons.parser.type.ByteParser" value-ref="defaultByteParser" />
+                            <entry key="de.ckraus.commons.parser.type.CharacterParser" value-ref="defaultCharacterParser" />
+                            <entry key="de.ckraus.commons.parser.type.DateParser" value-ref="defaultDateParser" />
+                            <entry key="de.ckraus.commons.parser.type.DoubleParser" value-ref="defaultDoubleParser" />
+                            <entry key="de.ckraus.commons.parser.type.FloatParser" value-ref="defaultFloatParser" />
+                            <entry key="de.ckraus.commons.parser.type.GregorianCalendarParser" value-ref="defaultGregorianCalendarParser" />
+                            <entry key="de.ckraus.commons.parser.type.IntegerParser" value-ref="defaultIntegerParser" />
+                            <entry key="de.ckraus.commons.parser.type.LongParser" value-ref="defaultLongParser" />
+                            <entry key="de.ckraus.commons.parser.type.ShortParser" value-ref="defaultShortParser" />
+                            <entry key="de.ckraus.commons.parser.type.StringParser" value-ref="defaultStringParser" />
+                     </util:map>
+              </property>
+       </bean>
+
+       <bean id="defaultBigDecimalParser" class="de.ckraus.commons.parser.type.BigDecimalParser" />
+
+       <bean id="defaultBigIntegerParser" class="de.ckraus.commons.parser.type.BigIntegerParser" />
+
+       <bean id="defaultBooleanParser" class="de.ckraus.commons.parser.type.BooleanParser">
+              <property name="trueValues">
+                     <map merge="true" key-type="java.lang.Class" value-type="java.util.List">
+                            <entry key="java.lang.Character">
+                                   <list value-type="java.lang.Character">
+                                          <value>1</value>
+                                          <value>j</value>
+                                          <value>J</value>
+                                          <value>y</value>
+                                          <value>Y</value>
+                                   </list>
+                            </entry>
+                            <entry key="java.lang.Integer">
+                                   <list value-type="java.lang.Integer">
+                                          <value>1</value>
+                                   </list>
+                            </entry>
+                            <entry key="java.lang.String">
+                                   <list value-type="java.lang.String">
+                                          <value>1</value>
+                                          <value>erfolg</value>
+                                          <value>j</value>
+                                          <value>ja</value>
+                                          <value>ok</value>
+                                          <value>okay</value>
+                                          <value>success</value>
+                                          <value>successful</value>
+                                          <value>wahr</value>
+                                          <value>y</value>
+                                          <value>yes</value>
+                                   </list>
+                            </entry>
+                     </map>
+              </property>
+              <property name="falseValues">
+                     <map merge="true" key-type="java.lang.Class" value-type="java.util.List">
+                            <entry key="java.lang.Character">
+                                   <list value-type="java.lang.Character">
+                                          <value>0</value>
+                                          <value>f</value>
+                                          <value>F</value>
+                                          <value>n</value>
+                                          <value>N</value>
+                                          <value>x</value>
+                                          <value>X</value>
+                                   </list>
+                            </entry>
+                            <entry key="java.lang.Integer">
+                                   <list value-type="java.lang.Integer">
+                                          <value>0</value>
+                                   </list>
+                            </entry>
+                            <entry key="java.lang.String">
+                                   <list value-type="java.lang.String">
+                                          <value>0</value>
+                                          <value>error</value>
+                                          <value>failure</value>
+                                          <value>falsch</value>
+                                          <value>fehler</value>
+                                          <value>n</value>
+                                          <value>nein</value>
+                                          <value>no</value>
+                                          <value>wrong</value>
+                                          <value>x</value>
+                                   </list>
+                            </entry>
+                     </map>
+              </property>
+       </bean>
+
+       <bean id="defaultByteParser" class="de.ckraus.commons.parser.type.ByteParser" />
+
+       <bean id="defaultCharacterParser" class="de.ckraus.commons.parser.type.CharacterParser" />
+
+       <bean id="defaultDateParser" class="de.ckraus.commons.parser.type.DateParser" />
+
+       <bean id="defaultDoubleParser" class="de.ckraus.commons.parser.type.DoubleParser" />
+
+       <bean id="defaultFloatParser" class="de.ckraus.commons.parser.type.FloatParser" />
+
+       <bean id="defaultGregorianCalendarParser" class="de.ckraus.commons.parser.type.GregorianCalendarParser" />
+
+       <bean id="defaultIntegerParser" class="de.ckraus.commons.parser.type.IntegerParser" />
+
+       <bean id="defaultLongParser" class="de.ckraus.commons.parser.type.LongParser" />
+
+       <bean id="defaultShortParser" class="de.ckraus.commons.parser.type.ShortParser" />
+
+       <bean id="defaultStringParser" class="de.ckraus.commons.parser.type.StringParser" />
+
+</beans>
