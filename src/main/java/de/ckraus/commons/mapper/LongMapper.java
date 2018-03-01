@@ -7,10 +7,18 @@ import lombok.Setter;
 @Getter
 @Setter(AccessLevel.PROTECTED)
 public class LongMapper
-        extends AbstractNumericMapper<Long>
+        extends AbstractNumericTypeMapper<Long>
         implements ILongMapper {
 
     private final static String CLASS   = LongMapper.class.getSimpleName();
 //    protected static Logger log = LoggerFactory.getLogger(LongMapper.class);
+
+
+    /**
+     * Constructor
+     */
+    public LongMapper() {
+        super();
+    }
 
 }

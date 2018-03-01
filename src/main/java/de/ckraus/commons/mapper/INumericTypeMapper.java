@@ -9,8 +9,8 @@ import java.util.Locale;
 import java.util.Map;
 
 @SuppressWarnings({"javadoc", "unused"})
-public interface INumericMapper<E extends Number>
-    extends IMapper<E> {
+public interface INumericTypeMapper<E extends Number>
+    extends ITypeMapper<E> {
 
     /**
      * getDecimalFormat

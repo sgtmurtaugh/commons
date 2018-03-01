@@ -4,7 +4,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
 public interface IFloatMapper
-    extends INumericMapper<Float> {
+    extends INumericTypeMapper<Float> {
 
     /**
      * unformat

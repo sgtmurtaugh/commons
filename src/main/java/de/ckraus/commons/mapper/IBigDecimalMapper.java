@@ -9,7 +9,7 @@ import java.text.ParseException;
 import java.util.Locale;
 
 public interface IBigDecimalMapper
-    extends INumericMapper<BigDecimal> {
+    extends INumericTypeMapper<BigDecimal> {
 
     /**
      * unformat

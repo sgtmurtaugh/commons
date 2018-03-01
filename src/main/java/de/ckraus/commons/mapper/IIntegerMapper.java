@@ -4,7 +4,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
 public interface IIntegerMapper
-    extends INumericMapper<Integer> {
+    extends INumericTypeMapper<Integer> {
 
     /**
      * unformat

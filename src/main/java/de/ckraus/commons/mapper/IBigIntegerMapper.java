@@ -2,7 +2,6 @@ package de.ckraus.commons.mapper;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -10,7 +9,7 @@ import java.text.ParseException;
 import java.util.Locale;
 
 public interface IBigIntegerMapper
-    extends INumericMapper<BigInteger> {
+    extends INumericTypeMapper<BigInteger> {
 
     /**
      * unformat

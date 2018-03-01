@@ -8,7 +8,7 @@ import java.util.function.Predicate;
  */
 @SuppressWarnings({"javadoc"})
 public interface IBooleanMapper
-    extends IMapper<Boolean> {
+    extends ITypeMapper<Boolean> {
 
     /*
         False Characters

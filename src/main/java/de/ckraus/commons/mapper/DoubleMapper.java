@@ -7,10 +7,18 @@ import lombok.Setter;
 @Getter
 @Setter(AccessLevel.PROTECTED)
 public class DoubleMapper
-        extends AbstractNumericMapper<Double>
+        extends AbstractNumericTypeMapper<Double>
         implements IDoubleMapper {
 
     private final static String CLASS   = DoubleMapper.class.getSimpleName();
 //    protected static Logger log = LoggerFactory.getLogger(DoubleMapper.class);
+
+
+    /**
+     * Constructor
+     */
+    public DoubleMapper() {
+        super();
+    }
 
 }

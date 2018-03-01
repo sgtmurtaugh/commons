@@ -9,10 +9,18 @@ import java.math.BigDecimal;
 @Getter
 @Setter(AccessLevel.PROTECTED)
 public class BigDecimalMapper
-        extends AbstractNumericMapper<BigDecimal>
+        extends AbstractNumericTypeMapper<BigDecimal>
         implements IBigDecimalMapper {
 
     private final static String CLASS   = BigDecimalMapper.class.getSimpleName();
 //    protected static Logger log = LoggerFactory.getLogger(BigDecimalMapper.class);
+
+
+    /**
+     * Constructor
+     */
+    public BigDecimalMapper() {
+        super();
+    }
 
 }

@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.function.Predicate;
 
 @SuppressWarnings({"javadoc", "unused"})
-public interface IMapper<E> {
+public interface ITypeMapper<E> {
 
     /**
      * getDefaultValue
