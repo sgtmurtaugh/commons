@@ -478,9 +478,14 @@ public interface IBooleanMapper
             Boolean defaultValue
     ) {
         Boolean b = defaultValue;
+        String preparedString = this.prepareStringToParse(
+                s,
+                bTrim,
+                bEmptyIsNull
+        );
 
-        if (null != s) {
-            String val = s;
+        if (null != preparedString) {
+            String val = preparedString;
 
             // optional trim
             if (bTrim) {

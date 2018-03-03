@@ -59,36 +59,6 @@ public abstract class AbstractTypeMapper<E>
     }
 
 
-    /**
-     * prepareStringToParse
-     * @param s the string to prepare if necessary
-     * @param bTrim flag for trimming the string
-     * @param bEmptyIsNull flag for using null, when the given string is empty
-     * @return a prepared String for parsing. The flags are evaluated and the string is reworked if necessary. When the
-     * trim param is true, trim is performed on the string. When the string is empty and the emptyIsNull param is
-     * true, null will be returned.
-     */
-    protected String prepareStringToParse(
-            String s,
-            boolean bTrim,
-            boolean bEmptyIsNull
-    ) {
-        String sRetVal = s;
-
-        if ( null != sRetVal ) {
-            if ( bTrim ) {
-                sRetVal = sRetVal.trim();
-            }
-            if ( bEmptyIsNull ) {
-                if ( sRetVal.isEmpty() ) {
-                    sRetVal = null;
-                }
-            }
-
-        }
-        return sRetVal;
-    }
-
     @Override
     public E map(
             String s,
@@ -98,6 +68,5 @@ public abstract class AbstractTypeMapper<E>
     ) {
         return defaultValue;
     }
-
 
 }
