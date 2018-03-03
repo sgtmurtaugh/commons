@@ -1,6 +1,5 @@
 package de.ckraus.commons.mapper;
 
-import groovy.util.logging.Log4j2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -221,10 +220,9 @@ public class TypeMapperUtils {
          * getDateMapper
          * @return
          */
-//    TODO
-//    public DateMapper getDateMapper() {
-//        return getInstance().getTypeMapper( DateMapper.class );
-//    }
+        public DateMapper getDateMapper() {
+            return getInstance().getTypeMapper( DateMapper.class );
+        }
 
         /**
          * getDoubleMapper
@@ -248,6 +246,30 @@ public class TypeMapperUtils {
          */
         public IntegerMapper getIntegerMapper() {
             return getInstance().getTypeMapper( IntegerMapper.class );
+        }
+
+        /**
+         * getLocalDateMapper
+         * @return
+         */
+        public LocalDateMapper getLocalDateMapper() {
+            return getInstance().getTypeMapper( LocalDateMapper.class );
+        }
+
+        /**
+         * getLocalDateTimeMapper
+         * @return
+         */
+        public LocalDateTimeMapper getLocalDateTimeMapper() {
+            return getInstance().getTypeMapper( LocalDateTimeMapper.class );
+        }
+
+        /**
+         * getLocalTimeMapper
+         * @return
+         */
+        public LocalTimeMapper getLocalTimeMapper() {
+            return getInstance().getTypeMapper( LocalTimeMapper.class );
         }
 
         /**
