@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 /**
  * Created by gandalf on 16.03.14.
  */
-public class Main {
+public class TestMain {
 
     private static String s;
 

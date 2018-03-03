@@ -25,11 +25,13 @@ public class IntegerMapperTest {
         String sNumber = "123";
         String sPattern = "pattern";
 
-        assertNull(
+        assertEquals(
+                (Integer) 123,
                 integerMapper.unformat(sNumber)
         );
 
-        assertNull(
+        assertEquals(
+                (Integer) 123,
                 integerMapper.unformat(
                         sNumber,
                         locale
@@ -69,7 +71,7 @@ public class IntegerMapperTest {
         );
 
         assertEquals(
-                defaultValue,
+                (Integer) 123,
                 integerMapper.unformat(
                         sNumber,
                         defaultValue

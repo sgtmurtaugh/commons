@@ -4,5 +4,5 @@ Class-Path: spring-expression-4.2.0.RELEASE.jar spring-context-4.2.0.R
  -core-4.2.0.RELEASE.jar commons-lang3-3.3.2.jar groovy-all-2.4.5.jar 
  logback-classic-1.1.2.jar spring-beans-4.2.0.RELEASE.jar lombok-1.16.
  8.jar slf4j-api-1.7.6.jar aopalliance-1.0.jar commons-logging-1.2.jar
-Main-Class: 
+TestMain-Class:
 
