@@ -6,6 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter(AccessLevel.PROTECTED)
+@SuppressWarnings({"javadoc", "unused"})
 public class ShortMapper
         extends AbstractNumericTypeMapper<Short>
         implements IShortMapper {
@@ -19,6 +20,14 @@ public class ShortMapper
      */
     public ShortMapper() {
         super();
+    }
+
+    /**
+     * Constructor
+     * @param defaultValue
+     */
+    public ShortMapper(Short defaultValue) {
+        super(defaultValue);
     }
 
 }

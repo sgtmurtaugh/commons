@@ -8,6 +8,7 @@ import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
 import java.util.Locale;
 
+@SuppressWarnings({"javadoc"})
 public interface IBigIntegerMapper
     extends INumericTypeMapper<BigInteger> {
 
@@ -37,6 +38,7 @@ public interface IBigIntegerMapper
             );
 
             try {
+// TODO: or better use String Constructor?
                 returnValue = BigInteger.valueOf(
                         decimalFormat.parse(sNumber).longValue()
                 );

@@ -8,6 +8,7 @@ import java.math.BigInteger;
 
 @Getter
 @Setter(AccessLevel.PROTECTED)
+@SuppressWarnings({"javadoc", "unused"})
 public class BigIntegerMapper
         extends AbstractNumericTypeMapper<BigInteger>
         implements IBigIntegerMapper {
@@ -21,6 +22,14 @@ public class BigIntegerMapper
      */
     public BigIntegerMapper() {
         super();
+    }
+
+    /**
+     * Constructor
+     * @param defaultValue
+     */
+    public BigIntegerMapper(BigInteger defaultValue) {
+        super(defaultValue);
     }
 
 }

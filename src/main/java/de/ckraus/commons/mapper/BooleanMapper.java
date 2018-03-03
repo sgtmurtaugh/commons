@@ -4,8 +4,11 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigInteger;
+
 @Getter
 @Setter(AccessLevel.PROTECTED)
+@SuppressWarnings({"javadoc", "unused"})
 public class BooleanMapper
         extends AbstractTypeMapper<Boolean>
         implements IBooleanMapper {
@@ -19,6 +22,14 @@ public class BooleanMapper
      */
     public BooleanMapper() {
         super();
+    }
+
+    /**
+     * Constructor
+     * @param defaultValue
+     */
+    public BooleanMapper(Boolean defaultValue) {
+        super(defaultValue);
     }
 
 }

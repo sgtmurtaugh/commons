@@ -6,6 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter(AccessLevel.PROTECTED)
+@SuppressWarnings({"javadoc", "unused"})
 public class IntegerMapper
         extends AbstractNumericTypeMapper<Integer>
         implements IIntegerMapper {
@@ -19,6 +20,14 @@ public class IntegerMapper
      */
     public IntegerMapper() {
         super();
+    }
+
+    /**
+     * Constructor
+     * @param defaultValue
+     */
+    public IntegerMapper(Integer defaultValue) {
+        super(defaultValue);
     }
 
 }

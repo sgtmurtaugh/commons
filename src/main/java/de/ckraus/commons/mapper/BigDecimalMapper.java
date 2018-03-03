@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter(AccessLevel.PROTECTED)
+@SuppressWarnings({"javadoc", "unused"})
 public class BigDecimalMapper
         extends AbstractNumericTypeMapper<BigDecimal>
         implements IBigDecimalMapper {
@@ -21,6 +22,14 @@ public class BigDecimalMapper
      */
     public BigDecimalMapper() {
         super();
+    }
+
+    /**
+     * Constructor
+     * @param defaultValue
+     */
+    public BigDecimalMapper(BigDecimal defaultValue) {
+        super(defaultValue);
     }
 
 }

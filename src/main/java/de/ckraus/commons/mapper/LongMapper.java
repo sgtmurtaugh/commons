@@ -6,6 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter(AccessLevel.PROTECTED)
+@SuppressWarnings({"javadoc", "unused"})
 public class LongMapper
         extends AbstractNumericTypeMapper<Long>
         implements ILongMapper {
@@ -19,6 +20,14 @@ public class LongMapper
      */
     public LongMapper() {
         super();
+    }
+
+    /**
+     * Constructor
+     * @param defaultValue
+     */
+    public LongMapper(Long defaultValue) {
+        super(defaultValue);
     }
 
 }

@@ -6,8 +6,10 @@ import lombok.Setter;
 
 @Getter
 @Setter(AccessLevel.PROTECTED)
+@SuppressWarnings({"javadoc", "unused"})
 public class StringMapper
-        extends AbstractTypeMapper<String> {
+        extends AbstractTypeMapper<String>
+        implements IStringMapper {
 
     private final static String CLASS   = StringMapper.class.getSimpleName();
 //    protected static Logger log = LoggerFactory.getLogger(StringMapper.class);
@@ -18,6 +20,14 @@ public class StringMapper
      */
     public StringMapper() {
         super();
+    }
+
+    /**
+     * Constructor
+     * @param defaultValue
+     */
+    public StringMapper(String defaultValue) {
+        super(defaultValue);
     }
 
 }

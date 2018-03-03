@@ -17,8 +17,8 @@ public abstract class AbstractTypeMapper<E>
 
     private final E defaultValue;
 
-    private final boolean bEmptyStringNull;
-    private final boolean bTrimStrings;
+    private final boolean emptyStringNull;
+    private final boolean trimStrings;
 
 
     /**
@@ -36,8 +36,8 @@ public abstract class AbstractTypeMapper<E>
         super();
 
         this.defaultValue       = defaultValue;
-        this.bTrimStrings       = ITypeMapper.super.isTrimStrings();
-        this.bEmptyStringNull   = ITypeMapper.super.isEmptyStringNull();
+        this.trimStrings       = ITypeMapper.super.isTrimStrings();
+        this.emptyStringNull   = ITypeMapper.super.isEmptyStringNull();
     }
 
     /**
@@ -54,27 +54,40 @@ public abstract class AbstractTypeMapper<E>
         super();
 
         this.defaultValue       = defaultValue;
-        this.bTrimStrings       = bTrimStrings;
-        this.bEmptyStringNull   = bEmptyStringNull;
+        this.trimStrings       = bTrimStrings;
+        this.emptyStringNull   = bEmptyStringNull;
     }
 
 
     /**
-     * isTrimStrings
-     * @return
+     * prepareStringToParse
+     * @param s the string to prepare if necessary
+     * @param bTrim flag for trimming the string
+     * @param bEmptyIsNull flag for using null, when the given string is empty
+     * @return a prepared String for parsing. The flags are evaluated and the string is reworked if necessary. When the
+     * trim param is true, trim is performed on the string. When the string is empty and the emptyIsNull param is
+     * true, null will be returned.
      */
-    public boolean isTrimStrings() {
-        return ITypeMapper.super.isTrimStrings();
-    }
+    protected String prepareStringToParse(
+            String s,
+            boolean bTrim,
+            boolean bEmptyIsNull
+    ) {
+        String sRetVal = s;
 
-    /**
-     * isEmptyStringNull
-     * @return
-     */
-    public boolean isEmptyStringNull() {
-        return ITypeMapper.super.isEmptyStringNull();
-    }
+        if ( null != sRetVal ) {
+            if ( bTrim ) {
+                sRetVal = sRetVal.trim();
+            }
+            if ( bEmptyIsNull ) {
+                if ( sRetVal.isEmpty() ) {
+                    sRetVal = null;
+                }
+            }
 
+        }
+        return sRetVal;
+    }
 
     @Override
     public E map(

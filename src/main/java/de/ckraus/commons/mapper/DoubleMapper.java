@@ -6,6 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter(AccessLevel.PROTECTED)
+@SuppressWarnings({"javadoc", "unused"})
 public class DoubleMapper
         extends AbstractNumericTypeMapper<Double>
         implements IDoubleMapper {
@@ -19,6 +20,14 @@ public class DoubleMapper
      */
     public DoubleMapper() {
         super();
+    }
+
+    /**
+     * Constructor
+     * @param defaultValue
+     */
+    public DoubleMapper(Double defaultValue) {
+        super(defaultValue);
     }
 
 }

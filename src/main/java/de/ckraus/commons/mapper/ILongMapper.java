@@ -3,6 +3,7 @@ package de.ckraus.commons.mapper;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
+@SuppressWarnings({"javadoc"})
 public interface ILongMapper
     extends INumericTypeMapper<Long> {
 

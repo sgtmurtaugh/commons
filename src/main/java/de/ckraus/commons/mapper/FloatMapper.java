@@ -6,6 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter(AccessLevel.PROTECTED)
+@SuppressWarnings({"javadoc", "unused"})
 public class FloatMapper
         extends AbstractNumericTypeMapper<Float>
         implements IFloatMapper {
@@ -19,6 +20,14 @@ public class FloatMapper
      */
     public FloatMapper() {
         super();
+    }
+
+    /**
+     * Constructor
+     * @param defaultValue
+     */
+    public FloatMapper(Float defaultValue) {
+        super(defaultValue);
     }
 
 }
