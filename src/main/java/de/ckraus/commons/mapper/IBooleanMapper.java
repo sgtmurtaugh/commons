@@ -513,19 +513,20 @@ public interface IBooleanMapper
     }
 
     /**
-     * isFalse
+     * evalPredicate
      * @param predicate
      * @param t
      * @param <T>
      * @return
+     * TODO set to private in Java 9!
      */
-    default <T> boolean isFalse(Predicate<T> predicate, T t) {
-        boolean bIsFalse = false;
+    default <T> boolean evalPredicate(Predicate<T> predicate, T t) {
+        boolean bSuccess = false;
 
         if (null != predicate) {
-            bIsFalse = predicate.test(t);
+            bSuccess = predicate.test(t);
         }
-        return bIsFalse;
+        return bSuccess;
     }
 
     /**
@@ -537,7 +538,7 @@ public interface IBooleanMapper
         boolean bIsFalse = false;
 
         if (null != c) {
-            bIsFalse = this.isFalse(
+            bIsFalse = this.evalPredicate(
                     predicateFalseCharacters(),
                     c
             );
@@ -554,7 +555,7 @@ public interface IBooleanMapper
         boolean bIsFalse = false;
 
         if (null != i) {
-            bIsFalse = this.isFalse(
+            bIsFalse = this.evalPredicate(
                     predicateFalseIntegers(),
                     i
             );
@@ -604,28 +605,12 @@ public interface IBooleanMapper
         boolean bIsFalse = false;
 
         if (null != s) {
-            bIsFalse = this.isFalse(
+            bIsFalse = this.evalPredicate(
                     predicateFalseStrings(),
                     s
             );
         }
         return bIsFalse;
-    }
-
-    /**
-     * isTrue
-     * @param predicate
-     * @param t
-     * @param <T>
-     * @return
-     */
-    default <T> boolean isTrue(Predicate<T> predicate, T t) {
-        boolean bIsTrue = false;
-
-        if (null != predicate) {
-            bIsTrue = predicate.test(t);
-        }
-        return bIsTrue;
     }
 
     /**
@@ -637,7 +622,7 @@ public interface IBooleanMapper
         boolean bIsTrue = false;
 
         if (null != c) {
-            bIsTrue = this.isTrue(
+            bIsTrue = this.evalPredicate(
                     predicateTrueCharacters(),
                     c
             );
@@ -654,7 +639,7 @@ public interface IBooleanMapper
         boolean bIsTrue = false;
 
         if (null != i) {
-            bIsTrue = this.isTrue(
+            bIsTrue = this.evalPredicate(
                     predicateTrueIntegers(),
                     i
             );
@@ -704,7 +689,7 @@ public interface IBooleanMapper
         boolean bIsTrue = false;
 
         if (null != s) {
-            bIsTrue = this.isTrue(
+            bIsTrue = this.evalPredicate(
                     predicateTrueStrings(),
                     s
             );
