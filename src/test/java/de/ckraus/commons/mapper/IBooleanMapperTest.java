@@ -15,6 +15,9 @@ class IBooleanMapperTest {
     IBooleanMapper mapper = new IBooleanMapper() {};
 
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseChar0()}
+     */
     @Test
     void predicateFalseChar0() {
         final char LEGAL_VALUE      = IBooleanMapper.FALSE_CHAR_0;
@@ -31,6 +34,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseCharF()}
+     */
     @Test
     void predicateFalseCharF() {
         final char LEGAL_VALUE              = IBooleanMapper.FALSE_CHAR_F;
@@ -51,6 +57,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseCharFLowercase()}
+     */
     @Test
     void predicateFalseCharFLowercase() {
         final char LEGAL_VALUE              = IBooleanMapper.FALSE_CHAR_F_LOWERCASE;
@@ -71,6 +80,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseCharN()}
+     */
     @Test
     void predicateFalseCharN() {
         final char LEGAL_VALUE              = IBooleanMapper.FALSE_CHAR_N;
@@ -91,6 +103,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseCharNLowercase()}
+     */
     @Test
     void predicateFalseCharNLowercase() {
         final char LEGAL_VALUE              = IBooleanMapper.FALSE_CHAR_N_LOWERCASE;
@@ -111,6 +126,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseCharX()}
+     */
     @Test
     void predicateFalseCharX() {
         final char LEGAL_VALUE              = IBooleanMapper.FALSE_CHAR_X;
@@ -131,6 +149,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseCharXLowercase()}
+     */
     @Test
     void predicateFalseCharXLowercase() {
         final char LEGAL_VALUE              = IBooleanMapper.FALSE_CHAR_X_LOWERCASE;
@@ -151,6 +172,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseCharacters()}
+     */
     @Test
     void predicateFalseCharacters() {
         // success checks
@@ -194,6 +218,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseInt0()}
+     */
     @Test
     void predicateFalseInt0() {
         final int LEGAL_VALUE   = IBooleanMapper.FALSE_INT_0;
@@ -216,6 +243,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseIntegers()}
+     */
     @Test
     void predicateFalseIntegers() {
         // success checks
@@ -235,6 +265,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseString0()}
+     */
     @Test
     void predicateFalseString0() {
         final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_0;
@@ -251,6 +284,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseStringBack()}
+     */
     @Test
     void predicateFalseStringBack() {
         final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_BACK;
@@ -267,6 +303,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseStringBreak()}
+     */
     @Test
     void predicateFalseStringBreak() {
         final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_BREAK;
@@ -283,6 +322,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseStringCancel()}
+     */
     @Test
     void predicateFalseStringCancel() {
         final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_CANCEL;
@@ -299,6 +341,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseStringError()}
+     */
     @Test
     void predicateFalseStringError() {
         final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_ERROR;
@@ -315,6 +360,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseStringErr()}
+     */
     @Test
     void predicateFalseStringErr() {
         final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_ERR;
@@ -331,6 +379,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseStringFail()}
+     */
     @Test
     void predicateFalseStringFail() {
         final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_FAIL;
@@ -347,6 +398,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseStringFailure()}
+     */
     @Test
     void predicateFalseStringFailure() {
         final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_FAILURE;
@@ -363,6 +417,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseStringFalsch()}
+     */
     @Test
     void predicateFalseStringFalsch() {
         final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_FALSCH;
@@ -379,6 +436,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseStringFalse()}
+     */
     @Test
     void predicateFalseStringFalse() {
         final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_FALSE;
@@ -395,6 +455,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseStringFehler()}
+     */
     @Test
     void predicateFalseStringFehler() {
         final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_FEHLER;
@@ -411,6 +474,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseStringN()}
+     */
     @Test
     void predicateFalseStringN() {
         final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_N;
@@ -427,6 +493,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseStringNein()}
+     */
     @Test
     void predicateFalseStringNein() {
         final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_NEIN;
@@ -443,6 +512,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseStringNo()}
+     */
     @Test
     void predicateFalseStringNo() {
         final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_NO;
@@ -459,6 +531,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseStringOff()}
+     */
     @Test
     void predicateFalseStringOff() {
         final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_OFF;
@@ -475,6 +550,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseStringWrong()}
+     */
     @Test
     void predicateFalseStringWrong() {
         final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_WRONG;
@@ -491,6 +569,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseStringX()}
+     */
     @Test
     void predicateFalseStringX() {
         final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_X;
@@ -507,6 +588,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateFalseStrings()}
+     */
     @Test
     void predicateFalseStrings() {
         // success checks
@@ -610,6 +694,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueChar1()}
+     */
     @Test
     void predicateTrueChar1() {
         final char LEGAL_VALUE      = IBooleanMapper.TRUE_CHAR_1;
@@ -626,6 +713,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueCharJ()}
+     */
     @Test
     void predicateTrueCharJ() {
         final char LEGAL_VALUE              = IBooleanMapper.TRUE_CHAR_J;
@@ -646,6 +736,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueCharJLowercase()}
+     */
     @Test
     void predicateTrueCharJLowercase() {
         final char LEGAL_VALUE              = IBooleanMapper.TRUE_CHAR_J_LOWERCASE;
@@ -666,6 +759,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueCharY()}
+     */
     @Test
     void predicateTrueCharY() {
         final char LEGAL_VALUE              = IBooleanMapper.TRUE_CHAR_Y;
@@ -686,6 +782,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueCharYLowercase()}
+     */
     @Test
     void predicateTrueCharYLowercase() {
         final char LEGAL_VALUE              = IBooleanMapper.TRUE_CHAR_Y_LOWERCASE;
@@ -706,6 +805,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueCharacters()}
+     */
     @Test
     void predicateTrueCharacters() {
         // success checks
@@ -749,6 +851,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueInt1()}
+     */
     @Test
     void predicateTrueInt1() {
         final int LEGAL_VALUE   = IBooleanMapper.TRUE_INT_1;
@@ -771,6 +876,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueIntegers()}
+     */
     @Test
     void predicateTrueIntegers() {
         // success checks
@@ -790,6 +898,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueString1()}
+     */
     @Test
     void predicateTrueString1() {
         final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_1;
@@ -806,6 +917,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueStringErfolg()}
+     */
     @Test
     void predicateTrueStringErfolg() {
         final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_ERFOLG;
@@ -822,6 +936,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueStringForward()}
+     */
     @Test
     void predicateTrueStringForward() {
         final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_FORWARD;
@@ -838,6 +955,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueStringJ()}
+     */
     @Test
     void predicateTrueStringJ() {
         final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_J;
@@ -854,6 +974,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueStringJa()}
+     */
     @Test
     void predicateTrueStringJa() {
         final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_JA;
@@ -870,6 +993,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueStringNext()}
+     */
     @Test
     void predicateTrueStringNext() {
         final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_NEXT;
@@ -886,6 +1012,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueStringOk()}
+     */
     @Test
     void predicateTrueStringOk() {
         final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_OK;
@@ -902,6 +1031,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueStringOkay()}
+     */
     @Test
     void predicateTrueStringOkay() {
         final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_OKAY;
@@ -918,6 +1050,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueStringOn()}
+     */
     @Test
     void predicateTrueStringOn() {
         final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_ON;
@@ -934,6 +1069,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueStringSuccess()}
+     */
     @Test
     void predicateTrueStringSuccess() {
         final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_SUCCESS;
@@ -950,6 +1088,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueStringSuccessful()}
+     */
     @Test
     void predicateTrueStringSuccessful() {
         final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_SUCCESSFUL;
@@ -966,6 +1107,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueStringTrue()}
+     */
     @Test
     void predicateTrueStringTrue() {
         final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_TRUE;
@@ -982,6 +1126,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueStringWahr()}
+     */
     @Test
     void predicateTrueStringWahr() {
         final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_WAHR;
@@ -998,6 +1145,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueStringY()}
+     */
     @Test
     void predicateTrueStringY() {
         final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_Y;
@@ -1014,6 +1164,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueStringYes()}
+     */
     @Test
     void predicateTrueStringYes() {
         final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_YES;
@@ -1030,6 +1183,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateTrueStrings()}
+     */
     @Test
     void predicateTrueStrings() {
         // success checks
@@ -1133,6 +1289,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateBooleanCharacters()}
+     */
     @Test
     void predicateBooleanCharacters() {
         // success checks
@@ -1179,6 +1338,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateBooleanIntegers()}
+     */
     @Test
     void predicateBooleanIntegers() {
         // success checks
@@ -1201,6 +1363,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#predicateBooleanStrings()}
+     */
     @Test
     void predicateBooleanStrings() {
         // success checks
@@ -1307,6 +1472,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#isMappable(Object)}
+     */
     @Test
     void isMappable() {
         // success checks
@@ -1342,6 +1510,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#map(Character)}
+     */
     @Test
     void mapCharacter() {
         // success checks
@@ -1358,6 +1529,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#map(Character, Boolean)}
+     */
     @Test
     void mapCharacterWithDefault() {
         // success checks
@@ -1380,6 +1554,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#map(Integer)}
+     */
     @Test
     void mapInteger() {
         // success checks
@@ -1402,6 +1579,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#map(Integer, Boolean)}
+     */
     @Test
     void mapIntegerWithDefault() {
         // success checks
@@ -1430,6 +1610,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#map(String)}
+     */
     @Test
     void mapString() {
         // success checks
@@ -1446,6 +1629,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#map(String, Object)}
+     */
     @Test
     void mapStringWithDefault() {
         // success checks
@@ -1468,6 +1654,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#isFalse(Character)}
+     */
     @Test
     void isFalseCharacter() {
         // success checks
@@ -1517,6 +1706,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#isFalse(Integer)}
+     */
     @Test
     void isFalseInteger() {
         // success checks
@@ -1542,6 +1734,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#isFalse(Object)}
+     */
     @Test
     void isFalseObject() {
         // success checks
@@ -1572,6 +1767,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#isFalse(String)}
+     */
     @Test
     void isFalseString() {
         // success checks
@@ -1681,6 +1879,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#isTrue(Character)}
+     */
     @Test
     void isTrueCharacter() {
         // success checks
@@ -1730,6 +1931,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#isTrue(Integer)}
+     */
     @Test
     void isTrueInteger() {
         // success checks
@@ -1755,6 +1959,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#isTrue(Object)}
+     */
     @Test
     void isTrueObject() {
         // success checks
@@ -1785,6 +1992,9 @@ class IBooleanMapperTest {
         );
     }
 
+    /**
+     * test for {@link IBooleanMapper#isTrue(String)}
+     */
     @Test
     void isTrueString() {
         // success checks
