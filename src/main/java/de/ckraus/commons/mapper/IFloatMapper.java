@@ -16,6 +16,7 @@ public interface IFloatMapper
      * @param defaultValue default value used, when sNumber is null or cannot be parsed
      * @return
      */
+    @Override
     default Float unformat(
             String sNumber,
             Locale locale,

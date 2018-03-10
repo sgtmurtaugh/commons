@@ -16,6 +16,7 @@ public interface IDoubleMapper
      * @param defaultValue default value used, when sNumber is null or cannot be parsed
      * @return
      */
+    @Override
     default Double unformat(
             String sNumber,
             Locale locale,

@@ -8,10 +8,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SuppressWarnings({"UnnecessaryLocalVariable"})
 class IBooleanMapperTest {
+
     private final String HELLO_WORLD = "Hello World!";
 
     // create mapper instance
-    IBooleanMapper mapper = () -> null;
+    IBooleanMapper mapper = new IBooleanMapper() {};
 
 
     @Test
@@ -1464,19 +1465,6 @@ class IBooleanMapperTest {
         );
         assertFalse(
                 mapper.map(HELLO_WORLD, Boolean.FALSE)
-        );
-    }
-
-    @Test
-    void evalPredicate() {
-        // success checks
-        assertTrue(
-                mapper.evalPredicate((str) -> str.length() > 0, HELLO_WORLD)
-        );
-
-        // fail checks
-        assertFalse(
-                mapper.evalPredicate((ch) -> ch == '?', IBooleanMapper.FALSE_CHAR_N)
         );
     }
 

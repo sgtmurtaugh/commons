@@ -16,6 +16,7 @@ public interface IIntegerMapper
      * @param defaultValue default value used, when sNumber is null or cannot be parsed
      * @return
      */
+    @Override
     default Integer unformat(
             String sNumber,
             Locale locale,

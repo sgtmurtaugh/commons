@@ -2,9 +2,16 @@ package de.ckraus.commons.mapper;
 
 import org.junit.jupiter.api.Test;
 
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+import java.util.Objects;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class INumericTypeMapperTest {
+
+    // create mapper instance
+    INumericTypeMapper<Number> mapper = (string, locale, pattern, decFormatSymbols, defVal) -> defVal;
 
     @Test
     void getDecimalFormat() {

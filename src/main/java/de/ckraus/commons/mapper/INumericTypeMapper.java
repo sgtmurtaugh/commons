@@ -396,6 +396,29 @@ public interface INumericTypeMapper<E extends Number>
 
     /**
      * map
+     * @param s - string to map
+     * @param bTrim - default flag for string handling
+     * @param bEmptyIsNull - default flag for empty string handling
+     * @param defaultValue - The default value
+     * @return
+     * <p>Overrides {@link ITypeMapper#map(String, boolean, boolean, Object)}. This implementation ignores the boolean
+     * flags and delegates to {@link #map(String, Number)}.
+     */
+    @Override
+    default E map(
+            String s,
+            boolean bTrim,
+            boolean bEmptyIsNull,
+            E defaultValue
+    ) {
+        return this.map(
+                s,
+                defaultValue
+        );
+    }
+
+    /**
+     * map
      * @param sNumber the number string
      * @param locale the locale to use for the format.
      * @return the unformatted Number-String as Number otherwise the default value
@@ -839,6 +862,7 @@ public interface INumericTypeMapper<E extends Number>
      * @param decimalFormatSymbols symbols the set of symbols to be used
      * @param defaultValue default value used, when sNumber is null or cannot be mapped
      * @return the unformatted Number-String as Number otherwise the default value
+     * <p>This method should be overwritten individually.
      */
     E unformat(
             String sNumber,

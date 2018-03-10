@@ -10,7 +10,9 @@ public interface ITypeMapper<E> {
      * getDefaultValue
      * @return
      */
-    E getDefaultValue();
+    default E getDefaultValue() {
+        return null;
+    }
 
     /**
      * isTrimStrings
@@ -36,6 +38,7 @@ public interface ITypeMapper<E> {
      * @return a prepared String for parsing. The flags are evaluated and the string is reworked if necessary. When the
      * trim param is true, trim is performed on the string. When the string is empty and the emptyIsNull param is
      * true, null will be returned.
+     * TODO: set to protected in Java 9
      */
     default String prepareStringToParse(
             String s,
@@ -56,6 +59,23 @@ public interface ITypeMapper<E> {
 
         }
         return sRetVal;
+    }
+
+    /**
+     * evalPredicate
+     * @param predicate
+     * @param t
+     * @param <T>
+     * @return
+     * TODO set to protected in Java 9!
+     */
+    default <T> boolean evalPredicate(Predicate<T> predicate, T t) {
+        boolean bSuccess = false;
+
+        if (null != predicate) {
+            bSuccess = predicate.test(t);
+        }
+        return bSuccess;
     }
 
     /**
@@ -80,24 +100,6 @@ public interface ITypeMapper<E> {
         }
         else {
             bIsMappable = this.isMappable( o.toString() );
-        }
-        return bIsMappable;
-    }
-
-    /**
-     * isMappable
-     * @param predicate
-     * @param t
-     * @return
-     */
-    default <T> boolean isMappable(
-            Predicate<T> predicate,
-            T t
-    ) {
-        boolean bIsMappable = false;
-
-        if (null != predicate) {
-            bIsMappable = predicate.test(t);
         }
         return bIsMappable;
     }
@@ -247,7 +249,7 @@ public interface ITypeMapper<E> {
      * @param bEmptyIsNull - default flag for empty string handling
      * @param defaultValue - The default value
      * @return
-     * This method should be overwritten individually.
+     * <p>This method should be overwritten individually.
      */
     E map(
             String s,

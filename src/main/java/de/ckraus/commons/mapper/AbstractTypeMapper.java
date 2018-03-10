@@ -58,15 +58,4 @@ public abstract class AbstractTypeMapper<E>
         this.emptyStringNull   = bEmptyStringNull;
     }
 
-
-    @Override
-    public E map(
-            String s,
-            boolean bTrim,
-            boolean bEmptyIsNull,
-            E defaultValue
-    ) {
-        return defaultValue;
-    }
-
 }

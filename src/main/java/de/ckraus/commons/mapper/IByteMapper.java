@@ -16,6 +16,7 @@ public interface IByteMapper
      * @param defaultValue default value used, when sNumber is null or cannot be parsed
      * @return
      */
+    @Override
     default Byte unformat(
             String sNumber,
             Locale locale,

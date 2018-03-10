@@ -16,6 +16,7 @@ public interface ILongMapper
      * @param defaultValue default value used, when sNumber is null or cannot be parsed
      * @return
      */
+    @Override
     default Long unformat(
             String sNumber,
             Locale locale,

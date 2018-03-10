@@ -79,7 +79,7 @@ public class IntegerMapperTest {
         );
 
         assertEquals(
-                defaultValue,
+                (Integer) 123,
                 integerMapper.unformat(
                         sNumber,
                         locale,

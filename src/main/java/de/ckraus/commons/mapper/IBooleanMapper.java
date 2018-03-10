@@ -347,21 +347,21 @@ public interface IBooleanMapper
         }
         else
         if ( o instanceof Character ) {
-            bIsMappable = this.isMappable(
+            bIsMappable = this.evalPredicate(
                     predicateBooleanCharacters(),
                     (Character) o
             );
         }
         else
         if ( o instanceof Integer ) {
-            bIsMappable = this.isMappable(
+            bIsMappable = this.evalPredicate(
                     predicateBooleanIntegers(),
                     (Integer) o
             );
         }
         else
         if ( o instanceof String ) {
-            bIsMappable = this.isMappable(
+            bIsMappable = this.evalPredicate(
                     predicateBooleanStrings(),
                     (String) o
             );
@@ -510,23 +510,6 @@ public interface IBooleanMapper
             }
         }
         return b;
-    }
-
-    /**
-     * evalPredicate
-     * @param predicate
-     * @param t
-     * @param <T>
-     * @return
-     * TODO set to private in Java 9!
-     */
-    default <T> boolean evalPredicate(Predicate<T> predicate, T t) {
-        boolean bSuccess = false;
-
-        if (null != predicate) {
-            bSuccess = predicate.test(t);
-        }
-        return bSuccess;
     }
 
     /**

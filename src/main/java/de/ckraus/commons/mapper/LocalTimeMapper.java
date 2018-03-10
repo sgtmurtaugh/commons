@@ -10,7 +10,8 @@ import java.time.LocalTime;
 @Setter(AccessLevel.PROTECTED)
 @SuppressWarnings({"javadoc", "unused"})
 public class LocalTimeMapper
-        extends AbstractTemporalTypeMapper<LocalTime> {
+        extends AbstractTemporalTypeMapper<LocalTime>
+        implements ILocalTimeMapper {
 
     private final static String CLASS   = LocalTimeMapper.class.getSimpleName();
 //    protected static Logger log = LoggerFactory.getLogger(StringMapper.class);
