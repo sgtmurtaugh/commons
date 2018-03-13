@@ -18,6 +18,7 @@ public interface IBooleanMapper
     Character FALSE_CHAR_F_LOWERCASE    = 'f';
     Character FALSE_CHAR_N              = 'N';
     Character FALSE_CHAR_N_LOWERCASE    = 'n';
+    Character FALSE_CHAR_MINUS          = '-';
     Character FALSE_CHAR_X              = 'X';
     Character FALSE_CHAR_X_LOWERCASE    = 'x';
 
@@ -27,6 +28,7 @@ public interface IBooleanMapper
     Character TRUE_CHAR_1           = '1';
     Character TRUE_CHAR_J           = 'J';
     Character TRUE_CHAR_J_LOWERCASE = 'j';
+    Character TRUE_CHAR_PLUS        = '+';
     Character TRUE_CHAR_Y           = 'Y';
     Character TRUE_CHAR_Y_LOWERCASE = 'y';
 
@@ -43,23 +45,25 @@ public interface IBooleanMapper
     /*
         False Integers
      */
-    String FALSE_STRING_0       = "0";
-    String FALSE_STRING_BACK    = "back";
-    String FALSE_STRING_BREAK   = "break";
-    String FALSE_STRING_CANCEL  = "cancel";
-    String FALSE_STRING_ERROR   = "error";
-    String FALSE_STRING_ERR     = "err";
-    String FALSE_STRING_FAIL    = "fail";
-    String FALSE_STRING_FAILURE = "failure";
-    String FALSE_STRING_FALSCH  = "falsch";
-    String FALSE_STRING_FALSE   = "false";
-    String FALSE_STRING_FEHLER  = "fehler";
-    String FALSE_STRING_N       = "n";
-    String FALSE_STRING_NEIN    = "nein";
-    String FALSE_STRING_NO      = "no";
-    String FALSE_STRING_OFF     = "off";
-    String FALSE_STRING_WRONG   = "wrong";
-    String FALSE_STRING_X       = "x";
+    String FALSE_STRING_0           = "0";
+    String FALSE_STRING_BACK        = "back";
+    String FALSE_STRING_BREAK       = "break";
+    String FALSE_STRING_CANCEL      = "cancel";
+    String FALSE_STRING_ERROR       = "error";
+    String FALSE_STRING_ERR         = "err";
+    String FALSE_STRING_FAIL        = "fail";
+    String FALSE_STRING_FAILURE     = "failure";
+    String FALSE_STRING_FALSCH      = "falsch";
+    String FALSE_STRING_FALSE       = "false";
+    String FALSE_STRING_FEHLER      = "fehler";
+    String FALSE_STRING_N           = "n";
+    String FALSE_STRING_NEIN        = "nein";
+    String FALSE_STRING_NO          = "no";
+    String FALSE_STRING_OFF         = "off";
+    String FALSE_STRING_MINUS       = "minus";
+    String FALSE_STRING_MINUS_SIGN  = "-";
+    String FALSE_STRING_WRONG       = "wrong";
+    String FALSE_STRING_X           = "x";
 
     /*
         True Integers
@@ -73,6 +77,8 @@ public interface IBooleanMapper
     String TRUE_STRING_OK           = "ok";
     String TRUE_STRING_OKAY         = "okay";
     String TRUE_STRING_ON           = "on";
+    String TRUE_STRING_PLUS         = "plus";
+    String TRUE_STRING_PLUS_SIGN    = "+";
     String TRUE_STRING_SUCCESS      = "success";
     String TRUE_STRING_SUCCESSFUL   = "successful";
     String TRUE_STRING_TRUE         = "true";
@@ -93,6 +99,9 @@ public interface IBooleanMapper
     static Predicate<Character> predicateFalseCharFLowercase() {
         return c -> c.equals(FALSE_CHAR_F_LOWERCASE);
     }
+    static Predicate<Character> predicateFalseCharMinus() {
+        return c -> c.equals(FALSE_CHAR_MINUS);
+    }
     static Predicate<Character> predicateFalseCharN() {
         return c -> c.equals(FALSE_CHAR_N);
     }
@@ -110,6 +119,7 @@ public interface IBooleanMapper
         return predicateFalseChar0()
                 .or(predicateFalseCharF())
                 .or(predicateFalseCharFLowercase())
+                .or(predicateFalseCharMinus())
                 .or(predicateFalseCharN())
                 .or(predicateFalseCharNLowercase())
                 .or(predicateFalseCharX())
@@ -165,6 +175,12 @@ public interface IBooleanMapper
     static Predicate<String> predicateFalseStringFehler() {
         return s -> s.equalsIgnoreCase(FALSE_STRING_FEHLER);
     }
+    static Predicate<String> predicateFalseStringMinus() {
+        return s -> s.equalsIgnoreCase(FALSE_STRING_MINUS);
+    }
+    static Predicate<String> predicateFalseStringMinusSign() {
+        return s -> s.equalsIgnoreCase(FALSE_STRING_MINUS_SIGN);
+    }
     static Predicate<String> predicateFalseStringN() {
         return s -> s.equalsIgnoreCase(FALSE_STRING_N);
     }
@@ -196,6 +212,8 @@ public interface IBooleanMapper
                 .or(predicateFalseStringFalsch())
                 .or(predicateFalseStringFalse())
                 .or(predicateFalseStringFehler())
+                .or(predicateFalseStringMinus())
+                .or(predicateFalseStringMinusSign())
                 .or(predicateFalseStringN())
                 .or(predicateFalseStringNein())
                 .or(predicateFalseStringNo())
@@ -217,6 +235,9 @@ public interface IBooleanMapper
     static Predicate<Character> predicateTrueCharJLowercase() {
         return c -> c.equals(TRUE_CHAR_J_LOWERCASE);
     }
+    static Predicate<Character> predicateTrueCharPlus() {
+        return c -> c.equals(TRUE_CHAR_PLUS);
+    }
     static Predicate<Character> predicateTrueCharY() {
         return c -> c.equals(TRUE_CHAR_Y);
     }
@@ -228,6 +249,7 @@ public interface IBooleanMapper
         return predicateTrueChar1()
                 .or(predicateTrueCharJ())
                 .or(predicateTrueCharJLowercase())
+                .or(predicateTrueCharPlus())
                 .or(predicateTrueCharY())
                 .or(predicateTrueCharYLowercase());
     }
@@ -275,6 +297,12 @@ public interface IBooleanMapper
     static Predicate<String> predicateTrueStringOn() {
         return s -> s.equalsIgnoreCase(TRUE_STRING_ON);
     }
+    static Predicate<String> predicateTrueStringPlus() {
+        return s -> s.equalsIgnoreCase(TRUE_STRING_PLUS);
+    }
+    static Predicate<String> predicateTrueStringPlusSign() {
+        return s -> s.equalsIgnoreCase(TRUE_STRING_PLUS_SIGN);
+    }
     static Predicate<String> predicateTrueStringSuccess() {
         return s -> s.equalsIgnoreCase(TRUE_STRING_SUCCESS);
     }
@@ -304,6 +332,8 @@ public interface IBooleanMapper
                 .or(predicateTrueStringOk())
                 .or(predicateTrueStringOkay())
                 .or(predicateTrueStringOn())
+                .or(predicateTrueStringPlus())
+                .or(predicateTrueStringPlusSign())
                 .or(predicateTrueStringSuccess())
                 .or(predicateTrueStringSuccessful())
                 .or(predicateTrueStringTrue())
@@ -559,7 +589,7 @@ public interface IBooleanMapper
         }
         else
         if ( o instanceof Boolean ) {
-            bIsFalse = (o == Boolean.FALSE) ;
+            bIsFalse = (o == Boolean.FALSE);
         }
         else
         if ( o instanceof Character ) {
@@ -643,7 +673,7 @@ public interface IBooleanMapper
         }
         else
         if ( o instanceof Boolean ) {
-            bIsTrue = (o == Boolean.TRUE) ;
+            bIsTrue = (o == Boolean.TRUE);
         }
         else
         if ( o instanceof Character ) {
