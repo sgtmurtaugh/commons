@@ -369,8 +369,15 @@ public interface INumericTypeMapper<E extends Number>
         if ( null != map ) {
             if ( null != key ) {
                 if ( map.containsKey(key) ) {
+                    Object o = map.get(key);
+                    String s = null;
+
+                    if (o != null) {
+                        s = o.toString();
+                    }
+
                     retVal = this.map(
-                            map.get(key).toString(),
+                            s,
                             locale,
                             sPattern,
                             decimalFormatSymbols,
