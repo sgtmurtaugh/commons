@@ -7,6 +7,19 @@ import java.util.Locale;
 public interface IShortMapper
     extends INumericTypeMapper<Short> {
 
+    @Override
+    default Short map(
+            Number number,
+            Short defaultValue
+    ) {
+        Short returnValue = defaultValue;
+
+        if (null != number) {
+            returnValue = number.shortValue();
+        }
+        return returnValue;
+    }
+
     /**
      * unformat
      * @param sNumber the number string

@@ -7,6 +7,19 @@ import java.util.Locale;
 public interface IFloatMapper
     extends INumericTypeMapper<Float> {
 
+    @Override
+    default Float map(
+            Number number,
+            Float defaultValue
+    ) {
+        Float returnValue = defaultValue;
+
+        if (null != number) {
+            returnValue = number.floatValue();
+        }
+        return returnValue;
+    }
+
     /**
      * unformat
      * @param sNumber the number string

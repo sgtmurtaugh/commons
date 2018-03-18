@@ -7,6 +7,19 @@ import java.util.Locale;
 public interface IByteMapper
     extends INumericTypeMapper<Byte> {
 
+    @Override
+    default Byte map(
+            Number number,
+            Byte defaultValue
+    ) {
+        Byte returnValue = defaultValue;
+
+        if (null != number) {
+            returnValue = number.byteValue();
+        }
+        return returnValue;
+    }
+
     /**
      * unformat
      * @param sNumber the number string

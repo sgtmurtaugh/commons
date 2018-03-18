@@ -7,6 +7,19 @@ import java.util.Locale;
 public interface ILongMapper
     extends INumericTypeMapper<Long> {
 
+    @Override
+    default Long map(
+            Number number,
+            Long defaultValue
+    ) {
+        Long returnValue = defaultValue;
+
+        if (null != number) {
+            returnValue = number.longValue();
+        }
+        return returnValue;
+    }
+
     /**
      * unformat
      * @param sNumber the number string

@@ -7,6 +7,19 @@ import java.util.Locale;
 public interface IIntegerMapper
     extends INumericTypeMapper<Integer> {
 
+    @Override
+    default Integer map(
+            Number number,
+            Integer defaultValue
+    ) {
+        Integer returnValue = defaultValue;
+
+        if (null != number) {
+            returnValue = number.intValue();
+        }
+        return returnValue;
+    }
+
     /**
      * unformat
      * @param sNumber the number string

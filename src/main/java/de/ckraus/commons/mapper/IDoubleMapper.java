@@ -7,6 +7,19 @@ import java.util.Locale;
 public interface IDoubleMapper
     extends INumericTypeMapper<Double> {
 
+    @Override
+    default Double map(
+            Number number,
+            Double defaultValue
+    ) {
+        Double returnValue = defaultValue;
+
+        if (null != number) {
+            returnValue = number.doubleValue();
+        }
+        return returnValue;
+    }
+
     /**
      * unformat
      * @param sNumber the number string

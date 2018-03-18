@@ -372,22 +372,52 @@ public interface INumericTypeMapper<E extends Number>
                     Object o = map.get(key);
                     String s = null;
 
-                    if (o != null) {
-                        s = o.toString();
+                    if (o instanceof Number) {
+                        retVal = this.map(
+                                (Number)o,
+                                defaultValue
+                        );
                     }
+                    else {
+                        if (o != null) {
+                            s = o.toString();
+                        }
 
-                    retVal = this.map(
-                            s,
-                            locale,
-                            sPattern,
-                            decimalFormatSymbols,
-                            defaultValue
-                    );
+                        retVal = this.map(
+                                s,
+                                locale,
+                                sPattern,
+                                decimalFormatSymbols,
+                                defaultValue
+                        );
+                    }
                 }
             }
         }
         return retVal;
     }
+
+    /**
+     * map
+     * @param number the number Object
+     * @return returns the typed Number otherwise the default value
+     */
+    default E map( Number number ) {
+        return this.map(
+                number,
+                this.getDefaultValue()
+        );
+    }
+
+    /**
+     * map
+     * @param number the number Object
+     * @return returns the typed Number otherwise the default value
+     */
+    E map(
+            Number number,
+            E defaultValue
+    );
 
     /**
      * map
