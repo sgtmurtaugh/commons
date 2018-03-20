@@ -12,6 +12,24 @@ import java.util.Locale;
 public interface IBigDecimalMapper
     extends INumericTypeMapper<BigDecimal> {
 
+    @Override
+    default BigDecimal map(
+            Number number,
+            BigDecimal defaultValue
+    ) {
+        BigDecimal returnValue = defaultValue;
+
+        if (null != number) {
+            if (number instanceof BigDecimal) {
+                returnValue = (BigDecimal) number;
+            }
+            else {
+                returnValue = new BigDecimal(number.doubleValue());
+            }
+        }
+        return returnValue;
+    }
+
     /**
      * unformat
      * @param sNumber the number string

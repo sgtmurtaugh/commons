@@ -2,6 +2,8 @@ package de.ckraus.commons.mapper;
 
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
@@ -2871,24 +2873,18 @@ class INumericTypeMapperTest {
     @Test
     void unformatToNumber() {
         String sNull                    = null;
-        String sBigDecimal              = getParameters().get(PARAMS_KEY__BIG_DECIMAL).toString();
         String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigInteger              = getParameters().get(PARAMS_KEY__BIG_INTEGER).toString();
         String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
         String sBoolean                 = getParameters().get(PARAMS_KEY__BOOLEAN).toString();
         String sBooleanString           = (String) getParameters().get(PARAMS_KEY__BOOLEAN_STRING);
-        String sByte                    = getParameters().get(PARAMS_KEY__BYTE).toString();
         String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
         String sCalendar                = getParameters().get(PARAMS_KEY__CALENDAR).toString();
         String sCalendarString          = (String) getParameters().get(PARAMS_KEY__CALENDAR_STRING);
         String sCharacter               = getParameters().get(PARAMS_KEY__CHARACTER).toString();
         String sDate                    = getParameters().get(PARAMS_KEY__DATE).toString();
         String sDateString              = (String) getParameters().get(PARAMS_KEY__DATE_STRING);
-        String sDouble                  = getParameters().get(PARAMS_KEY__DOUBLE).toString();
         String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloat                   = getParameters().get(PARAMS_KEY__FLOAT).toString();
         String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sInteger                 = getParameters().get(PARAMS_KEY__INTEGER).toString();
         String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
         String sList                    = getParameters().get(PARAMS_KEY__LIST).toString();
         String sLocalDate               = getParameters().get(PARAMS_KEY__LOCALDATE).toString();
@@ -2897,10 +2893,8 @@ class INumericTypeMapperTest {
         String sLocalDateTimeString     = (String) getParameters().get(PARAMS_KEY__LOCALDATETIME_STRING);
         String sLocalTime               = getParameters().get(PARAMS_KEY__LOCALTIME).toString();
         String sLocalTimeString         = (String) getParameters().get(PARAMS_KEY__LOCALTIME_STRING);
-        String sLong                    = getParameters().get(PARAMS_KEY__LONG).toString();
         String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
         String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sShort                   = getParameters().get(PARAMS_KEY__SHORT).toString();
         String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
         String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
         String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
@@ -2908,26 +2902,34 @@ class INumericTypeMapperTest {
         String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
         String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
 
+        BigDecimal defaultBigDecimal    = (BigDecimal) getParameters().get(PARAMS_KEY__BIG_DECIMAL);
+        BigInteger defaultBigInteger    = (BigInteger) getParameters().get(PARAMS_KEY__BIG_INTEGER);
+
         DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(GERMAN_LOCALE);
+
+        assertEquals( defaultBigDecimal,
+                mapper.unformatToNumber( sBigDecimalString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigInteger,
+                mapper.unformatToNumber( sBigIntegerString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( 1L,
+                mapper.unformatToNumber( sByteString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( 1.23d,
+                mapper.unformatToNumber( sDoubleString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( 2.34d,
+                mapper.unformatToNumber( sFloatString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( 42L,
+                mapper.unformatToNumber( sIntegerString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( 4711L,
+                mapper.unformatToNumber( sLongString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( 127L,
+                mapper.unformatToNumber( sShortString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
 
         assertEquals( ANOTHER_DEFAULT_VALUE,
                 mapper.unformatToNumber( sNull, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sBigDecimal, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sBigDecimalString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sBigInteger, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sBigIntegerString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
                 mapper.unformatToNumber( sBoolean, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
                 mapper.unformatToNumber( sBooleanString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sByte, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sByteString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
                 mapper.unformatToNumber( sCalendar, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
@@ -2938,42 +2940,10 @@ class INumericTypeMapperTest {
                 mapper.unformatToNumber( sDate, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
                 mapper.unformatToNumber( sDateString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( 1.23d,
-                mapper.unformatToNumber( sDouble, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sDoubleString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sFloat, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sFloatString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sInteger, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sIntegerString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
                 mapper.unformatToNumber( sList, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sLocalDate, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sLocalDateString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sLocalDateTime, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sLocalDateTimeString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sLocalTime, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sLocalTimeString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sLong, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sLongString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
                 mapper.unformatToNumber( sObject, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sShort, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.unformatToNumber( sShortString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
                 mapper.unformatToNumber( sString, GERMAN_LOCALE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,

@@ -12,6 +12,24 @@ import java.util.Locale;
 public interface IBigIntegerMapper
     extends INumericTypeMapper<BigInteger> {
 
+    @Override
+    default BigInteger map(
+            Number number,
+            BigInteger defaultValue
+    ) {
+        BigInteger returnValue = defaultValue;
+
+        if (null != number) {
+            if (number instanceof BigInteger) {
+                returnValue = (BigInteger) number;
+            }
+            else {
+                returnValue = new BigInteger(number.toString());
+            }
+        }
+        return returnValue;
+    }
+
     /**
      * unformat
      * @param sNumber the number string
