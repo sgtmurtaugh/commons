@@ -2,6 +2,7 @@ package de.ckraus.commons.mapper;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -48,24 +49,22 @@ public interface IBigIntegerMapper
             BigInteger defaultValue
     ) {
         BigInteger returnValue = defaultValue;
+        Number number = this.unformatToNumber(
+                sNumber,
+                locale,
+                sPattern,
+                decimalFormatSymbols,
+                defaultValue
+        );
 
-        if (StringUtils.isNotEmpty(sNumber)) {
-            DecimalFormat decimalFormat = this.getDecimalFormat(
-                    locale,
-                    sPattern,
-                    decimalFormatSymbols
-            );
-
-            try {
-// TODO: or better use String Constructor?
-                returnValue = BigInteger.valueOf(
-                        decimalFormat.parse(sNumber).longValue()
-                );
-            }
-            catch ( ParseException pe ) {
-                // pe.printStackTrace();
-            }
+        if (number instanceof BigInteger) {
+            returnValue = (BigInteger) number;
         }
+        else
+        if (null != number) {
+            returnValue = BigInteger.valueOf( number.longValue() );
+        }
+
         return returnValue;
     }
 

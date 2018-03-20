@@ -1,11 +1,7 @@
 package de.ckraus.commons.mapper;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
-import java.text.ParseException;
 import java.util.Locale;
 
 @SuppressWarnings({"javadoc"})
@@ -48,24 +44,22 @@ public interface IBigDecimalMapper
             BigDecimal defaultValue
     ) {
         BigDecimal returnValue = defaultValue;
+        Number number = this.unformatToNumber(
+                sNumber,
+                locale,
+                sPattern,
+                decimalFormatSymbols,
+                defaultValue
+        );
 
-        if (StringUtils.isNotEmpty(sNumber)) {
-            DecimalFormat decimalFormat = this.getDecimalFormat(
-                    locale,
-                    sPattern,
-                    decimalFormatSymbols
-            );
-
-            try {
-// TODO: or better use String Constructor?
-                returnValue = BigDecimal.valueOf(
-                        decimalFormat.parse(sNumber).floatValue()
-                );
-            }
-            catch ( ParseException pe ) {
-                // pe.printStackTrace();
-            }
+        if (number instanceof BigDecimal) {
+            returnValue = (BigDecimal) number;
         }
+        else
+        if (null != number) {
+            returnValue = BigDecimal.valueOf( number.doubleValue() );
+        }
+
         return returnValue;
     }
 
