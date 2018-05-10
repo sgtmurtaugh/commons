@@ -55,8 +55,8 @@ class TestHelper {
 
     static {
         parameters = new HashMap<>();
-        parameters.put(PARAMS_KEY__BIG_DECIMAL, new BigDecimal(987654321.0));
-        parameters.put(PARAMS_KEY__BIG_DECIMAL_STRING, "987654321,0");
+        parameters.put(PARAMS_KEY__BIG_DECIMAL, new BigDecimal("987654321.0123"));
+        parameters.put(PARAMS_KEY__BIG_DECIMAL_STRING, "987654321,0123");
         parameters.put(PARAMS_KEY__BIG_INTEGER, new BigInteger("123456789"));
         parameters.put(PARAMS_KEY__BIG_INTEGER_STRING, "123456789");
         parameters.put(PARAMS_KEY__BOOLEAN, Boolean.TRUE);

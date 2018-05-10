@@ -2,6 +2,7 @@ package de.ckraus.commons.mapper;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
@@ -11,6 +12,13 @@ import java.util.Map;
 @SuppressWarnings({"javadoc", "unused"})
 public interface INumericTypeMapper<E extends Number>
     extends ITypeMapper<E> {
+
+    /**
+     * toType
+     * @param number
+     * @return
+     */
+    E toType(Number number);
 
     /**
      * getDecimalFormat
@@ -414,10 +422,18 @@ public interface INumericTypeMapper<E extends Number>
      * @param number the number Object
      * @return returns the typed Number otherwise the default value
      */
-    E map(
+    default E map(
             Number number,
             E defaultValue
-    );
+    ) {
+        E returnValue = defaultValue;
+
+        if (null != number) {
+            returnValue = this.toType(number);
+        }
+        return returnValue;
+    }
+
 
     /**
      * map
@@ -899,33 +915,15 @@ public interface INumericTypeMapper<E extends Number>
      * @param decimalFormatSymbols symbols the set of symbols to be used
      * @param defaultValue default value used, when sNumber is null or cannot be mapped
      * @return the unformatted Number-String as Number otherwise the default value
-     * <p>This method should be overwritten individually.
      */
-    E unformat(
+    default E unformat(
             String sNumber,
             Locale locale,
             String sPattern,
             DecimalFormatSymbols decimalFormatSymbols,
             E defaultValue
-    );
-
-    /**
-     * unformatToNumber
-     * @param sNumber the number string
-     * @param locale the locale to use for the format.
-     * @param sPattern a non-localized pattern string.
-     * @param decimalFormatSymbols symbols the set of symbols to be used
-     * @param defaultValue default value used, when sNumber is null or cannot be mapped
-     * @return the unformatted Number-String as Number otherwise the default value
-     */
-    default Number unformatToNumber(
-            String sNumber,
-            Locale locale,
-            String sPattern,
-            DecimalFormatSymbols decimalFormatSymbols,
-            Number defaultValue
     ) {
-        Number returnValue = defaultValue;
+        E returnValue = defaultValue;
 
         if (StringUtils.isNotEmpty(sNumber)) {
             DecimalFormat decimalFormat = this.getDecimalFormat(
@@ -935,7 +933,12 @@ public interface INumericTypeMapper<E extends Number>
             );
 
             try {
-                returnValue = decimalFormat.parse(sNumber);
+                decimalFormat.setParseBigDecimal(true);
+                BigDecimal bigDecimal = (BigDecimal) decimalFormat.parse(sNumber);
+
+                if (null != bigDecimal) {
+                    returnValue = this.toType(bigDecimal);
+                }
             }
             catch ( ParseException pe ) {
                 // pe.printStackTrace();
