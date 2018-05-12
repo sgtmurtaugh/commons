@@ -16,7 +16,7 @@ class IBigDecimalMapperTest {
     private final static Locale locale = Locale.GERMAN;
     private final static String FORMAT_PATTERN = "#,##0.00;(#,##0.00)";
 
-    private final static BigDecimal ANOTHER_DEFAULT_VALUE   = new BigDecimal(5113);
+    private final static BigDecimal ANOTHER_DEFAULT_VALUE   = new BigDecimal("123654789.321");
 
     // create mapper instance
     private IBigDecimalMapper mapper = new IBigDecimalMapper() {};
@@ -1652,23 +1652,23 @@ class IBigDecimalMapperTest {
         String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
         String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
 
-        BigDecimal defaultBigDecimal        = this.getDefaultBigDecimal();
-        BigDecimal defaultBigInteger        = this.getDefaultBigInteger();
-        BigDecimal defaultByte              = this.getDefaultByte();
-        BigDecimal defaultDouble            = this.getDefaultDouble();
-        BigDecimal defaultFloat             = this.getDefaultFloat();
-        BigDecimal defaultInteger           = this.getDefaultInteger();
-        BigDecimal defaultLong              = this.getDefaultLong();
-        BigDecimal defaultShort             = this.getDefaultShort();
+        BigDecimal defaultBigDecimalString  = this.getDefaultBigDecimal(null);
+        BigDecimal defaultBigIntegerString  = this.getDefaultBigInteger(null);
+        BigDecimal defaultByteString        = this.getDefaultByte(null);
+        BigDecimal defaultDoubleString      = this.getDefaultDouble(null);
+        BigDecimal defaultFloatString       = this.getDefaultFloat(null);
+        BigDecimal defaultIntegerString     = this.getDefaultInteger(null);
+        BigDecimal defaultLongString        = this.getDefaultLong(null);
+        BigDecimal defaultShortString       = this.getDefaultShort(null);
 
-        assertEquals( defaultBigDecimal, mapper.unformat( sBigDecimalString ) );
-        assertEquals( defaultBigInteger, mapper.unformat( sBigIntegerString ) );
-        assertEquals( defaultByte, mapper.unformat( sByteString ) );
-        assertEquals( defaultDouble, mapper.unformat( sDoubleString ) );
-        assertEquals( defaultFloat, mapper.unformat( sFloatString ) );
-        assertEquals( defaultInteger, mapper.unformat( sIntegerString ) );
-        assertEquals( defaultLong, mapper.unformat( sLongString ) );
-        assertEquals( defaultShort, mapper.unformat( sShortString ) );
+        assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString ) );
+        assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString ) );
+        assertEquals( defaultByteString, mapper.unformat( sByteString ) );
+        assertEquals( defaultDoubleString, mapper.unformat( sDoubleString ) );
+        assertEquals( defaultFloatString, mapper.unformat( sFloatString ) );
+        assertEquals( defaultIntegerString, mapper.unformat( sIntegerString ) );
+        assertEquals( defaultLongString, mapper.unformat( sLongString ) );
+        assertEquals( defaultShortString, mapper.unformat( sShortString ) );
 
         assertEquals( mapper.getDefaultValue(), mapper.unformat( sNull ) );
         assertEquals( mapper.getDefaultValue(), mapper.unformat( sObject ) );
@@ -1701,23 +1701,23 @@ class IBigDecimalMapperTest {
         String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
         String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
 
-        BigDecimal defaultBigDecimal        = this.getDefaultBigDecimal();
-        BigDecimal defaultBigInteger        = this.getDefaultBigInteger();
-        BigDecimal defaultByte              = this.getDefaultByte();
-        BigDecimal defaultDouble            = this.getDefaultDouble();
-        BigDecimal defaultFloat             = this.getDefaultFloat();
-        BigDecimal defaultInteger           = this.getDefaultInteger();
-        BigDecimal defaultLong              = this.getDefaultLong();
-        BigDecimal defaultShort             = this.getDefaultShort();
+        BigDecimal defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
+        BigDecimal defaultBigIntegerString  = this.getDefaultBigInteger(locale);
+        BigDecimal defaultByteString        = this.getDefaultByte(locale);
+        BigDecimal defaultDoubleString      = this.getDefaultDouble(locale);
+        BigDecimal defaultFloatString       = this.getDefaultFloat(locale);
+        BigDecimal defaultIntegerString     = this.getDefaultInteger(locale);
+        BigDecimal defaultLongString        = this.getDefaultLong(locale);
+        BigDecimal defaultShortString       = this.getDefaultShort(locale);
 
-        assertEquals( defaultBigDecimal, mapper.unformat( sBigDecimalString, locale ) );
-        assertEquals( defaultBigInteger, mapper.unformat( sBigIntegerString, locale ) );
-        assertEquals( defaultByte, mapper.unformat( sByteString, locale ) );
-        assertEquals( defaultDouble, mapper.unformat( sDoubleString, locale ) );
-        assertEquals( defaultFloat, mapper.unformat( sFloatString, locale ) );
-        assertEquals( defaultInteger, mapper.unformat( sIntegerString, locale ) );
-        assertEquals( defaultLong, mapper.unformat( sLongString, locale ) );
-        assertEquals( defaultShort, mapper.unformat( sShortString, locale ) );
+        assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, locale ) );
+        assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, locale ) );
+        assertEquals( defaultByteString, mapper.unformat( sByteString, locale ) );
+        assertEquals( defaultDoubleString, mapper.unformat( sDoubleString, locale ) );
+        assertEquals( defaultFloatString, mapper.unformat( sFloatString, locale ) );
+        assertEquals( defaultIntegerString, mapper.unformat( sIntegerString, locale ) );
+        assertEquals( defaultLongString, mapper.unformat( sLongString, locale ) );
+        assertEquals( defaultShortString, mapper.unformat( sShortString, locale ) );
 
         assertEquals( mapper.getDefaultValue(), mapper.unformat( sNull, locale ) );
         assertEquals( mapper.getDefaultValue(), mapper.unformat( sObject, locale ) );
@@ -1750,23 +1750,23 @@ class IBigDecimalMapperTest {
         String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
         String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
 
-        BigDecimal defaultBigDecimal        = this.getDefaultBigDecimal();
-        BigDecimal defaultBigInteger        = this.getDefaultBigInteger();
-        BigDecimal defaultByte              = this.getDefaultByte();
-        BigDecimal defaultDouble            = this.getDefaultDouble();
-        BigDecimal defaultFloat             = this.getDefaultFloat();
-        BigDecimal defaultInteger           = this.getDefaultInteger();
-        BigDecimal defaultLong              = this.getDefaultLong();
-        BigDecimal defaultShort             = this.getDefaultShort();
+        BigDecimal defaultBigDecimalString  = this.getDefaultBigDecimal(null);
+        BigDecimal defaultBigIntegerString  = this.getDefaultBigInteger(null);
+        BigDecimal defaultByteString        = this.getDefaultByte(null);
+        BigDecimal defaultDoubleString      = this.getDefaultDouble(null);
+        BigDecimal defaultFloatString       = this.getDefaultFloat(null);
+        BigDecimal defaultIntegerString     = this.getDefaultInteger(null);
+        BigDecimal defaultLongString        = this.getDefaultLong(null);
+        BigDecimal defaultShortString       = this.getDefaultShort(null);
 
-        assertEquals( defaultBigDecimal, mapper.unformat( sBigDecimalString, FORMAT_PATTERN ) );
-        assertEquals( defaultBigInteger, mapper.unformat( sBigIntegerString, FORMAT_PATTERN ) );
-        assertEquals( defaultByte, mapper.unformat( sByteString, FORMAT_PATTERN ) );
-        assertEquals( defaultDouble, mapper.unformat( sDoubleString, FORMAT_PATTERN ) );
-        assertEquals( defaultFloat, mapper.unformat( sFloatString, FORMAT_PATTERN ) );
-        assertEquals( defaultInteger, mapper.unformat( sIntegerString, FORMAT_PATTERN ) );
-        assertEquals( defaultLong, mapper.unformat( sLongString, FORMAT_PATTERN ) );
-        assertEquals( defaultShort, mapper.unformat( sShortString, FORMAT_PATTERN ) );
+        assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, FORMAT_PATTERN ) );
+        assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, FORMAT_PATTERN ) );
+        assertEquals( defaultByteString, mapper.unformat( sByteString, FORMAT_PATTERN ) );
+        assertEquals( defaultDoubleString, mapper.unformat( sDoubleString, FORMAT_PATTERN ) );
+        assertEquals( defaultFloatString, mapper.unformat( sFloatString, FORMAT_PATTERN ) );
+        assertEquals( defaultIntegerString, mapper.unformat( sIntegerString, FORMAT_PATTERN ) );
+        assertEquals( defaultLongString, mapper.unformat( sLongString, FORMAT_PATTERN ) );
+        assertEquals( defaultShortString, mapper.unformat( sShortString, FORMAT_PATTERN ) );
 
         assertEquals( mapper.getDefaultValue(), mapper.unformat( sNull, FORMAT_PATTERN ) );
         assertEquals( mapper.getDefaultValue(), mapper.unformat( sObject, FORMAT_PATTERN ) );
@@ -1799,23 +1799,23 @@ class IBigDecimalMapperTest {
         String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
         String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
 
-        BigDecimal defaultBigDecimal        = this.getDefaultBigDecimal();
-        BigDecimal defaultBigInteger        = this.getDefaultBigInteger();
-        BigDecimal defaultByte              = this.getDefaultByte();
-        BigDecimal defaultDouble            = this.getDefaultDouble();
-        BigDecimal defaultFloat             = this.getDefaultFloat();
-        BigDecimal defaultInteger           = this.getDefaultInteger();
-        BigDecimal defaultLong              = this.getDefaultLong();
-        BigDecimal defaultShort             = this.getDefaultShort();
+        BigDecimal defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
+        BigDecimal defaultBigIntegerString  = this.getDefaultBigInteger(locale);
+        BigDecimal defaultByteString        = this.getDefaultByte(locale);
+        BigDecimal defaultDoubleString      = this.getDefaultDouble(locale);
+        BigDecimal defaultFloatString       = this.getDefaultFloat(locale);
+        BigDecimal defaultIntegerString     = this.getDefaultInteger(locale);
+        BigDecimal defaultLongString        = this.getDefaultLong(locale);
+        BigDecimal defaultShortString       = this.getDefaultShort(locale);
 
-        assertEquals( defaultBigDecimal, mapper.unformat( sBigDecimalString, locale, FORMAT_PATTERN ) );
-        assertEquals( defaultBigInteger, mapper.unformat( sBigIntegerString, locale, FORMAT_PATTERN ) );
-        assertEquals( defaultByte, mapper.unformat( sByteString, locale, FORMAT_PATTERN ) );
-        assertEquals( defaultDouble, mapper.unformat( sDoubleString, locale, FORMAT_PATTERN ) );
-        assertEquals( defaultFloat, mapper.unformat( sFloatString, locale, FORMAT_PATTERN ) );
-        assertEquals( defaultInteger, mapper.unformat( sIntegerString, locale, FORMAT_PATTERN ) );
-        assertEquals( defaultLong, mapper.unformat( sLongString, locale, FORMAT_PATTERN ) );
-        assertEquals( defaultShort, mapper.unformat( sShortString, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultByteString, mapper.unformat( sByteString, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultDoubleString, mapper.unformat( sDoubleString, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultFloatString, mapper.unformat( sFloatString, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultIntegerString, mapper.unformat( sIntegerString, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultLongString, mapper.unformat( sLongString, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultShortString, mapper.unformat( sShortString, locale, FORMAT_PATTERN ) );
 
         assertEquals( mapper.getDefaultValue(), mapper.unformat( sNull, locale, FORMAT_PATTERN ) );
         assertEquals( mapper.getDefaultValue(), mapper.unformat( sObject, locale, FORMAT_PATTERN ) );
@@ -1850,23 +1850,23 @@ class IBigDecimalMapperTest {
 
         DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(locale);
 
-        BigDecimal defaultBigDecimal        = this.getDefaultBigDecimal();
-        BigDecimal defaultBigInteger        = this.getDefaultBigInteger();
-        BigDecimal defaultByte              = this.getDefaultByte();
-        BigDecimal defaultDouble            = this.getDefaultDouble();
-        BigDecimal defaultFloat             = this.getDefaultFloat();
-        BigDecimal defaultInteger           = this.getDefaultInteger();
-        BigDecimal defaultLong              = this.getDefaultLong();
-        BigDecimal defaultShort             = this.getDefaultShort();
+        BigDecimal defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
+        BigDecimal defaultBigIntegerString  = this.getDefaultBigInteger(locale);
+        BigDecimal defaultByteString        = this.getDefaultByte(locale);
+        BigDecimal defaultDoubleString      = this.getDefaultDouble(locale);
+        BigDecimal defaultFloatString       = this.getDefaultFloat(locale);
+        BigDecimal defaultIntegerString     = this.getDefaultInteger(locale);
+        BigDecimal defaultLongString        = this.getDefaultLong(locale);
+        BigDecimal defaultShortString       = this.getDefaultShort(locale);
 
-        assertEquals( defaultBigDecimal, mapper.unformat( sBigDecimalString, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultBigInteger, mapper.unformat( sBigIntegerString, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultByte, mapper.unformat( sByteString, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultDouble, mapper.unformat( sDoubleString, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultFloat, mapper.unformat( sFloatString, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultInteger, mapper.unformat( sIntegerString, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultLong, mapper.unformat( sLongString, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultShort, mapper.unformat( sShortString, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultByteString, mapper.unformat( sByteString, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultDoubleString, mapper.unformat( sDoubleString, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultFloatString, mapper.unformat( sFloatString, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultIntegerString, mapper.unformat( sIntegerString, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultLongString, mapper.unformat( sLongString, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultShortString, mapper.unformat( sShortString, locale, FORMAT_PATTERN, symbols ) );
 
         assertEquals( mapper.getDefaultValue(), mapper.unformat( sNull, locale, FORMAT_PATTERN, symbols ) );
         assertEquals( mapper.getDefaultValue(), mapper.unformat( sObject, locale, FORMAT_PATTERN, symbols ) );
@@ -1901,23 +1901,23 @@ class IBigDecimalMapperTest {
 
         DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(locale);
 
-        BigDecimal defaultBigDecimal        = this.getDefaultBigDecimal();
-        BigDecimal defaultBigInteger        = this.getDefaultBigInteger();
-        BigDecimal defaultByte              = this.getDefaultByte();
-        BigDecimal defaultDouble            = this.getDefaultDouble();
-        BigDecimal defaultFloat             = this.getDefaultFloat();
-        BigDecimal defaultInteger           = this.getDefaultInteger();
-        BigDecimal defaultLong              = this.getDefaultLong();
-        BigDecimal defaultShort             = this.getDefaultShort();
+        BigDecimal defaultBigDecimalString  = this.getDefaultBigDecimal(null);
+        BigDecimal defaultBigIntegerString  = this.getDefaultBigInteger(null);
+        BigDecimal defaultByteString        = this.getDefaultByte(null);
+        BigDecimal defaultDoubleString      = this.getDefaultDouble(null);
+        BigDecimal defaultFloatString       = this.getDefaultFloat(null);
+        BigDecimal defaultIntegerString     = this.getDefaultInteger(null);
+        BigDecimal defaultLongString        = this.getDefaultLong(null);
+        BigDecimal defaultShortString       = this.getDefaultShort(null);
 
-        assertEquals( defaultBigDecimal, mapper.unformat( sBigDecimalString, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultBigInteger, mapper.unformat( sBigIntegerString, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultByte, mapper.unformat( sByteString, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultDouble, mapper.unformat( sDoubleString, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultFloat, mapper.unformat( sFloatString, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultInteger, mapper.unformat( sIntegerString, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultLong, mapper.unformat( sLongString, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultShort, mapper.unformat( sShortString, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultByteString, mapper.unformat( sByteString, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultDoubleString, mapper.unformat( sDoubleString, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultFloatString, mapper.unformat( sFloatString, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultIntegerString, mapper.unformat( sIntegerString, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultLongString, mapper.unformat( sLongString, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultShortString, mapper.unformat( sShortString, FORMAT_PATTERN, symbols ) );
 
         assertEquals( mapper.getDefaultValue(), mapper.unformat( sNull, FORMAT_PATTERN, symbols ) );
         assertEquals( mapper.getDefaultValue(), mapper.unformat( sObject, FORMAT_PATTERN, symbols ) );
@@ -1950,23 +1950,23 @@ class IBigDecimalMapperTest {
         String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
         String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
 
-        BigDecimal defaultBigDecimal        = this.getDefaultBigDecimal();
-        BigDecimal defaultBigInteger        = this.getDefaultBigInteger();
-        BigDecimal defaultByte              = this.getDefaultByte();
-        BigDecimal defaultDouble            = this.getDefaultDouble();
-        BigDecimal defaultFloat             = this.getDefaultFloat();
-        BigDecimal defaultInteger           = this.getDefaultInteger();
-        BigDecimal defaultLong              = this.getDefaultLong();
-        BigDecimal defaultShort             = this.getDefaultShort();
+        BigDecimal defaultBigDecimalString  = this.getDefaultBigDecimal(null);
+        BigDecimal defaultBigIntegerString  = this.getDefaultBigInteger(null);
+        BigDecimal defaultByteString        = this.getDefaultByte(null);
+        BigDecimal defaultDoubleString      = this.getDefaultDouble(null);
+        BigDecimal defaultFloatString       = this.getDefaultFloat(null);
+        BigDecimal defaultIntegerString     = this.getDefaultInteger(null);
+        BigDecimal defaultLongString        = this.getDefaultLong(null);
+        BigDecimal defaultShortString       = this.getDefaultShort(null);
 
-        assertEquals( defaultBigDecimal, mapper.unformat( sBigDecimalString, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigInteger, mapper.unformat( sBigIntegerString, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultByte, mapper.unformat( sByteString, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultDouble, mapper.unformat( sDoubleString, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultFloat, mapper.unformat( sFloatString, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultInteger, mapper.unformat( sIntegerString, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultLong, mapper.unformat( sLongString, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultShort, mapper.unformat( sShortString, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultByteString, mapper.unformat( sByteString, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultDoubleString, mapper.unformat( sDoubleString, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultFloatString, mapper.unformat( sFloatString, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultIntegerString, mapper.unformat( sIntegerString, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultLongString, mapper.unformat( sLongString, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultShortString, mapper.unformat( sShortString, ANOTHER_DEFAULT_VALUE ) );
 
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sNull, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sObject, ANOTHER_DEFAULT_VALUE ) );
@@ -1999,23 +1999,23 @@ class IBigDecimalMapperTest {
         String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
         String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
 
-        BigDecimal defaultBigDecimal        = this.getDefaultBigDecimal();
-        BigDecimal defaultBigInteger        = this.getDefaultBigInteger();
-        BigDecimal defaultByte              = this.getDefaultByte();
-        BigDecimal defaultDouble            = this.getDefaultDouble();
-        BigDecimal defaultFloat             = this.getDefaultFloat();
-        BigDecimal defaultInteger           = this.getDefaultInteger();
-        BigDecimal defaultLong              = this.getDefaultLong();
-        BigDecimal defaultShort             = this.getDefaultShort();
+        BigDecimal defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
+        BigDecimal defaultBigIntegerString  = this.getDefaultBigInteger(locale);
+        BigDecimal defaultByteString        = this.getDefaultByte(locale);
+        BigDecimal defaultDoubleString      = this.getDefaultDouble(locale);
+        BigDecimal defaultFloatString       = this.getDefaultFloat(locale);
+        BigDecimal defaultIntegerString     = this.getDefaultInteger(locale);
+        BigDecimal defaultLongString        = this.getDefaultLong(locale);
+        BigDecimal defaultShortString       = this.getDefaultShort(locale);
 
-        assertEquals( defaultBigDecimal, mapper.unformat( sBigDecimalString, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigInteger, mapper.unformat( sBigIntegerString, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultByte, mapper.unformat( sByteString, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultDouble, mapper.unformat( sDoubleString, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultFloat, mapper.unformat( sFloatString, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultInteger, mapper.unformat( sIntegerString, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultLong, mapper.unformat( sLongString, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultShort, mapper.unformat( sShortString, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultByteString, mapper.unformat( sByteString, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultDoubleString, mapper.unformat( sDoubleString, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultFloatString, mapper.unformat( sFloatString, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultIntegerString, mapper.unformat( sIntegerString, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultLongString, mapper.unformat( sLongString, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultShortString, mapper.unformat( sShortString, locale, ANOTHER_DEFAULT_VALUE ) );
 
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sNull, locale, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sObject, locale, ANOTHER_DEFAULT_VALUE ) );
@@ -2048,23 +2048,23 @@ class IBigDecimalMapperTest {
         String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
         String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
 
-        BigDecimal defaultBigDecimal        = this.getDefaultBigDecimal();
-        BigDecimal defaultBigInteger        = this.getDefaultBigInteger();
-        BigDecimal defaultByte              = this.getDefaultByte();
-        BigDecimal defaultDouble            = this.getDefaultDouble();
-        BigDecimal defaultFloat             = this.getDefaultFloat();
-        BigDecimal defaultInteger           = this.getDefaultInteger();
-        BigDecimal defaultLong              = this.getDefaultLong();
-        BigDecimal defaultShort             = this.getDefaultShort();
+        BigDecimal defaultBigDecimalString  = this.getDefaultBigDecimal(null);
+        BigDecimal defaultBigIntegerString  = this.getDefaultBigInteger(null);
+        BigDecimal defaultByteString        = this.getDefaultByte(null);
+        BigDecimal defaultDoubleString      = this.getDefaultDouble(null);
+        BigDecimal defaultFloatString       = this.getDefaultFloat(null);
+        BigDecimal defaultIntegerString     = this.getDefaultInteger(null);
+        BigDecimal defaultLongString        = this.getDefaultLong(null);
+        BigDecimal defaultShortString       = this.getDefaultShort(null);
 
-        assertEquals( defaultBigDecimal, mapper.unformat( sBigDecimalString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigInteger, mapper.unformat( sBigIntegerString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultByte, mapper.unformat( sByteString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultDouble, mapper.unformat( sDoubleString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultFloat, mapper.unformat( sFloatString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultInteger, mapper.unformat( sIntegerString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultLong, mapper.unformat( sLongString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultShort, mapper.unformat( sShortString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultByteString, mapper.unformat( sByteString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultDoubleString, mapper.unformat( sDoubleString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultFloatString, mapper.unformat( sFloatString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultIntegerString, mapper.unformat( sIntegerString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultLongString, mapper.unformat( sLongString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultShortString, mapper.unformat( sShortString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
 
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sNull, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sObject, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
@@ -2097,23 +2097,23 @@ class IBigDecimalMapperTest {
         String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
         String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
 
-        BigDecimal defaultBigDecimal        = this.getDefaultBigDecimal();
-        BigDecimal defaultBigInteger        = this.getDefaultBigInteger();
-        BigDecimal defaultByte              = this.getDefaultByte();
-        BigDecimal defaultDouble            = this.getDefaultDouble();
-        BigDecimal defaultFloat             = this.getDefaultFloat();
-        BigDecimal defaultInteger           = this.getDefaultInteger();
-        BigDecimal defaultLong              = this.getDefaultLong();
-        BigDecimal defaultShort             = this.getDefaultShort();
+        BigDecimal defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
+        BigDecimal defaultBigIntegerString  = this.getDefaultBigInteger(locale);
+        BigDecimal defaultByteString        = this.getDefaultByte(locale);
+        BigDecimal defaultDoubleString      = this.getDefaultDouble(locale);
+        BigDecimal defaultFloatString       = this.getDefaultFloat(locale);
+        BigDecimal defaultIntegerString     = this.getDefaultInteger(locale);
+        BigDecimal defaultLongString        = this.getDefaultLong(locale);
+        BigDecimal defaultShortString       = this.getDefaultShort(locale);
 
-        assertEquals( defaultBigDecimal, mapper.unformat( sBigDecimalString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigInteger, mapper.unformat( sBigIntegerString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultByte, mapper.unformat( sByteString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultDouble, mapper.unformat( sDoubleString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultFloat, mapper.unformat( sFloatString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultInteger, mapper.unformat( sIntegerString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultLong, mapper.unformat( sLongString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultShort, mapper.unformat( sShortString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultByteString, mapper.unformat( sByteString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultDoubleString, mapper.unformat( sDoubleString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultFloatString, mapper.unformat( sFloatString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultIntegerString, mapper.unformat( sIntegerString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultLongString, mapper.unformat( sLongString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultShortString, mapper.unformat( sShortString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
 
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sNull, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sObject, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
@@ -2148,23 +2148,23 @@ class IBigDecimalMapperTest {
 
         DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(locale);
 
-        BigDecimal defaultBigDecimal        = this.getDefaultBigDecimal();
-        BigDecimal defaultBigInteger        = this.getDefaultBigInteger();
-        BigDecimal defaultByte              = this.getDefaultByte();
-        BigDecimal defaultDouble            = this.getDefaultDouble();
-        BigDecimal defaultFloat             = this.getDefaultFloat();
-        BigDecimal defaultInteger           = this.getDefaultInteger();
-        BigDecimal defaultLong              = this.getDefaultLong();
-        BigDecimal defaultShort             = this.getDefaultShort();
+        BigDecimal defaultBigDecimalString  = this.getDefaultBigDecimal(null);
+        BigDecimal defaultBigIntegerString  = this.getDefaultBigInteger(null);
+        BigDecimal defaultByteString        = this.getDefaultByte(null);
+        BigDecimal defaultDoubleString      = this.getDefaultDouble(null);
+        BigDecimal defaultFloatString       = this.getDefaultFloat(null);
+        BigDecimal defaultIntegerString     = this.getDefaultInteger(null);
+        BigDecimal defaultLongString        = this.getDefaultLong(null);
+        BigDecimal defaultShortString       = this.getDefaultShort(null);
 
-        assertEquals( defaultBigDecimal, mapper.unformat( sBigDecimalString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigInteger, mapper.unformat( sBigIntegerString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultByte, mapper.unformat( sByteString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultDouble, mapper.unformat( sDoubleString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultFloat, mapper.unformat( sFloatString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultInteger, mapper.unformat( sIntegerString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultLong, mapper.unformat( sLongString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultShort, mapper.unformat( sShortString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultByteString, mapper.unformat( sByteString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultDoubleString, mapper.unformat( sDoubleString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultFloatString, mapper.unformat( sFloatString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultIntegerString, mapper.unformat( sIntegerString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultLongString, mapper.unformat( sLongString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultShortString, mapper.unformat( sShortString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
 
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sNull, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sObject, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
@@ -2199,23 +2199,23 @@ class IBigDecimalMapperTest {
 
         DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(locale);
 
-        BigDecimal defaultBigDecimal        = this.getDefaultBigDecimal();
-        BigDecimal defaultBigInteger        = this.getDefaultBigInteger();
-        BigDecimal defaultByte              = this.getDefaultByte();
-        BigDecimal defaultDouble            = this.getDefaultDouble();
-        BigDecimal defaultFloat             = this.getDefaultFloat();
-        BigDecimal defaultInteger           = this.getDefaultInteger();
-        BigDecimal defaultLong              = this.getDefaultLong();
-        BigDecimal defaultShort             = this.getDefaultShort();
+        BigDecimal defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
+        BigDecimal defaultBigIntegerString  = this.getDefaultBigInteger(locale);
+        BigDecimal defaultByteString        = this.getDefaultByte(locale);
+        BigDecimal defaultDoubleString      = this.getDefaultDouble(locale);
+        BigDecimal defaultFloatString       = this.getDefaultFloat(locale);
+        BigDecimal defaultIntegerString     = this.getDefaultInteger(locale);
+        BigDecimal defaultLongString        = this.getDefaultLong(locale);
+        BigDecimal defaultShortString       = this.getDefaultShort(locale);
 
-        assertEquals( defaultBigDecimal, mapper.unformat( sBigDecimalString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigInteger, mapper.unformat( sBigIntegerString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultByte, mapper.unformat( sByteString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultDouble, mapper.unformat( sDoubleString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultFloat, mapper.unformat( sFloatString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultInteger, mapper.unformat( sIntegerString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultLong, mapper.unformat( sLongString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultShort, mapper.unformat( sShortString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultByteString, mapper.unformat( sByteString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultDoubleString, mapper.unformat( sDoubleString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultFloatString, mapper.unformat( sFloatString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultIntegerString, mapper.unformat( sIntegerString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultLongString, mapper.unformat( sLongString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultShortString, mapper.unformat( sShortString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
 
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sNull, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sObject, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
