@@ -2,8 +2,6 @@ package de.ckraus.commons.mapper;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.text.DecimalFormatSymbols;
-import java.util.Locale;
 
 @SuppressWarnings({"javadoc"})
 public interface IBigIntegerMapper
@@ -18,7 +16,7 @@ public interface IBigIntegerMapper
         }
         else
         if (null != number) {
-            returnValue = new BigInteger(number.toString());
+            returnValue = new BigDecimal(number.toString()).toBigInteger();
         }
         return returnValue;
     }
