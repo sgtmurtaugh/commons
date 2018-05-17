@@ -12,7 +12,8 @@ class IBooleanMapperTest {
     private final String HELLO_WORLD = "Hello World!";
 
     // create mapper instance
-    IBooleanMapper mapper = new IBooleanMapper() {};
+    IBooleanMapper mapper = new IBooleanMapper() {
+    };
 
 
     /**
@@ -20,8 +21,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseChar0() {
-        final char LEGAL_VALUE      = IBooleanMapper.FALSE_CHAR_0;
-        final char ILLEGAL_VALUE    = '?';
+        final char LEGAL_VALUE = IBooleanMapper.FALSE_CHAR_0;
+        final char ILLEGAL_VALUE = '?';
 
         // success checks
         assertTrue(
@@ -39,9 +40,9 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseCharF() {
-        final char LEGAL_VALUE              = IBooleanMapper.FALSE_CHAR_F;
-        final char ILLEGAL_VALUE            = '?';
-        final char ILLEGAL_LOWERCASE_VALUE  = IBooleanMapper.FALSE_CHAR_F_LOWERCASE;
+        final char LEGAL_VALUE = IBooleanMapper.FALSE_CHAR_F;
+        final char ILLEGAL_VALUE = '?';
+        final char ILLEGAL_LOWERCASE_VALUE = IBooleanMapper.FALSE_CHAR_F_LOWERCASE;
 
         // success checks
         assertTrue(
@@ -62,9 +63,9 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseCharFLowercase() {
-        final char LEGAL_VALUE              = IBooleanMapper.FALSE_CHAR_F_LOWERCASE;
-        final char ILLEGAL_VALUE            = '?';
-        final char ILLEGAL_UPPERCASE_VALUE  = IBooleanMapper.FALSE_CHAR_F;
+        final char LEGAL_VALUE = IBooleanMapper.FALSE_CHAR_F_LOWERCASE;
+        final char ILLEGAL_VALUE = '?';
+        final char ILLEGAL_UPPERCASE_VALUE = IBooleanMapper.FALSE_CHAR_F;
 
         // success checks
         assertTrue(
@@ -85,9 +86,9 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseCharN() {
-        final char LEGAL_VALUE              = IBooleanMapper.FALSE_CHAR_N;
-        final char ILLEGAL_VALUE            = '?';
-        final char ILLEGAL_LOWERCASE_VALUE  = IBooleanMapper.FALSE_CHAR_N_LOWERCASE;
+        final char LEGAL_VALUE = IBooleanMapper.FALSE_CHAR_N;
+        final char ILLEGAL_VALUE = '?';
+        final char ILLEGAL_LOWERCASE_VALUE = IBooleanMapper.FALSE_CHAR_N_LOWERCASE;
 
         // success checks
         assertTrue(
@@ -108,9 +109,9 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseCharNLowercase() {
-        final char LEGAL_VALUE              = IBooleanMapper.FALSE_CHAR_N_LOWERCASE;
-        final char ILLEGAL_VALUE            = '?';
-        final char ILLEGAL_UPPERCASE_VALUE  = IBooleanMapper.FALSE_CHAR_N;
+        final char LEGAL_VALUE = IBooleanMapper.FALSE_CHAR_N_LOWERCASE;
+        final char ILLEGAL_VALUE = '?';
+        final char ILLEGAL_UPPERCASE_VALUE = IBooleanMapper.FALSE_CHAR_N;
 
         // success checks
         assertTrue(
@@ -131,9 +132,9 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseCharX() {
-        final char LEGAL_VALUE              = IBooleanMapper.FALSE_CHAR_X;
-        final char ILLEGAL_VALUE            = '?';
-        final char ILLEGAL_LOWERCASE_VALUE  = IBooleanMapper.FALSE_CHAR_X_LOWERCASE;
+        final char LEGAL_VALUE = IBooleanMapper.FALSE_CHAR_X;
+        final char ILLEGAL_VALUE = '?';
+        final char ILLEGAL_LOWERCASE_VALUE = IBooleanMapper.FALSE_CHAR_X_LOWERCASE;
 
         // success checks
         assertTrue(
@@ -154,9 +155,9 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseCharXLowercase() {
-        final char LEGAL_VALUE              = IBooleanMapper.FALSE_CHAR_X_LOWERCASE;
-        final char ILLEGAL_VALUE            = '?';
-        final char ILLEGAL_UPPERCASE_VALUE  = IBooleanMapper.FALSE_CHAR_X;
+        final char LEGAL_VALUE = IBooleanMapper.FALSE_CHAR_X_LOWERCASE;
+        final char ILLEGAL_VALUE = '?';
+        final char ILLEGAL_UPPERCASE_VALUE = IBooleanMapper.FALSE_CHAR_X;
 
         // success checks
         assertTrue(
@@ -223,7 +224,7 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseInt0() {
-        final int LEGAL_VALUE   = IBooleanMapper.FALSE_INT_0;
+        final int LEGAL_VALUE = IBooleanMapper.FALSE_INT_0;
         final int ILLEGAL_VALUE = IBooleanMapper.TRUE_INT_1;
 
         // success checks
@@ -270,8 +271,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseString0() {
-        final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_0;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.FALSE_STRING_0;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -289,8 +290,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseStringBack() {
-        final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_BACK;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.FALSE_STRING_BACK;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -308,8 +309,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseStringBreak() {
-        final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_BREAK;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.FALSE_STRING_BREAK;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -327,8 +328,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseStringCancel() {
-        final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_CANCEL;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.FALSE_STRING_CANCEL;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -346,8 +347,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseStringError() {
-        final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_ERROR;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.FALSE_STRING_ERROR;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -365,8 +366,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseStringErr() {
-        final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_ERR;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.FALSE_STRING_ERR;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -384,8 +385,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseStringFail() {
-        final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_FAIL;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.FALSE_STRING_FAIL;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -403,8 +404,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseStringFailure() {
-        final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_FAILURE;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.FALSE_STRING_FAILURE;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -422,8 +423,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseStringFalsch() {
-        final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_FALSCH;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.FALSE_STRING_FALSCH;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -441,8 +442,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseStringFalse() {
-        final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_FALSE;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.FALSE_STRING_FALSE;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -460,8 +461,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseStringFehler() {
-        final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_FEHLER;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.FALSE_STRING_FEHLER;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -479,8 +480,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseStringN() {
-        final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_N;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.FALSE_STRING_N;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -498,8 +499,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseStringNein() {
-        final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_NEIN;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.FALSE_STRING_NEIN;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -517,8 +518,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseStringNo() {
-        final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_NO;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.FALSE_STRING_NO;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -536,8 +537,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseStringOff() {
-        final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_OFF;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.FALSE_STRING_OFF;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -555,8 +556,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseStringWrong() {
-        final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_WRONG;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.FALSE_STRING_WRONG;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -574,8 +575,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateFalseStringX() {
-        final String LEGAL_VALUE    = IBooleanMapper.FALSE_STRING_X;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.FALSE_STRING_X;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -699,8 +700,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueChar1() {
-        final char LEGAL_VALUE      = IBooleanMapper.TRUE_CHAR_1;
-        final char ILLEGAL_VALUE    = '?';
+        final char LEGAL_VALUE = IBooleanMapper.TRUE_CHAR_1;
+        final char ILLEGAL_VALUE = '?';
 
         // success checks
         assertTrue(
@@ -718,9 +719,9 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueCharJ() {
-        final char LEGAL_VALUE              = IBooleanMapper.TRUE_CHAR_J;
-        final char ILLEGAL_VALUE            = '?';
-        final char ILLEGAL_LOWERCASE_VALUE  = IBooleanMapper.TRUE_CHAR_J_LOWERCASE;
+        final char LEGAL_VALUE = IBooleanMapper.TRUE_CHAR_J;
+        final char ILLEGAL_VALUE = '?';
+        final char ILLEGAL_LOWERCASE_VALUE = IBooleanMapper.TRUE_CHAR_J_LOWERCASE;
 
         // success checks
         assertTrue(
@@ -741,9 +742,9 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueCharJLowercase() {
-        final char LEGAL_VALUE              = IBooleanMapper.TRUE_CHAR_J_LOWERCASE;
-        final char ILLEGAL_VALUE            = '?';
-        final char ILLEGAL_UPPERCASE_VALUE  = IBooleanMapper.TRUE_CHAR_J;
+        final char LEGAL_VALUE = IBooleanMapper.TRUE_CHAR_J_LOWERCASE;
+        final char ILLEGAL_VALUE = '?';
+        final char ILLEGAL_UPPERCASE_VALUE = IBooleanMapper.TRUE_CHAR_J;
 
         // success checks
         assertTrue(
@@ -764,9 +765,9 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueCharY() {
-        final char LEGAL_VALUE              = IBooleanMapper.TRUE_CHAR_Y;
-        final char ILLEGAL_VALUE            = '?';
-        final char ILLEGAL_LOWERCASE_VALUE  = IBooleanMapper.TRUE_CHAR_Y_LOWERCASE;
+        final char LEGAL_VALUE = IBooleanMapper.TRUE_CHAR_Y;
+        final char ILLEGAL_VALUE = '?';
+        final char ILLEGAL_LOWERCASE_VALUE = IBooleanMapper.TRUE_CHAR_Y_LOWERCASE;
 
         // success checks
         assertTrue(
@@ -787,9 +788,9 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueCharYLowercase() {
-        final char LEGAL_VALUE              = IBooleanMapper.TRUE_CHAR_Y_LOWERCASE;
-        final char ILLEGAL_VALUE            = '?';
-        final char ILLEGAL_UPPERCASE_VALUE  = IBooleanMapper.TRUE_CHAR_Y;
+        final char LEGAL_VALUE = IBooleanMapper.TRUE_CHAR_Y_LOWERCASE;
+        final char ILLEGAL_VALUE = '?';
+        final char ILLEGAL_UPPERCASE_VALUE = IBooleanMapper.TRUE_CHAR_Y;
 
         // success checks
         assertTrue(
@@ -856,7 +857,7 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueInt1() {
-        final int LEGAL_VALUE   = IBooleanMapper.TRUE_INT_1;
+        final int LEGAL_VALUE = IBooleanMapper.TRUE_INT_1;
         final int ILLEGAL_VALUE = IBooleanMapper.FALSE_INT_0;
 
         // success checks
@@ -903,8 +904,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueString1() {
-        final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_1;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.TRUE_STRING_1;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -922,8 +923,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueStringErfolg() {
-        final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_ERFOLG;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.TRUE_STRING_ERFOLG;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -941,8 +942,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueStringForward() {
-        final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_FORWARD;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.TRUE_STRING_FORWARD;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -960,8 +961,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueStringJ() {
-        final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_J;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.TRUE_STRING_J;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -979,8 +980,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueStringJa() {
-        final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_JA;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.TRUE_STRING_JA;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -998,8 +999,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueStringNext() {
-        final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_NEXT;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.TRUE_STRING_NEXT;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -1017,8 +1018,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueStringOk() {
-        final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_OK;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.TRUE_STRING_OK;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -1036,8 +1037,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueStringOkay() {
-        final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_OKAY;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.TRUE_STRING_OKAY;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -1055,8 +1056,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueStringOn() {
-        final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_ON;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.TRUE_STRING_ON;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -1074,8 +1075,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueStringSuccess() {
-        final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_SUCCESS;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.TRUE_STRING_SUCCESS;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -1093,8 +1094,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueStringSuccessful() {
-        final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_SUCCESSFUL;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.TRUE_STRING_SUCCESSFUL;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -1112,8 +1113,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueStringTrue() {
-        final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_TRUE;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.TRUE_STRING_TRUE;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -1131,8 +1132,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueStringWahr() {
-        final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_WAHR;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.TRUE_STRING_WAHR;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -1150,8 +1151,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueStringY() {
-        final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_Y;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.TRUE_STRING_Y;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(
@@ -1169,8 +1170,8 @@ class IBooleanMapperTest {
      */
     @Test
     void predicateTrueStringYes() {
-        final String LEGAL_VALUE    = IBooleanMapper.TRUE_STRING_YES;
-        final String ILLEGAL_VALUE  = HELLO_WORLD;
+        final String LEGAL_VALUE = IBooleanMapper.TRUE_STRING_YES;
+        final String ILLEGAL_VALUE = HELLO_WORLD;
 
         // success checks
         assertTrue(

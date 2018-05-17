@@ -6,6 +6,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TypeMapperUtilsTest {
 
+//@T
+//{
+//    ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+//    HelloWorld objA = (HelloWorld) context.getBean("helloWorld");
+//
+//}
+
     @Test
     void getRegistered() {
     }

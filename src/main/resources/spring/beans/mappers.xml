@@ -3,31 +3,31 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-       <bean id="typeParseUtils" class="de.ckraus.commons.parser.type.TypeParserUtils">
-              <property name="registeredTypeParsers">
-                     <util:map map-class="java.util.concurrent.ConcurrentHashMap" key-type="java.lang.Class" value-type="de.ckraus.commons.parser.type.ITypeParser">
-                            <entry key="de.ckraus.commons.parser.type.BigDecimalParser" value-ref="defaultBigDecimalParser" />
-                            <entry key="de.ckraus.commons.parser.type.BigIntegerParser" value-ref="defaultBigIntegerParser" />
-                            <entry key="de.ckraus.commons.parser.type.BooleanParser" value-ref="defaultBooleanParser" />
-                            <entry key="de.ckraus.commons.parser.type.ByteParser" value-ref="defaultByteParser" />
-                            <entry key="de.ckraus.commons.parser.type.CharacterParser" value-ref="defaultCharacterParser" />
-                            <entry key="de.ckraus.commons.parser.type.DateParser" value-ref="defaultDateParser" />
-                            <entry key="de.ckraus.commons.parser.type.DoubleParser" value-ref="defaultDoubleParser" />
-                            <entry key="de.ckraus.commons.parser.type.FloatParser" value-ref="defaultFloatParser" />
-                            <entry key="de.ckraus.commons.parser.type.GregorianCalendarParser" value-ref="defaultGregorianCalendarParser" />
-                            <entry key="de.ckraus.commons.parser.type.IntegerParser" value-ref="defaultIntegerParser" />
-                            <entry key="de.ckraus.commons.parser.type.LongParser" value-ref="defaultLongParser" />
-                            <entry key="de.ckraus.commons.parser.type.ShortParser" value-ref="defaultShortParser" />
-                            <entry key="de.ckraus.commons.parser.type.StringParser" value-ref="defaultStringParser" />
+       <bean id="typeMapperUtils" class="de.ckraus.commons.mapper.TypeMapperUtils" scope="singleton" >
+              <property name="registeredTypeMappers">
+                     <util:map map-class="java.util.concurrent.ConcurrentHashMap" key-type="java.lang.Class" value-type="de.ckraus.commons.mapper.ITypeMapper">
+                            <entry key="de.ckraus.commons.mapper.BigDecimalMapper" value-ref="defaultBigDecimalMapper" />
+                            <entry key="de.ckraus.commons.mapper.BigIntegerMapper" value-ref="defaultBigIntegerMapper" />
+                            <entry key="de.ckraus.commons.mapper.BooleanMapper" value-ref="defaultBooleanMapper" />
+                            <entry key="de.ckraus.commons.mapper.ByteMapper" value-ref="defaultByteMapper" />
+                            <entry key="de.ckraus.commons.mapper.CharacterMapper" value-ref="defaultCharacterMapper" />
+                            <entry key="de.ckraus.commons.mapper.DateMapper" value-ref="defaultDateMapper" />
+                            <entry key="de.ckraus.commons.mapper.DoubleMapper" value-ref="defaultDoubleMapper" />
+                            <entry key="de.ckraus.commons.mapper.FloatMapper" value-ref="defaultFloatMapper" />
+                            <entry key="de.ckraus.commons.mapper.GregorianCalendarMapper" value-ref="defaultGregorianCalendarMapper" />
+                            <entry key="de.ckraus.commons.mapper.IntegerMapper" value-ref="defaultIntegerMapper" />
+                            <entry key="de.ckraus.commons.mapper.LongMapper" value-ref="defaultLongMapper" />
+                            <entry key="de.ckraus.commons.mapper.ShortMapper" value-ref="defaultShortMapper" />
+                            <entry key="de.ckraus.commons.mapper.StringMapper" value-ref="defaultStringMapper" />
                      </util:map>
               </property>
        </bean>
 
-       <bean id="defaultBigDecimalParser" class="de.ckraus.commons.parser.type.BigDecimalParser" />
+       <bean id="defaultBigDecimalMapper" class="de.ckraus.commons.mapper.BigDecimalMapper" scope="singleton" />
 
-       <bean id="defaultBigIntegerParser" class="de.ckraus.commons.parser.type.BigIntegerParser" />
+       <bean id="defaultBigIntegerMapper" class="de.ckraus.commons.mapper.BigIntegerMapper" scope="singleton" />
 
-       <bean id="defaultBooleanParser" class="de.ckraus.commons.parser.type.BooleanParser">
+       <bean id="defaultBooleanMapper" class="de.ckraus.commons.mapper.BooleanMapper" scope="singleton" >
               <property name="trueValues">
                      <map merge="true" key-type="java.lang.Class" value-type="java.util.List">
                             <entry key="java.lang.Character">
@@ -97,24 +97,24 @@
               </property>
        </bean>
 
-       <bean id="defaultByteParser" class="de.ckraus.commons.parser.type.ByteParser" />
+       <bean id="defaultByteMapper" class="de.ckraus.commons.mapper.ByteMapper" scope="singleton" />
 
-       <bean id="defaultCharacterParser" class="de.ckraus.commons.parser.type.CharacterParser" />
+       <bean id="defaultCharacterMapper" class="de.ckraus.commons.mapper.CharacterMapper" scope="singleton" />
 
-       <bean id="defaultDateParser" class="de.ckraus.commons.parser.type.DateParser" />
+       <bean id="defaultDateMapper" class="de.ckraus.commons.mapper.DateMapper" scope="singleton" />
 
-       <bean id="defaultDoubleParser" class="de.ckraus.commons.parser.type.DoubleParser" />
+       <bean id="defaultDoubleMapper" class="de.ckraus.commons.mapper.DoubleMapper" scope="singleton" />
 
-       <bean id="defaultFloatParser" class="de.ckraus.commons.parser.type.FloatParser" />
+       <bean id="defaultFloatMapper" class="de.ckraus.commons.mapper.FloatMapper" scope="singleton" />
 
-       <bean id="defaultGregorianCalendarParser" class="de.ckraus.commons.parser.type.GregorianCalendarParser" />
+       <bean id="defaultGregorianCalendarMapper" class="de.ckraus.commons.mapper.GregorianCalendarMapper" scope="singleton" />
 
-       <bean id="defaultIntegerParser" class="de.ckraus.commons.parser.type.IntegerParser" />
+       <bean id="defaultIntegerMapper" class="de.ckraus.commons.mapper.IntegerMapper" scope="singleton" />
 
-       <bean id="defaultLongParser" class="de.ckraus.commons.parser.type.LongParser" />
+       <bean id="defaultLongMapper" class="de.ckraus.commons.mapper.LongMapper" scope="singleton" />
 
-       <bean id="defaultShortParser" class="de.ckraus.commons.parser.type.ShortParser" />
+       <bean id="defaultShortMapper" class="de.ckraus.commons.mapper.ShortMapper" scope="singleton" />
 
-       <bean id="defaultStringParser" class="de.ckraus.commons.parser.type.StringParser" />
+       <bean id="defaultStringMapper" class="de.ckraus.commons.mapper.StringMapper" scope="singleton" />
 
 </beans>
