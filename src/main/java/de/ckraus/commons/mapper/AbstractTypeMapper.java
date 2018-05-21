@@ -35,7 +35,7 @@ public abstract class AbstractTypeMapper<E>
     public AbstractTypeMapper(E defaultValue) {
         super();
 
-        this.defaultValue       = defaultValue;
+        this.defaultValue      = defaultValue;
         this.trimStrings       = ITypeMapper.super.isTrimStrings();
         this.emptyStringNull   = ITypeMapper.super.isEmptyStringNull();
     }
@@ -53,7 +53,7 @@ public abstract class AbstractTypeMapper<E>
     ) {
         super();
 
-        this.defaultValue       = defaultValue;
+        this.defaultValue      = defaultValue;
         this.trimStrings       = bTrimStrings;
         this.emptyStringNull   = bEmptyStringNull;
     }

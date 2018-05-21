@@ -124,9 +124,7 @@ public interface ICharacterMapper
 
                 if ( bEvaluateCodePoints ) {
                     // Pruefen, ob der String evtl ein Integerwert ist
-
-                    // TODO durch Spring Framework ermitteln
-                    iVal = TypeMapperUtils.getDefaults().getIntegerMapper().map(
+                    iVal = this.getIIntegerMapper().map(
                             sPreparedString,
                             (String) null
                     );
@@ -145,6 +143,14 @@ public interface ICharacterMapper
             }
         }
         return cRetVal;
+    }
+
+    /**
+     * getIIntegerMapper
+     * @return
+     */
+    default IIntegerMapper getIIntegerMapper() {
+        return TypeMapperUtils.getDefaults().getIntegerMapper();
     }
 
 }

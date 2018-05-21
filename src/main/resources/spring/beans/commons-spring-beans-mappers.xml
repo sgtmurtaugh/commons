@@ -33,10 +33,11 @@
                             <entry key="java.lang.Character">
                                    <list value-type="java.lang.Character">
                                           <value>1</value>
-                                          <value>j</value>
-                                          <value>J</value>
-                                          <value>y</value>
+                                          <value>+</value>
+                                          <value>T</value>
+                                          <value>t</value>
                                           <value>Y</value>
+                                          <value>y</value>
                                    </list>
                             </entry>
                             <entry key="java.lang.Integer">
@@ -47,14 +48,17 @@
                             <entry key="java.lang.String">
                                    <list value-type="java.lang.String">
                                           <value>1</value>
-                                          <value>erfolg</value>
-                                          <value>j</value>
-                                          <value>ja</value>
+                                          <value>forward</value>
+                                          <value>next</value>
                                           <value>ok</value>
                                           <value>okay</value>
+                                          <value>on</value>
+                                          <value>plus</value>
+                                          <value>+</value>
                                           <value>success</value>
                                           <value>successful</value>
-                                          <value>wahr</value>
+                                          <value>t</value>
+                                          <value>true</value>
                                           <value>y</value>
                                           <value>yes</value>
                                    </list>
@@ -66,12 +70,13 @@
                             <entry key="java.lang.Character">
                                    <list value-type="java.lang.Character">
                                           <value>0</value>
-                                          <value>f</value>
                                           <value>F</value>
-                                          <value>n</value>
+                                          <value>f</value>
                                           <value>N</value>
-                                          <value>x</value>
+                                          <value>n</value>
+                                          <value>-</value>
                                           <value>X</value>
+                                          <value>x</value>
                                    </list>
                             </entry>
                             <entry key="java.lang.Integer">
@@ -82,13 +87,19 @@
                             <entry key="java.lang.String">
                                    <list value-type="java.lang.String">
                                           <value>0</value>
+                                          <value>back</value>
+                                          <value>break</value>
+                                          <value>cancel</value>
                                           <value>error</value>
+                                          <value>err</value>
+                                          <value>fail</value>
                                           <value>failure</value>
-                                          <value>falsch</value>
-                                          <value>fehler</value>
+                                          <value>false</value>
                                           <value>n</value>
-                                          <value>nein</value>
                                           <value>no</value>
+                                          <value>off</value>
+                                          <value>minus</value>
+                                          <value>-</value>
                                           <value>wrong</value>
                                           <value>x</value>
                                    </list>
