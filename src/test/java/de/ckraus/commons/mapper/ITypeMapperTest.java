@@ -355,4 +355,53 @@ class ITypeMapperTest {
         assertEquals( ANOTHER_DEFAULT_VALUE,
                 mapper.map( (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY), true, true, ANOTHER_DEFAULT_VALUE ) );
     }
+
+    @Test
+    public void prepareStringToMap() {
+        assertEquals( null,
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__NO_VALUE), false, false ) );
+        assertEquals( null,
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__NO_VALUE), false, true ) );
+        assertEquals( null,
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__NO_VALUE), true, false ) );
+        assertEquals( null,
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__NO_VALUE), true, true ) );
+
+        assertEquals( getParameters().get(PARAMS_KEY__STRING),
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__STRING), false, false ) );
+        assertEquals( getParameters().get(PARAMS_KEY__STRING),
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__STRING), false, true ) );
+        assertEquals( getParameters().get(PARAMS_KEY__STRING),
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__STRING), true, false ) );
+        assertEquals( getParameters().get(PARAMS_KEY__STRING),
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__STRING), true, true ) );
+
+        assertEquals( "",
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__STRING__EMPTY), false, false ) );
+        assertEquals( null,
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__STRING__EMPTY), false, true ) );
+        assertEquals( "",
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__STRING__EMPTY), true, false ) );
+        assertEquals( null,
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__STRING__EMPTY), true, true ) );
+
+        assertEquals( getParameters().get(PARAMS_KEY__STRING__UNTRIMMED),
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED), false, false ) );
+        assertEquals( getParameters().get(PARAMS_KEY__STRING__UNTRIMMED),
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED), false, true ) );
+        assertEquals( ((String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED)).trim(),
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED), true, false ) );
+        assertEquals( ((String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED)).trim(),
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED), true, true ) );
+
+        assertEquals( getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY),
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY), false, false ) );
+        assertEquals( getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY),
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY), false, true ) );
+        assertEquals( "",
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY), true, false ) );
+        assertEquals( null,
+                mapper.prepareStringToMap( (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY), true, true ) );
+
+    }
 }

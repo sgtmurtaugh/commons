@@ -157,7 +157,7 @@ public interface IBooleanMapper
             Boolean defaultValue
     ) {
         Boolean b = defaultValue;
-        String preparedString = this.prepareStringToParse(
+        String preparedString = this.prepareStringToMap(
                 s,
                 bTrim,
                 bEmptyIsNull

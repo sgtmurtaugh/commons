@@ -1,3 +1,8 @@
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.ext.XLogger;
+import org.slf4j.ext.XLoggerFactory;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiPredicate;
@@ -14,11 +19,10 @@ public class TestMain {
     private static String s;
 
     public static void main (String ... arg) {
-//        Byte b = (byte)366;
-//        byte b2 = 11;
-//
-//        System.out.println( "b: " + b );
 //        Predicate<Character> isDigit = (Character c) -> Character.isDigit(c);
+
+        Logger logger = LoggerFactory.getLogger(TestMain.class);
+        XLogger xlogger = XLoggerFactory.getXLogger(TestMain.class);
 
         List<String> names = Arrays.asList("  jutta   ", "kevin", "chantal", "", null);
         names.forEach(System.out::println);

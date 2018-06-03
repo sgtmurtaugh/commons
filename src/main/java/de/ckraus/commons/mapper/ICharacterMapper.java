@@ -112,7 +112,7 @@ public interface ICharacterMapper
             Character defaultValue
     ) {
         Character cRetVal = defaultValue;
-        String sPreparedString = this.prepareStringToParse(
+        String sPreparedString = this.prepareStringToMap(
                 s,
                 bTrim,
                 bEmptyIsNull

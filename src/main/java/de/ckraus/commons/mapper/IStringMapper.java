@@ -20,7 +20,7 @@ public interface IStringMapper
             String defaultValue
     ) {
         String sRetVal = defaultValue;
-        String sPrepared = prepareStringToParse(
+        String sPrepared = this.prepareStringToMap(
                 s,
                 bTrim,
                 bEmptyIsNull

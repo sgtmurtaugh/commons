@@ -31,16 +31,16 @@ public interface ITypeMapper<E> {
     }
 
     /**
-     * prepareStringToParse
+     * prepareStringToMap
      * @param s the string to prepare if necessary
      * @param bTrim flag for trimming the string
      * @param bEmptyIsNull flag for using null, when the given string is empty
-     * @return a prepared String for parsing. The flags are evaluated and the string is reworked if necessary. When the
+     * @return a prepared String for mapping. The flags are evaluated and the string is reworked if necessary. When the
      * trim param is true, trim is performed on the string. When the string is empty and the emptyIsNull param is
      * true, null will be returned.
      * TODO: set to protected in Java 9
      */
-    default String prepareStringToParse(
+    default String prepareStringToMap(
             String s,
             boolean bTrim,
             boolean bEmptyIsNull
