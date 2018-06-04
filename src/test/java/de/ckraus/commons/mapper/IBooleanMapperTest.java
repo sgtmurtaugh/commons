@@ -6,6 +6,34 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class IBooleanMapperTest {
 
+    private final static char FALSE_CHAR__0             = '0';
+    private final static char FALSE_CHAR__N             = 'N';
+    private final static char FALSE_CHAR__N_LOWERCASE   = 'n';
+
+    private final static int FALSE_INT__0   = 0;
+
+    private final static String FALSE_STRING__0     = "0";
+    private final static String FALSE_STRING__FALSE = "false";
+    private final static String FALSE_STRING__N     = "n";
+    private final static String FALSE_STRING__NO    = "no";
+
+    private final static char TRUE_CHAR__1              = '1';
+    private final static char TRUE_CHAR__Y              = 'Y';
+    private final static char TRUE_CHAR__Y_LOWERCASE    = 'y';
+
+    private final static int TRUE_INT__1    = 1;
+
+    private final static String TRUE_STRING__1      = "1";
+    private final static String TRUE_STRING__TRUE   = "true";
+    private final static String TRUE_STRING__Y      = "y";
+    private final static String TRUE_STRING__YES    = "yes";
+
+    private final static char INVALID_CHAR__2   = '2';
+
+    private final static int INVALID_INT__2 = 2;
+
+    private final static String INVALID_STRING__2 = "2";
+
     private final boolean DEFAULT               = Boolean.FALSE;
     private final boolean DUMMY_IMPLEMENTATION  = Boolean.FALSE;
 
@@ -49,26 +77,27 @@ class IBooleanMapperTest {
         assertTrue( mapper.isMappable(Boolean.FALSE) );
 
         assertFalse( mapper.isMappable(null) );
-        assertFalse( mapper.isMappable('0') );
-        assertFalse( mapper.isMappable('1') );
-        assertFalse( mapper.isMappable('N') );
-        assertFalse( mapper.isMappable('n') );
-        assertFalse( mapper.isMappable('Y') );
-        assertFalse( mapper.isMappable('y') );
-        assertFalse( mapper.isMappable('2') );
+        assertFalse( mapper.isMappable(FALSE_CHAR__0) );
+        assertFalse( mapper.isMappable(TRUE_CHAR__1) );
+        assertFalse( mapper.isMappable(FALSE_CHAR__N) );
+        assertFalse( mapper.isMappable(FALSE_CHAR__N_LOWERCASE) );
+        assertFalse( mapper.isMappable(TRUE_CHAR__Y) );
+        assertFalse( mapper.isMappable(TRUE_CHAR__Y_LOWERCASE) );
+        assertFalse( mapper.isMappable(INVALID_CHAR__2) );
 
-        assertFalse( mapper.isMappable(0) );
-        assertFalse( mapper.isMappable(1) );
-        assertFalse( mapper.isMappable(2) );
+        assertFalse( mapper.isMappable(FALSE_INT__0) );
+        assertFalse( mapper.isMappable(TRUE_INT__1) );
+        assertFalse( mapper.isMappable(INVALID_INT__2) );
 
-        assertFalse( mapper.isMappable("0") );
-        assertFalse( mapper.isMappable("1") );
-        assertFalse( mapper.isMappable("n") );
-        assertFalse( mapper.isMappable("y") );
-        assertFalse( mapper.isMappable("no") );
-        assertFalse( mapper.isMappable("yes") );
-        assertFalse( mapper.isMappable("false") );
-        assertFalse( mapper.isMappable("true") );
+        assertFalse( mapper.isMappable(FALSE_STRING__0) );
+        assertFalse( mapper.isMappable(TRUE_STRING__1) );
+        assertFalse( mapper.isMappable(FALSE_STRING__N) );
+        assertFalse( mapper.isMappable(TRUE_STRING__Y) );
+        assertFalse( mapper.isMappable(FALSE_STRING__NO) );
+        assertFalse( mapper.isMappable(TRUE_STRING__YES) );
+        assertFalse( mapper.isMappable(FALSE_STRING__FALSE) );
+        assertFalse( mapper.isMappable(TRUE_STRING__TRUE) );
+        assertFalse( mapper.isMappable(INVALID_STRING__2) );
     }
 
     /**
@@ -77,13 +106,13 @@ class IBooleanMapperTest {
     @Test
     void mapCharacter() {
         assertNull( mapper.map((Character) null) );
-        assertNull( mapper.map('0') );
-        assertNull( mapper.map('1') );
-        assertNull( mapper.map('N') );
-        assertNull( mapper.map('n') );
-        assertNull( mapper.map('Y') );
-        assertNull( mapper.map('y') );
-        assertNull( mapper.map('2') );
+        assertNull( mapper.map(FALSE_CHAR__0) );
+        assertNull( mapper.map(TRUE_CHAR__1) );
+        assertNull( mapper.map(FALSE_CHAR__N) );
+        assertNull( mapper.map(FALSE_CHAR__N_LOWERCASE) );
+        assertNull( mapper.map(TRUE_CHAR__Y) );
+        assertNull( mapper.map(TRUE_CHAR__Y_LOWERCASE) );
+        assertNull( mapper.map(INVALID_CHAR__2) );
     }
 
     /**
@@ -92,13 +121,13 @@ class IBooleanMapperTest {
     @Test
     void mapCharacterWithDefault() {
         assertFalse( mapper.map((Character) null, DEFAULT) );
-        assertFalse( mapper.map('0', DEFAULT) );
-        assertFalse( mapper.map('1', DEFAULT) );
-        assertFalse( mapper.map('N', DEFAULT) );
-        assertFalse( mapper.map('n', DEFAULT) );
-        assertFalse( mapper.map('Y', DEFAULT) );
-        assertFalse( mapper.map('y', DEFAULT) );
-        assertFalse( mapper.map('2', DEFAULT) );
+        assertFalse( mapper.map(FALSE_CHAR__0, DEFAULT) );
+        assertFalse( mapper.map(TRUE_CHAR__1, DEFAULT) );
+        assertFalse( mapper.map(FALSE_CHAR__N, DEFAULT) );
+        assertFalse( mapper.map(FALSE_CHAR__N_LOWERCASE, DEFAULT) );
+        assertFalse( mapper.map(TRUE_CHAR__Y, DEFAULT) );
+        assertFalse( mapper.map(TRUE_CHAR__Y_LOWERCASE, DEFAULT) );
+        assertFalse( mapper.map(INVALID_CHAR__2, DEFAULT) );
     }
 
     /**
@@ -107,9 +136,9 @@ class IBooleanMapperTest {
     @Test
     void mapInteger() {
         assertNull( mapper.map((Integer) null) );
-        assertNull( mapper.map(0) );
-        assertNull( mapper.map(1) );
-        assertNull( mapper.map(2) );
+        assertNull( mapper.map(FALSE_INT__0) );
+        assertNull( mapper.map(TRUE_INT__1) );
+        assertNull( mapper.map(INVALID_INT__2) );
     }
 
     /**
@@ -118,9 +147,9 @@ class IBooleanMapperTest {
     @Test
     void mapIntegerWithDefault() {
         assertFalse( mapper.map((Integer) null, DEFAULT) );
-        assertFalse( mapper.map(0, DEFAULT) );
-        assertFalse( mapper.map(1, DEFAULT) );
-        assertFalse( mapper.map(2, DEFAULT) );
+        assertFalse( mapper.map(FALSE_INT__0, DEFAULT) );
+        assertFalse( mapper.map(TRUE_INT__1, DEFAULT) );
+        assertFalse( mapper.map(INVALID_INT__2, DEFAULT) );
     }
 
     /**
@@ -129,14 +158,15 @@ class IBooleanMapperTest {
     @Test
     void mapString() {
         assertNull( mapper.map((String) null) );
-        assertNull( mapper.map("0") );
-        assertNull( mapper.map("1") );
-        assertNull( mapper.map("n") );
-        assertNull( mapper.map("y") );
-        assertNull( mapper.map("no") );
-        assertNull( mapper.map("yes") );
-        assertNull( mapper.map("false") );
-        assertNull( mapper.map("true") );
+        assertNull( mapper.map(FALSE_STRING__0) );
+        assertNull( mapper.map(TRUE_STRING__1) );
+        assertNull( mapper.map(FALSE_STRING__N) );
+        assertNull( mapper.map(TRUE_STRING__Y) );
+        assertNull( mapper.map(FALSE_STRING__NO) );
+        assertNull( mapper.map(TRUE_STRING__YES) );
+        assertNull( mapper.map(FALSE_STRING__FALSE) );
+        assertNull( mapper.map(TRUE_STRING__TRUE) );
+        assertNull( mapper.map(INVALID_STRING__2) );
     }
 
     /**
@@ -145,14 +175,15 @@ class IBooleanMapperTest {
     @Test
     void mapStringWithDefault() {
         assertFalse( mapper.map((String) null, DEFAULT) );
-        assertFalse( mapper.map("0", DEFAULT) );
-        assertFalse( mapper.map("1", DEFAULT) );
-        assertFalse( mapper.map("n", DEFAULT) );
-        assertFalse( mapper.map("y", DEFAULT) );
-        assertFalse( mapper.map("no", DEFAULT) );
-        assertFalse( mapper.map("yes", DEFAULT) );
-        assertFalse( mapper.map("false", DEFAULT) );
-        assertFalse( mapper.map("true", DEFAULT) );
+        assertFalse( mapper.map(FALSE_STRING__0, DEFAULT) );
+        assertFalse( mapper.map(TRUE_STRING__1, DEFAULT) );
+        assertFalse( mapper.map(FALSE_STRING__N, DEFAULT) );
+        assertFalse( mapper.map(TRUE_STRING__Y, DEFAULT) );
+        assertFalse( mapper.map(FALSE_STRING__NO, DEFAULT) );
+        assertFalse( mapper.map(TRUE_STRING__YES, DEFAULT) );
+        assertFalse( mapper.map(FALSE_STRING__FALSE, DEFAULT) );
+        assertFalse( mapper.map(TRUE_STRING__TRUE, DEFAULT) );
+        assertFalse( mapper.map(INVALID_STRING__2, DEFAULT) );
     }
 
     /**
@@ -180,26 +211,27 @@ class IBooleanMapperTest {
         assertTrue( mapper.isFalse(Boolean.FALSE) );
 
         assertFalse( mapper.isFalse((Object) null) );
-        assertFalse( mapper.isFalse('0') );
-        assertFalse( mapper.isFalse('1') );
-        assertFalse( mapper.isFalse('N') );
-        assertFalse( mapper.isFalse('n') );
-        assertFalse( mapper.isFalse('Y') );
-        assertFalse( mapper.isFalse('y') );
-        assertFalse( mapper.isFalse('2') );
+        assertFalse( mapper.isFalse(FALSE_CHAR__0) );
+        assertFalse( mapper.isFalse(TRUE_CHAR__1) );
+        assertFalse( mapper.isFalse(FALSE_CHAR__N) );
+        assertFalse( mapper.isFalse(FALSE_CHAR__N_LOWERCASE) );
+        assertFalse( mapper.isFalse(TRUE_CHAR__Y) );
+        assertFalse( mapper.isFalse(TRUE_CHAR__Y_LOWERCASE) );
+        assertFalse( mapper.isFalse(INVALID_CHAR__2) );
 
-        assertFalse( mapper.isFalse(0) );
-        assertFalse( mapper.isFalse(1) );
-        assertFalse( mapper.isFalse(2) );
+        assertFalse( mapper.isFalse(FALSE_INT__0) );
+        assertFalse( mapper.isFalse(TRUE_INT__1) );
+        assertFalse( mapper.isFalse(INVALID_INT__2) );
 
-        assertFalse( mapper.isFalse("0") );
-        assertFalse( mapper.isFalse("1") );
-        assertFalse( mapper.isFalse("n") );
-        assertFalse( mapper.isFalse("y") );
-        assertFalse( mapper.isFalse("no") );
-        assertFalse( mapper.isFalse("yes") );
-        assertFalse( mapper.isFalse("false") );
-        assertFalse( mapper.isFalse("true") );
+        assertFalse( mapper.isFalse(FALSE_STRING__0) );
+        assertFalse( mapper.isFalse(TRUE_STRING__1) );
+        assertFalse( mapper.isFalse(FALSE_STRING__N) );
+        assertFalse( mapper.isFalse(TRUE_STRING__Y) );
+        assertFalse( mapper.isFalse(FALSE_STRING__NO) );
+        assertFalse( mapper.isFalse(TRUE_STRING__YES) );
+        assertFalse( mapper.isFalse(FALSE_STRING__FALSE) );
+        assertFalse( mapper.isFalse(TRUE_STRING__TRUE) );
+        assertFalse( mapper.isFalse(INVALID_STRING__2) );
     }
 
     /**
@@ -235,26 +267,27 @@ class IBooleanMapperTest {
         assertFalse( mapper.isTrue(Boolean.FALSE) );
 
         assertFalse( mapper.isTrue((Object) null) );
-        assertFalse( mapper.isTrue('0') );
-        assertFalse( mapper.isTrue('1') );
-        assertFalse( mapper.isTrue('N') );
-        assertFalse( mapper.isTrue('n') );
-        assertFalse( mapper.isTrue('Y') );
-        assertFalse( mapper.isTrue('y') );
-        assertFalse( mapper.isTrue('2') );
+        assertFalse( mapper.isTrue(FALSE_CHAR__0) );
+        assertFalse( mapper.isTrue(TRUE_CHAR__1) );
+        assertFalse( mapper.isTrue(FALSE_CHAR__N) );
+        assertFalse( mapper.isTrue(FALSE_CHAR__N_LOWERCASE) );
+        assertFalse( mapper.isTrue(TRUE_CHAR__Y) );
+        assertFalse( mapper.isTrue(TRUE_CHAR__Y_LOWERCASE) );
+        assertFalse( mapper.isTrue(INVALID_CHAR__2) );
 
-        assertFalse( mapper.isTrue(0) );
-        assertFalse( mapper.isTrue(1) );
-        assertFalse( mapper.isTrue(2) );
+        assertFalse( mapper.isTrue(FALSE_INT__0) );
+        assertFalse( mapper.isTrue(TRUE_INT__1) );
+        assertFalse( mapper.isTrue(INVALID_INT__2) );
 
-        assertFalse( mapper.isTrue("0") );
-        assertFalse( mapper.isTrue("1") );
-        assertFalse( mapper.isTrue("n") );
-        assertFalse( mapper.isTrue("y") );
-        assertFalse( mapper.isTrue("no") );
-        assertFalse( mapper.isTrue("yes") );
-        assertFalse( mapper.isTrue("false") );
-        assertFalse( mapper.isTrue("true") );
+        assertFalse( mapper.isTrue(FALSE_STRING__0) );
+        assertFalse( mapper.isTrue(TRUE_STRING__1) );
+        assertFalse( mapper.isTrue(FALSE_STRING__N) );
+        assertFalse( mapper.isTrue(TRUE_STRING__Y) );
+        assertFalse( mapper.isTrue(FALSE_STRING__NO) );
+        assertFalse( mapper.isTrue(TRUE_STRING__YES) );
+        assertFalse( mapper.isTrue(FALSE_STRING__FALSE) );
+        assertFalse( mapper.isTrue(TRUE_STRING__TRUE) );
+        assertFalse( mapper.isTrue(INVALID_STRING__2) );
     }
 
     /**
