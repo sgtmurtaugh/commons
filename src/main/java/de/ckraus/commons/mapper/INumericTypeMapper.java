@@ -924,8 +924,13 @@ public interface INumericTypeMapper<E extends Number>
             E defaultValue
     ) {
         E returnValue = defaultValue;
+        String preparedString = this.prepareStringToMap(
+                sNumber,
+                this.isTrimStrings(),
+                this.isEmptyStringNull()
+        );
 
-        if (StringUtils.isNotEmpty(sNumber)) {
+        if (StringUtils.isNotEmpty(preparedString)) {
             DecimalFormat decimalFormat = this.getDecimalFormat(
                     locale,
                     sPattern,
@@ -934,7 +939,7 @@ public interface INumericTypeMapper<E extends Number>
 
             try {
                 decimalFormat.setParseBigDecimal(true);
-                BigDecimal bigDecimal = (BigDecimal) decimalFormat.parse(sNumber);
+                BigDecimal bigDecimal = (BigDecimal) decimalFormat.parse(preparedString);
 
                 if (null != bigDecimal) {
                     returnValue = this.toType(bigDecimal);
