@@ -163,30 +163,12 @@ public interface IBooleanMapper
                 bEmptyIsNull
         );
 
-        if (null != preparedString) {
-            String val = preparedString;
-
-            // optional trim
-            if (bTrim) {
-                val = val.trim();
-            }
-
-            // optional empty check
-            if (bEmptyIsNull
-                    && val.length() == 0) {
-                val = null;
-            }
-
-            // true / false check
-            if (null != val) {
-                if (this.isFalse(val)) {
-                    b = Boolean.FALSE;
-                }
-                else
-                if (this.isTrue(val)) {
-                    b = Boolean.TRUE;
-                }
-            }
+        if (this.isFalse(preparedString)) {
+            b = Boolean.FALSE;
+        }
+        else
+        if (this.isTrue(preparedString)) {
+            b = Boolean.TRUE;
         }
         return b;
     }
