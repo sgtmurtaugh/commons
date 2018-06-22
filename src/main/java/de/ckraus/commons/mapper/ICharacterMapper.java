@@ -1,6 +1,7 @@
 package de.ckraus.commons.mapper;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 
 @SuppressWarnings({"javadoc"})
 public interface ICharacterMapper
@@ -112,34 +113,32 @@ public interface ICharacterMapper
             Character defaultValue
     ) {
         Character cRetVal = defaultValue;
-        String sPreparedString = this.prepareStringToMap(
+        String preparedString = this.prepareStringToMap(
                 s,
                 bTrim,
                 bEmptyIsNull
         );
 
-        if ( null != sPreparedString ) {
-            if ( ! sPreparedString.isEmpty() ) {
-                Integer iVal = null;
+        if (StringUtils.isNotEmpty(preparedString)) {
+            Integer iVal = null;
 
-                if ( bEvaluateCodePoints ) {
-                    // Pruefen, ob der String evtl ein Integerwert ist
-                    iVal = this.getIIntegerMapper().map(
-                            sPreparedString,
-                            (String) null
-                    );
-                }
+            if ( bEvaluateCodePoints ) {
+                // Pruefen, ob der String evtl ein Integerwert ist
+                iVal = this.getIIntegerMapper().map(
+                        preparedString,
+                        (String) null
+                );
+            }
 
-                if (iVal != null) {
-                    char[] acVals = Character.toChars(iVal);
+            if (iVal != null) {
+                char[] acVals = Character.toChars(iVal);
 
-                    if (!ArrayUtils.isEmpty(acVals)) {
-                        cRetVal = acVals[0];
-                    }
+                if (!ArrayUtils.isEmpty(acVals)) {
+                    cRetVal = acVals[0];
                 }
-                else {
-                    cRetVal = sPreparedString.charAt(0);
-                }
+            }
+            else {
+                cRetVal = preparedString.charAt(0);
             }
         }
         return cRetVal;
