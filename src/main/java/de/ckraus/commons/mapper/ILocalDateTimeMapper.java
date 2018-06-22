@@ -13,6 +13,33 @@ public interface ILocalDateTimeMapper
 
     /**
      * map
+     * @param s - string to map
+     * @param bTrim - default flag for string handling
+     * @param bEmptyIsNull - default flag for empty string handling
+     * @param defaultValue - The default value
+     * @return
+     * <p>Delegates to {@link #map(String, DateTimeFormatter, LocalDateTime)} with {@link DateTimeFormatter#ISO_DATE_TIME}
+     */
+    @Override
+    default LocalDateTime map(
+            String s,
+            boolean bTrim,
+            boolean bEmptyIsNull,
+            LocalDateTime defaultValue
+    ) {
+        return this.map(
+                this.prepareStringToMap(
+                        s,
+                        bTrim,
+                        bEmptyIsNull
+                ),
+                DateTimeFormatter.ISO_DATE_TIME,
+                defaultValue
+        );
+    }
+
+    /**
+     * map
      * @param s
      * @param formatter
      * @param defaultValue
@@ -25,12 +52,17 @@ public interface ILocalDateTimeMapper
             LocalDateTime defaultValue
     ) {
         LocalDateTime localDateTime = defaultValue;
+        String preparedString = this.prepareStringToMap(
+                s,
+                this.isTrimStrings(),
+                this.isEmptyStringNull()
+        );
 
-        if (StringUtils.isNotEmpty(s)) {
+        if (StringUtils.isNotEmpty(preparedString)) {
             if (null != formatter) {
                 try {
                     localDateTime = LocalDateTime.parse(
-                            s,
+                            preparedString,
                             formatter
                     );
                 }
