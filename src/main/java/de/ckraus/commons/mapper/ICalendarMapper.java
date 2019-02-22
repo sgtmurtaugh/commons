@@ -4,7 +4,7 @@ import java.text.DateFormat;
 import java.util.Calendar;
 
 @SuppressWarnings({ "javadoc", "unused" })
-public interface ICalenderMapper<E extends Calendar>
+public interface ICalendarMapper<E extends Calendar>
     extends ITypeMapper<E> {
 
     boolean DEFAULT_LENIENT = Boolean.FALSE;

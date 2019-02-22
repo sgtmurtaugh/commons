@@ -11,7 +11,7 @@ import java.util.GregorianCalendar;
 
 @SuppressWarnings({ "javadoc", "unused" })
 public interface IGregorianCalendarMapper
-    extends ICalenderMapper<GregorianCalendar> {
+    extends ICalendarMapper<GregorianCalendar> {
 
     /**
      * map
