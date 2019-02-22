@@ -10,7 +10,7 @@ import java.util.GregorianCalendar;
 @Setter(AccessLevel.PROTECTED)
 @SuppressWarnings({"javadoc", "unused"})
 public class GregorianCalendarMapper
-        extends AbstractTypeMapper<GregorianCalendar>
+        extends AbstractCalendarMapper<GregorianCalendar>
         implements IGregorianCalendarMapper {
 
     private final static String CLASS   = GregorianCalendarMapper.class.getSimpleName();
