@@ -15,7 +15,7 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 public interface IPdfFieldModifier
     extends IPdfModifer {
 
-    Boolean DEFAULT_CREATE_PDF_ACRO_FROM_IF_NOT_EXISTS = Boolean.FALSE;
+    Boolean DEFAULT_CREATE_PDF_ACRO_FORM_IF_NOT_EXISTS = Boolean.FALSE;
 
 
     /**
@@ -23,7 +23,7 @@ public interface IPdfFieldModifier
      * @return
      */
     default boolean isCreatePdfAcroFormIfNotExists() {
-        return DEFAULT_CREATE_PDF_ACRO_FROM_IF_NOT_EXISTS;
+        return DEFAULT_CREATE_PDF_ACRO_FORM_IF_NOT_EXISTS;
     }
 
     /**
