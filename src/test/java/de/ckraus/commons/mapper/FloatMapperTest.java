@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FloatMapperTest {
 
+    // create mapper instance
+    FloatMapper mapper = new FloatMapper();
+
     @Test
     void map() {
     }

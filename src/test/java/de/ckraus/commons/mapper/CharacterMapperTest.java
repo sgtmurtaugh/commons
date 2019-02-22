@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CharacterMapperTest {
 
+    // create mapper instance
+    CharacterMapper mapper = new CharacterMapper();
+
     @Test
     void map() {
     }

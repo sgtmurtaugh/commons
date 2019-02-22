@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LocalDateTimeMapperTest {
 
+    // create mapper instance
+    LocalDateTimeMapper mapper = new LocalDateTimeMapper();
+
     @Test
     void map() {
     }

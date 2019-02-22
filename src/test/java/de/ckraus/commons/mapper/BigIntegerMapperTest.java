@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BigIntegerMapperTest {
 
+    // create mapper instance
+    IBigIntegerMapper mapper = new BigIntegerMapper();
+
     @Test
     void map() {
     }

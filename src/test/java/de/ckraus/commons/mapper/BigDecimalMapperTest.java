@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BigDecimalMapperTest {
 
+    // create mapper instance
+    IBigDecimalMapper mapper = new BigDecimalMapper();
+
     @Test
     void map() {
     }

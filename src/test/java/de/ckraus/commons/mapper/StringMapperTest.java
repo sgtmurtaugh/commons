@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StringMapperTest {
 
+    // create mapper instance
+    StringMapper mapper = new StringMapper();
+
     @Test
     void map() {
     }
