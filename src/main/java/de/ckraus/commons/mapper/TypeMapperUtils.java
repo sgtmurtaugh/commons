@@ -18,9 +18,11 @@ public class TypeMapperUtils {
     private final static String CLASS = TypeMapperUtils.class.getSimpleName();
     protected static Logger log = LoggerFactory.getLogger(TypeMapperUtils.class);
 
+    private static TypeMapperUtils instance = null;
+
     private ConcurrentMap<Class<? extends ITypeMapper>, ITypeMapper> mapRegistredTypeMappers = null;
 
-    private DefaultTypeMappers defaultTypeMappers;
+    private DefaultTypeMappers defaultTypeMappers = null;
 
 
     /**
@@ -34,23 +36,23 @@ public class TypeMapperUtils {
      * getInstance
      * @return
      */
-    public static synchronized TypeMapperUtils getInstance() {
-        // TODO Application Context ermitteln nicht erzeugen!
-        TypeMapperUtils typeMapperUtils = null;
+    protected static synchronized TypeMapperUtils getInstance() {
+        if (null == instance) {
+            // TODO Application Context ermitteln nicht erzeugen!
+            try {
+                ApplicationContext context = CommonsUtils.getInstance().getApplicationContext();
+                instance = (TypeMapperUtils) context.getBean("typeMapperUtils");
+            }
+            catch (BeansException be) {
+                // TODO: logging
+            }
 
-        try {
-            ApplicationContext context = CommonsUtils.getInstance().getApplicationContext();
-            typeMapperUtils = (TypeMapperUtils) context.getBean("typeMapperUtils");
+            if (null == instance) {
+                // TODO: logging
+                instance = new TypeMapperUtils();
+            }
         }
-        catch (BeansException be) {
-            // TODO: logging
-        }
-
-        if (null == typeMapperUtils) {
-            // TODO: logging
-            typeMapperUtils = new TypeMapperUtils();
-        }
-        return typeMapperUtils;
+        return instance;
     }
 
 
@@ -58,14 +60,32 @@ public class TypeMapperUtils {
 
 
     /**
+     * get
+     * @return
+     */
+    public static <T extends ITypeMapper<?>> T get( Class<T> clazz ) {
+        final String METHOD = CLASS + ".get(Class<T>)";
+
+        T mapper = null;
+
+        if ( null != clazz ) {
+            mapper = clazz.cast(
+                    getInstance().getTypeMapper( clazz )
+            );
+        }
+        return mapper;
+    }
+
+    /**
      * getRegisteredTypeMappers
      * @return
      */
     public ConcurrentMap<Class<? extends ITypeMapper>, ITypeMapper> getRegisteredTypeMappers() {
         if ( null == mapRegistredTypeMappers ) {
-            this.setRegisteredTypeMappers(
-                    new ConcurrentHashMap<>()
-            );
+//            this.setRegisteredTypeMappers(
+//                    new ConcurrentHashMap<>()
+//            );
+            mapRegistredTypeMappers = new ConcurrentHashMap<>();
         }
         return mapRegistredTypeMappers;
     }
@@ -74,7 +94,7 @@ public class TypeMapperUtils {
      * setRegisteredTypeMappers
      * @param mapMappers
      */
-    protected void setRegisteredTypeMappers(
+    private void setRegisteredTypeMappers(
             ConcurrentMap<Class<? extends ITypeMapper>, ITypeMapper> mapMappers) {
         this.mapRegistredTypeMappers = mapMappers;
     }
@@ -113,7 +133,7 @@ public class TypeMapperUtils {
         if (null == defaultTypeMappers) {
             defaultTypeMappers = new DefaultTypeMappers();
         }
-        return this.defaultTypeMappers;
+        return defaultTypeMappers;
     }
 
     /**
@@ -123,8 +143,8 @@ public class TypeMapperUtils {
      * @return
      */
     @SuppressWarnings("unchecked")
-    public <T extends ITypeMapper> T getTypeMapper(Class<? extends ITypeMapper> clazzTypeMapper ) {
-        final String METHOD = CLASS + ".getTypeMapper(Class<? extends ITypeMapper>)";
+    public <T extends ITypeMapper> T getTypeMapper(Class<T> clazzTypeMapper ) {
+        final String METHOD = CLASS + ".getTypeMapper(Class<T>)";
 //        log.logEnter(METHOD, clazzTypeMapper);
 
         T typeMapper = null;
@@ -152,7 +172,7 @@ public class TypeMapperUtils {
     /**
      * Static Nested Class DefaultTypeMappers
      */
-    public class DefaultTypeMappers {
+    protected class DefaultTypeMappers {
 
         /**
          * Constructor
@@ -166,7 +186,7 @@ public class TypeMapperUtils {
          * @return
          */
         public BigDecimalMapper getBigDecimalMapper() {
-            return getTypeMapper( BigDecimalMapper.class );
+            return get( BigDecimalMapper.class );
         }
 
         /**
@@ -174,7 +194,7 @@ public class TypeMapperUtils {
          * @return
          */
         public BigIntegerMapper getBigIntegerMapper() {
-            return getTypeMapper( BigIntegerMapper.class );
+            return get( BigIntegerMapper.class );
         }
 
         /**
@@ -182,7 +202,7 @@ public class TypeMapperUtils {
          * @return
          */
         public BooleanMapper getBooleanMapper() {
-            return getTypeMapper( BooleanMapper.class );
+            return get( BooleanMapper.class );
         }
 
         /**
@@ -190,7 +210,7 @@ public class TypeMapperUtils {
          * @return
          */
         public ByteMapper getByteMapper() {
-            return getTypeMapper( ByteMapper.class );
+            return get( ByteMapper.class );
         }
 
         /**
@@ -198,16 +218,15 @@ public class TypeMapperUtils {
          * @return
          */
         public CharacterMapper getCharacterMapper() {
-            return getTypeMapper( CharacterMapper.class );
+            return get( CharacterMapper.class );
         }
-
 
         /**
          * getDateMapper
          * @return
          */
         public DateMapper getDateMapper() {
-            return getTypeMapper( DateMapper.class );
+            return get( DateMapper.class );
         }
 
         /**
@@ -215,7 +234,7 @@ public class TypeMapperUtils {
          * @return
          */
         public DoubleMapper getDoubleMapper() {
-            return getTypeMapper( DoubleMapper.class );
+            return get( DoubleMapper.class );
         }
 
         /**
@@ -223,15 +242,15 @@ public class TypeMapperUtils {
          * @return
          */
         public FloatMapper getFloatMapper() {
-            return getTypeMapper( FloatMapper.class );
+            return get( FloatMapper.class );
         }
 
         /**
-         * getGregorianCalendarParser
+         * getGregorianCalendarMapper
          * @return
          */
-        public GregorianCalendarMapper getGregorianCalendarParser() {
-            return getTypeMapper( GregorianCalendarMapper.class );
+        public GregorianCalendarMapper getGregorianCalendarMapper() {
+            return get( GregorianCalendarMapper.class );
         }
 
         /**
@@ -239,7 +258,7 @@ public class TypeMapperUtils {
          * @return
          */
         public IntegerMapper getIntegerMapper() {
-            return getTypeMapper( IntegerMapper.class );
+            return get( IntegerMapper.class );
         }
 
         /**
@@ -247,7 +266,7 @@ public class TypeMapperUtils {
          * @return
          */
         public LocalDateMapper getLocalDateMapper() {
-            return getTypeMapper( LocalDateMapper.class );
+            return get( LocalDateMapper.class );
         }
 
         /**
@@ -255,7 +274,7 @@ public class TypeMapperUtils {
          * @return
          */
         public LocalDateTimeMapper getLocalDateTimeMapper() {
-            return getTypeMapper( LocalDateTimeMapper.class );
+            return get( LocalDateTimeMapper.class );
         }
 
         /**
@@ -263,7 +282,7 @@ public class TypeMapperUtils {
          * @return
          */
         public LocalTimeMapper getLocalTimeMapper() {
-            return getTypeMapper( LocalTimeMapper.class );
+            return get( LocalTimeMapper.class );
         }
 
         /**
@@ -271,7 +290,7 @@ public class TypeMapperUtils {
          * @return
          */
         public LongMapper getLongMapper() {
-            return getTypeMapper( LongMapper.class );
+            return get( LongMapper.class );
         }
 
         /**
@@ -279,7 +298,7 @@ public class TypeMapperUtils {
          * @return
          */
         public ShortMapper getShortMapper() {
-            return getTypeMapper( ShortMapper.class );
+            return get( ShortMapper.class );
         }
 
         /**
@@ -287,7 +306,8 @@ public class TypeMapperUtils {
          * @return
          */
         public StringMapper getStringMapper() {
-            return getTypeMapper( StringMapper.class );
+            return get( StringMapper.class );
         }
     }
+
 }
