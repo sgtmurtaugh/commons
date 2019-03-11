@@ -172,7 +172,7 @@ public class TypeMapperUtils {
     /**
      * Static Nested Class DefaultTypeMappers
      */
-    protected class DefaultTypeMappers {
+    public class DefaultTypeMappers {
 
         /**
          * Constructor
