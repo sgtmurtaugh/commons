@@ -17,9 +17,8 @@ class IShortMapperTest {
     private final static Locale locale = Locale.GERMAN;
     private final static String FORMAT_PATTERN = "#,##0.00;(#,##0.00)";
 
-    private final static Short ANOTHER_DEFAULT_VALUE   = new Short("64");
+    private final static Short ANOTHER_DEFAULT_VALUE   = Short.parseShort("64");
 
-    // create mapper instance
     private IShortMapper mapper = new IShortMapper() {};
 
 

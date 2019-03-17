@@ -18,7 +18,6 @@ class IBigDecimalMapperTest {
 
     private final static BigDecimal ANOTHER_DEFAULT_VALUE   = new BigDecimal("123654789.321");
 
-    // create mapper instance
     private IBigDecimalMapper mapper = new IBigDecimalMapper() {};
 
 

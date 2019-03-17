@@ -5,7 +5,6 @@ import java.util.Calendar;
 
 public class ICalendarMapperTest {
 
-    // create mapper instance
     private ICalendarMapper<Calendar> mapper = new ICalendarMapper<Calendar>() {
         @Override
         public Calendar map(String s, boolean bTrim, boolean bEmptyIsNull, Calendar defaultValue) {

@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -156,10 +157,10 @@ public class TypeMapperUtils {
             else {
                 try {
                     typeMapper = (T) this.addRegisteredTypeMapper(
-                            clazzTypeMapper.newInstance()
+                            clazzTypeMapper.getDeclaredConstructor().newInstance()
                     );
                 }
-                catch ( InstantiationException | IllegalAccessException e ) {
+                catch ( InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e ) {
                     e.printStackTrace();
                 }
             }

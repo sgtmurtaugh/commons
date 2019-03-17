@@ -21,7 +21,6 @@ class INumericTypeMapperTest {
 
     private final static Number ANOTHER_DEFAULT_VALUE   = 5113;
 
-    // create mapper instance
     private INumericTypeMapper<Number> mapper = (number) -> number;
 
 

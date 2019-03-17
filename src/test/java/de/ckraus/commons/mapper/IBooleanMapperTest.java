@@ -37,7 +37,6 @@ class IBooleanMapperTest {
     private final boolean DEFAULT               = Boolean.FALSE;
     private final boolean DUMMY_IMPLEMENTATION  = Boolean.FALSE;
 
-    // create mapper instance
     IBooleanMapper mapper = new IBooleanMapper() {
         // Dummy implementations
 

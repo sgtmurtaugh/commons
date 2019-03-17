@@ -17,9 +17,8 @@ class IByteMapperTest {
     private final static Locale locale = Locale.GERMAN;
     private final static String FORMAT_PATTERN = "#,##0.00;(#,##0.00)";
 
-    private final static Byte ANOTHER_DEFAULT_VALUE   = new Byte("64");
+    private final static Byte ANOTHER_DEFAULT_VALUE   = Byte.parseByte("64");
 
-    // create mapper instance
     private IByteMapper mapper = new IByteMapper() {};
 
 

@@ -17,9 +17,8 @@ class IDoubleMapperTest {
     private final static Locale locale = Locale.GERMAN;
     private final static String FORMAT_PATTERN = "#,##0.00;(#,##0.00)";
 
-    private final static Double ANOTHER_DEFAULT_VALUE   = new Double("64");
+    private final static Double ANOTHER_DEFAULT_VALUE   = Double.parseDouble("64");
 
-    // create mapper instance
     private IDoubleMapper mapper = new IDoubleMapper() {};
 
 

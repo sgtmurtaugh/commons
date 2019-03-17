@@ -5,8 +5,7 @@ import java.util.Calendar;
 
 public class AbstractCalendarMapperTest {
 
-    // create mapper instance
-    ITypeMapper<Calendar> mapper = new AbstractCalendarMapper<Calendar>() {
+    ITypeMapper<Calendar> mapper = new AbstractCalendarMapper<>() {
         @Override
         public Calendar map(
                 String s,

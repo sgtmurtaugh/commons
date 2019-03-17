@@ -17,9 +17,8 @@ class IIntegerMapperTest {
     private final static Locale locale = Locale.GERMAN;
     private final static String FORMAT_PATTERN = "#,##0.00;(#,##0.00)";
 
-    private final static Integer ANOTHER_DEFAULT_VALUE   = new Integer("64");
+    private final static Integer ANOTHER_DEFAULT_VALUE   = Integer.parseInt("64");
 
-    // create mapper instance
     private IIntegerMapper mapper = new IIntegerMapper() {};
 
 

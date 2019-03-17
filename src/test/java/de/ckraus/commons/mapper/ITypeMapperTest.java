@@ -13,7 +13,6 @@ class ITypeMapperTest {
 
     private final static Object ANOTHER_DEFAULT_VALUE   = Boolean.TRUE;
 
-    // create mapper instance
     // due to the fact, that all methods delegate to the map(String, boolean, boolean, E) method this dummy
     // implementation (see mapper lambda) all objects are mapped to the mappers given defaultValue!
     private ITypeMapper mapper = (str, bTrim, bEmptyIsNull, defVal) -> defVal;

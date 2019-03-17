@@ -6,8 +6,7 @@ import java.time.temporal.Temporal;
 
 public class AbstractTemporalMapperTest {
 
-    // create mapper instance
-    ITypeMapper<Temporal> mapper = new AbstractTemporalTypeMapper<Temporal>() {
+    ITypeMapper<Temporal> mapper = new AbstractTemporalTypeMapper<>() {
         @Override
         public Temporal map(
                 String s,

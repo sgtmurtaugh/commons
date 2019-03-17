@@ -38,7 +38,6 @@ public interface ITypeMapper<E> {
      * @return a prepared String for mapping. The flags are evaluated and the string is reworked if necessary. When the
      * trim param is true, trim is performed on the string. When the string is empty and the emptyIsNull param is
      * true, null will be returned.
-     * TODO: set to protected in Java 9
      */
     default String prepareStringToMap(
             String s,
@@ -66,10 +65,8 @@ public interface ITypeMapper<E> {
      * @param predicate
      * @param t
      * @param <T>
-     * @return
-     * TODO set to protected in Java 9!
      */
-    default <T> boolean evalPredicate(Predicate<T> predicate, T t) {
+    default  <T> boolean evalPredicate(Predicate<T> predicate, T t) {
         boolean bSuccess = false;
 
         if (null != predicate) {

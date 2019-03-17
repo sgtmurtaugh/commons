@@ -19,7 +19,6 @@ class IBigIntegerMapperTest {
 
     private final static BigInteger ANOTHER_DEFAULT_VALUE   = new BigInteger("789654123");
 
-    // create mapper instance
     private IBigIntegerMapper mapper = new IBigIntegerMapper() {};
 
 

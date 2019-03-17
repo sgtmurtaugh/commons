@@ -17,9 +17,8 @@ class ILongMapperTest {
     private final static Locale locale = Locale.GERMAN;
     private final static String FORMAT_PATTERN = "#,##0.00;(#,##0.00)";
 
-    private final static Long ANOTHER_DEFAULT_VALUE   = new Long("64");
+    private final static Long ANOTHER_DEFAULT_VALUE   = Long.parseLong("64");
 
-    // create mapper instance
     private ILongMapper mapper = new ILongMapper() {};
 
 

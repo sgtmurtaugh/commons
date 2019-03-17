@@ -17,9 +17,8 @@ class IFloatMapperTest {
     private final static Locale locale = Locale.GERMAN;
     private final static String FORMAT_PATTERN = "#,##0.00;(#,##0.00)";
 
-    private final static Float ANOTHER_DEFAULT_VALUE   = new Float("64");
+    private final static Float ANOTHER_DEFAULT_VALUE   = Float.parseFloat("64");
 
-    // create mapper instance
     private IFloatMapper mapper = new IFloatMapper() {};
 
 
