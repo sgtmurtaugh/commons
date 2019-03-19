@@ -1,15 +1,19 @@
 package de.ckraus.commons.utils;
 
+import de.ckraus.commons.CommonsUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
 
-public interface IStringUtils
-    extends IUtils<String> {
+@SuppressWarnings({ "javadoc", "unused", "WeakerAccess" })
+public interface IStringUtilities
+    extends IUtilities<String> {
 
     /**
      * Alphabet Characters a-z and A-Z
      */
-    int REGEX_ALPHABET = "^[a-zA-Z]+$";
+    String REGEX_ALPHABET = "^[a-zA-Z]+$";
 
 
     /**
@@ -27,7 +31,7 @@ public interface IStringUtils
         iaPositionInAlphabet = new int[ac.length];
 
         for ( int i=0; i<ac.length; i++ ) {
-            int iPositionInAlphabet = CharacterUtils.positionInAlphabet( ac[i] );
+            int iPositionInAlphabet = this.getCharacterUtilities().positionInAlphabet( ac[i] );
 
             if ( iPositionInAlphabet < 0 )
                 throw new IllegalArgumentException( "Non alphabetical char. Only chars a-z and A-Z are allowed." );
@@ -76,4 +80,27 @@ public interface IStringUtils
         );
     }
 
+    /**
+     * getCharacterUtilities
+     * @return
+     * TODO
+     */
+    private ICharacterUtilities getCharacterUtilities() {
+        ICharacterUtilities characterUtilities = null;
+
+        // TODO Application Context ermitteln nicht erzeugen!
+        try {
+            ApplicationContext context = CommonsUtils.getInstance().getApplicationContext();
+            characterUtilities = (ICharacterUtilities) context.getBean("characterUtilities");
+        }
+        catch (BeansException be) {
+            // TODO: logging
+        }
+
+        if (null == characterUtilities) {
+            // TODO: logging
+            characterUtilities = new CharacterUtilities();
+        }
+        return characterUtilities;
+    }
 }

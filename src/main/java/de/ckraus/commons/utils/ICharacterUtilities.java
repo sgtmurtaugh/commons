@@ -1,8 +1,8 @@
 package de.ckraus.commons.utils;
 
-@SuppressWarnings({"javadoc"})
-public interface ICharacterUtils
-    extends IUtils<Character> {
+@SuppressWarnings({ "javadoc", "unused", "WeakerAccess" })
+public interface ICharacterUtilities
+    extends IUtilities<Character> {
 
   /**
   * ASCII Code a
