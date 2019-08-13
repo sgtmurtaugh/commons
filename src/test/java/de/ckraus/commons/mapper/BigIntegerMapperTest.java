@@ -9,4 +9,5 @@ class BigIntegerMapperTest {
     @Test
     void map() {
     }
+
 }

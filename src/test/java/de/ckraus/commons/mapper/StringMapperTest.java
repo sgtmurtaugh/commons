@@ -9,4 +9,5 @@ class StringMapperTest {
     @Test
     void map() {
     }
+
 }

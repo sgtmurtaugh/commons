@@ -6,7 +6,7 @@ class AbstractNumericTypeMapperTest {
 
     ITypeMapper<Number> mapper = new AbstractNumericTypeMapper<>() {
         @Override
-        public Number toType(Number number) {
+        public Number toType( Number number ) {
             return null;
         }
     };
@@ -14,4 +14,5 @@ class AbstractNumericTypeMapperTest {
     @Test
     void map() {
     }
+
 }

@@ -8,30 +8,17 @@ public class AbstractTemporalMapperTest {
 
     ITypeMapper<Temporal> mapper = new AbstractTemporalTypeMapper<>() {
         @Override
-        public Temporal map(
-                String s,
-                DateTimeFormatter formatter,
-                Temporal defaultValue
-        ) {
+        public Temporal map( String s, DateTimeFormatter formatter, Temporal defaultValue ) {
             return defaultValue;
         }
 
         @Override
-        public Temporal map(
-                String s,
-                FormatStyle formatStyle,
-                Temporal defaultValue
-        ) {
+        public Temporal map( String s, FormatStyle formatStyle, Temporal defaultValue ) {
             return defaultValue;
         }
 
         @Override
-        public Temporal map(
-                String s,
-                boolean bTrim,
-                boolean bEmptyIsNull,
-                Temporal defaultValue
-        ) {
+        public Temporal map( String s, boolean bTrim, boolean bEmptyIsNull, Temporal defaultValue ) {
             return defaultValue;
         }
     };

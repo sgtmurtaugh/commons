@@ -15,18 +15,19 @@ import java.io.IOException;
  *     <li>null - omitted</li>
  * </ul>
  */
-@SuppressWarnings({ "javadoc", "unused" })
-public interface IPdfModifer
-        extends IPdfReader, IPdfWriter {
+@SuppressWarnings( { "javadoc", "unused" } )
+public interface IPdfModifer extends IPdfReader, IPdfWriter {
 
     /**
      * getPdfDocument
+     *
      * @param pdfWriter
+     *
      * @return
      */
     default PdfDocument getPdfDocument( PdfWriter pdfWriter ) {
         PdfDocument pdfDocument = null;
-        if (null != pdfWriter) {
+        if ( null != pdfWriter ) {
             pdfDocument = new PdfDocument( pdfWriter );
         }
         return pdfDocument;
@@ -34,47 +35,36 @@ public interface IPdfModifer
 
     /**
      * getPdfDocument
+     *
      * @param pdfReader
      * @param pdfWriter
+     *
      * @return
      */
-    default PdfDocument getPdfDocument(
-            PdfReader pdfReader,
-            PdfWriter pdfWriter
-    ) {
+    default PdfDocument getPdfDocument( PdfReader pdfReader, PdfWriter pdfWriter ) {
         PdfDocument pdfDocument = null;
-        if (null != pdfReader
-                && null != pdfWriter) {
+        if ( null != pdfReader && null != pdfWriter ) {
 
-            pdfDocument = new PdfDocument(
-                    pdfReader,
-                    pdfWriter
-            );
+            pdfDocument = new PdfDocument( pdfReader, pdfWriter );
         }
         return pdfDocument;
     }
 
     /**
      * modify
+     *
      * @param src
      * @param dest
+     *
      * @return
      */
-    default PdfDocument getPdfDocument(
-            String src,
-            String dest
-    ) {
+    default PdfDocument getPdfDocument( String src, String dest ) {
         PdfDocument pdfDocument = null;
-        if (StringUtils.isNotEmpty(src)
-                && StringUtils.isNotEmpty(dest)) {
+        if ( StringUtils.isNotEmpty( src ) && StringUtils.isNotEmpty( dest ) ) {
 
             try {
-                pdfDocument = this.getPdfDocument(
-                        new PdfReader(src),
-                        new PdfWriter(dest)
-                );
-            }
-            catch (IOException ioe) {
+                pdfDocument = this.getPdfDocument( new PdfReader( src ), new PdfWriter( dest ) );
+            } catch ( IOException ioe ) {
                 ioe.printStackTrace();
             }
         }
@@ -83,15 +73,16 @@ public interface IPdfModifer
 
     /**
      * modify
+     *
      * @param pdfDocument
-     * @return
-     * <p>Returns three different modification states:
-     * <ul>
-     *     <li>true - succeeded</li>
-     *     <li>false - failed</li>
-     *     <li>null - omitted</li>
-     * </ul>
+     *
+     * @return <p>Returns three different modification states:
+     *         <ul>
+     *             <li>true - succeeded</li>
+     *             <li>false - failed</li>
+     *             <li>null - omitted</li>
+     *         </ul>
      */
-    Boolean modify(PdfDocument pdfDocument);
+    Boolean modify( PdfDocument pdfDocument );
 
 }

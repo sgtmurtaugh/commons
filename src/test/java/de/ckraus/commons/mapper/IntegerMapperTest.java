@@ -9,4 +9,5 @@ class IntegerMapperTest {
     @Test
     void map() {
     }
+
 }

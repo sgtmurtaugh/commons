@@ -9,4 +9,5 @@ class ShortMapperTest {
     @Test
     void map() {
     }
+
 }

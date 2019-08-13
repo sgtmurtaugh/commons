@@ -17,21 +17,24 @@ public class CommonsUtils {
 
     /**
      * getInstance
+     *
      * @return
      */
     public synchronized static CommonsUtils getInstance() {
-        if (null == instance) instance = new CommonsUtils();
+        if ( null == instance ) {
+            instance = new CommonsUtils();
+        }
         return instance;
     }
 
     /**
      * getApplicationContext
-     * @return
-     * <p>Creates an {@link ClassPathXmlApplicationContext} for config file
-     * {@link SpringConstants#CONFIGURATION_BEANS_XML}</p>
+     *
+     * @return <p>Creates an {@link ClassPathXmlApplicationContext} for config file
+     *         {@link SpringConstants#CONFIGURATION_BEANS_XML}</p>
      */
     public ApplicationContext getApplicationContext() {
-        ApplicationContext context = new ClassPathXmlApplicationContext(SpringConstants.CONFIGURATION_BEANS_XML);
+        ApplicationContext context = new ClassPathXmlApplicationContext( SpringConstants.CONFIGURATION_BEANS_XML );
 
         return context;
     }

@@ -11,15 +11,15 @@ import com.itextpdf.kernel.pdf.PdfDocument;
  *     <li>null - omitted</li>
  * </ul>
  */
-@SuppressWarnings({ "javadoc", "unused" })
-public interface IPdfFieldModifier
-    extends IPdfModifer {
+@SuppressWarnings( { "javadoc", "unused" } )
+public interface IPdfFieldModifier extends IPdfModifer {
 
     Boolean DEFAULT_CREATE_PDF_ACRO_FORM_IF_NOT_EXISTS = Boolean.FALSE;
 
 
     /**
      * isCreatePdfAcroFormIfNotExists
+     *
      * @return
      */
     default boolean isCreatePdfAcroFormIfNotExists() {
@@ -28,88 +28,75 @@ public interface IPdfFieldModifier
 
     /**
      * getPdfAcroForm
+     *
      * @param pdfDocument
-     * @return
-     * <p>Delegates to {@link #getPdfAcroForm(PdfDocument, boolean)} and uses {@link #isCreatePdfAcroFormIfNotExists()}
-     * for the boolean param.</p>
+     *
+     * @return <p>Delegates to {@link #getPdfAcroForm(PdfDocument, boolean)} and uses {@link
+     *         #isCreatePdfAcroFormIfNotExists()}
+     *         for the boolean param.</p>
      */
-    default PdfAcroForm getPdfAcroForm(PdfDocument pdfDocument) {
-        return this.getPdfAcroForm(
-                pdfDocument,
-                this.isCreatePdfAcroFormIfNotExists()
-        );
+    default PdfAcroForm getPdfAcroForm( PdfDocument pdfDocument ) {
+        return this.getPdfAcroForm( pdfDocument, this.isCreatePdfAcroFormIfNotExists() );
     }
 
     /**
      * getPdfAcroForm
+     *
      * @param pdfDocument
      * @param bCreateIfNotExists
-     * @return
-     * <p>Delegates to {@link PdfAcroForm#getAcroForm(PdfDocument, boolean)} to get PdfAcroForm instance.</p>
+     *
+     * @return <p>Delegates to {@link PdfAcroForm#getAcroForm(PdfDocument, boolean)} to get PdfAcroForm instance.</p>
      */
-    default PdfAcroForm getPdfAcroForm(
-            PdfDocument pdfDocument,
-            boolean bCreateIfNotExists
-    ) {
+    default PdfAcroForm getPdfAcroForm( PdfDocument pdfDocument, boolean bCreateIfNotExists ) {
         PdfAcroForm pdfAcroForm = null;
 
-        if (pdfDocument != null) {
-            pdfAcroForm = PdfAcroForm.getAcroForm(
-                    pdfDocument,
-                    bCreateIfNotExists
-            );
+        if ( pdfDocument != null ) {
+            pdfAcroForm = PdfAcroForm.getAcroForm( pdfDocument, bCreateIfNotExists );
         }
         return pdfAcroForm;
     }
 
     /**
      * modify
+     *
      * @param pdfDocument
-     * @return
-     * <p>Determines the {@link PdfAcroForm} with the given {@link PdfDocument} and delegates to
-     * {@link #modify(PdfAcroForm)}</p>
+     *
+     * @return <p>Determines the {@link PdfAcroForm} with the given {@link PdfDocument} and delegates to
+     *         {@link #modify(PdfAcroForm)}</p>
      */
-    default Boolean modify(PdfDocument pdfDocument) {
+    default Boolean modify( PdfDocument pdfDocument ) {
         Boolean bModify = null;
-        if (null != pdfDocument) {
-            bModify = this.modify(
-                    this.getPdfAcroForm(pdfDocument)
-            );
+        if ( null != pdfDocument ) {
+            bModify = this.modify( this.getPdfAcroForm( pdfDocument ) );
         }
         return bModify;
     }
 
     /**
      * modify
+     *
      * @param pdfDocument
      * @param bCreateIfNotExists
-     * @return
-     * <p>Similar to {@link #modify(PdfAcroForm)} it determines the {@link PdfAcroForm} with the given
-     * {@link PdfDocument} but delegates to {@link #modify(PdfDocument, boolean)}</p>
+     *
+     * @return <p>Similar to {@link #modify(PdfAcroForm)} it determines the {@link PdfAcroForm} with the given
+     *         {@link PdfDocument} but delegates to {@link #modify(PdfDocument, boolean)}</p>
      */
-    default Boolean modify(
-            PdfDocument pdfDocument,
-            boolean bCreateIfNotExists
-    ) {
+    default Boolean modify( PdfDocument pdfDocument, boolean bCreateIfNotExists ) {
 
         Boolean bModify = null;
-        if (null != pdfDocument) {
-            bModify = this.modify(
-                    this.getPdfAcroForm(
-                            pdfDocument,
-                            bCreateIfNotExists
-                    )
-            );
+        if ( null != pdfDocument ) {
+            bModify = this.modify( this.getPdfAcroForm( pdfDocument, bCreateIfNotExists ) );
         }
         return bModify;
     }
 
     /**
      * modify
+     *
      * @param pdfAcroForm
-     * @return
-     * <p>This method must be implemented individually.</p>
+     *
+     * @return <p>This method must be implemented individually.</p>
      */
-    Boolean modify(PdfAcroForm pdfAcroForm);
+    Boolean modify( PdfAcroForm pdfAcroForm );
 
 }

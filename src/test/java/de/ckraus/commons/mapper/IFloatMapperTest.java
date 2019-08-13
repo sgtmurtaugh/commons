@@ -4,54 +4,58 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.text.*;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.ParseException;
 import java.util.Locale;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static de.ckraus.commons.mapper.TestHelper.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SuppressWarnings({ "javadoc", "Duplicates" })
+@SuppressWarnings( { "javadoc", "Duplicates" } )
 class IFloatMapperTest {
 
     private final static Locale locale = Locale.GERMAN;
     private final static String FORMAT_PATTERN = "#,##0.00;(#,##0.00)";
 
-    private final static Float ANOTHER_DEFAULT_VALUE   = Float.parseFloat("64");
+    private final static Float ANOTHER_DEFAULT_VALUE = Float.parseFloat( "64" );
 
-    private IFloatMapper mapper = new IFloatMapper() {};
+    private IFloatMapper mapper = new IFloatMapper() {
+    };
 
 
     /**
      * getDefaultBigDecimal
+     *
      * @return
      */
     private Float getDefaultBigDecimal() {
-        return ((BigDecimal) getParameters().get(PARAMS_KEY__BIG_DECIMAL)).floatValue();
+        return ( ( BigDecimal ) getParameters().get( PARAMS_KEY__BIG_DECIMAL ) ).floatValue();
     }
 
     /**
      * getDefaultBigDecimal
+     *
      * @param locale
+     *
      * @return
      */
-    private Float getDefaultBigDecimal(Locale locale) {
+    private Float getDefaultBigDecimal( Locale locale ) {
         Float retValue = null;
         DecimalFormat format;
 
-        if (null != locale) {
-            format = (DecimalFormat) DecimalFormat.getInstance(locale);
-        }
-        else {
-            format = (DecimalFormat) DecimalFormat.getInstance();
+        if ( null != locale ) {
+            format = ( DecimalFormat ) DecimalFormat.getInstance( locale );
+        } else {
+            format = ( DecimalFormat ) DecimalFormat.getInstance();
         }
 
         try {
             retValue = new BigDecimal(
-                    format.parse(getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING).toString()).toString()
-            ).floatValue();
-        }
-        catch (ParseException pe) {
+                    format.parse( getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING ).toString() ).toString() )
+                    .floatValue();
+        } catch ( ParseException pe ) {
             pe.printStackTrace();
         }
         return retValue;
@@ -59,34 +63,35 @@ class IFloatMapperTest {
 
     /**
      * getDefaultBigInteger
+     *
      * @return
      */
     private Float getDefaultBigInteger() {
-        return ((BigInteger) getParameters().get(PARAMS_KEY__BIG_INTEGER)).floatValue();
+        return ( ( BigInteger ) getParameters().get( PARAMS_KEY__BIG_INTEGER ) ).floatValue();
     }
 
     /**
      * getDefaultBigInteger
+     *
      * @param locale
+     *
      * @return
      */
-    private Float getDefaultBigInteger(Locale locale) {
+    private Float getDefaultBigInteger( Locale locale ) {
         Float retValue = null;
         DecimalFormat format;
 
-        if (null != locale) {
-            format = (DecimalFormat) DecimalFormat.getInstance(locale);
-        }
-        else {
-            format = (DecimalFormat) DecimalFormat.getInstance();
+        if ( null != locale ) {
+            format = ( DecimalFormat ) DecimalFormat.getInstance( locale );
+        } else {
+            format = ( DecimalFormat ) DecimalFormat.getInstance();
         }
 
         try {
             retValue = new BigDecimal(
-                    format.parse( getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING).toString() ).toString()
-            ).floatValue();
-        }
-        catch (ParseException pe) {
+                    format.parse( getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING ).toString() ).toString() )
+                    .floatValue();
+        } catch ( ParseException pe ) {
             pe.printStackTrace();
         }
         return retValue;
@@ -94,34 +99,34 @@ class IFloatMapperTest {
 
     /**
      * getDefaultByte
+     *
      * @return
      */
     private Float getDefaultByte() {
-        return ((Byte) getParameters().get(PARAMS_KEY__BYTE)).floatValue();
+        return ( ( Byte ) getParameters().get( PARAMS_KEY__BYTE ) ).floatValue();
     }
 
     /**
      * getDefaultByte
+     *
      * @param locale
+     *
      * @return
      */
-    private Float getDefaultByte(Locale locale) {
+    private Float getDefaultByte( Locale locale ) {
         Float retValue = null;
         DecimalFormat format;
 
-        if (null != locale) {
-            format = (DecimalFormat) DecimalFormat.getInstance(locale);
-        }
-        else {
-            format = (DecimalFormat) DecimalFormat.getInstance();
+        if ( null != locale ) {
+            format = ( DecimalFormat ) DecimalFormat.getInstance( locale );
+        } else {
+            format = ( DecimalFormat ) DecimalFormat.getInstance();
         }
 
         try {
             retValue = new BigDecimal(
-                    format.parse( getParameters().get(PARAMS_KEY__BYTE_STRING).toString() ).toString()
-            ).floatValue();
-        }
-        catch (ParseException pe) {
+                    format.parse( getParameters().get( PARAMS_KEY__BYTE_STRING ).toString() ).toString() ).floatValue();
+        } catch ( ParseException pe ) {
             pe.printStackTrace();
         }
         return retValue;
@@ -129,34 +134,35 @@ class IFloatMapperTest {
 
     /**
      * getDefaultDouble
+     *
      * @return
      */
     private Float getDefaultDouble() {
-        return ((Double) getParameters().get(PARAMS_KEY__DOUBLE)).floatValue();
+        return ( ( Double ) getParameters().get( PARAMS_KEY__DOUBLE ) ).floatValue();
     }
 
     /**
      * getDefaultDouble
+     *
      * @param locale
+     *
      * @return
      */
-    private Float getDefaultDouble(Locale locale) {
+    private Float getDefaultDouble( Locale locale ) {
         Float retValue = null;
         DecimalFormat format;
 
-        if (null != locale) {
-            format = (DecimalFormat) DecimalFormat.getInstance(locale);
-        }
-        else {
-            format = (DecimalFormat) DecimalFormat.getInstance();
+        if ( null != locale ) {
+            format = ( DecimalFormat ) DecimalFormat.getInstance( locale );
+        } else {
+            format = ( DecimalFormat ) DecimalFormat.getInstance();
         }
 
         try {
             retValue = new BigDecimal(
-                    format.parse( getParameters().get(PARAMS_KEY__DOUBLE_STRING).toString() ).toString()
-            ).floatValue();
-        }
-        catch (ParseException pe) {
+                    format.parse( getParameters().get( PARAMS_KEY__DOUBLE_STRING ).toString() ).toString() )
+                    .floatValue();
+        } catch ( ParseException pe ) {
             pe.printStackTrace();
         }
         return retValue;
@@ -164,34 +170,35 @@ class IFloatMapperTest {
 
     /**
      * getDefaultFloat
+     *
      * @return
      */
     private Float getDefaultFloat() {
-        return ((Float) getParameters().get(PARAMS_KEY__FLOAT));
+        return ( ( Float ) getParameters().get( PARAMS_KEY__FLOAT ) );
     }
 
     /**
      * getDefaultFloat
+     *
      * @param locale
+     *
      * @return
      */
-    private Float getDefaultFloat(Locale locale) {
+    private Float getDefaultFloat( Locale locale ) {
         Float retValue = null;
         DecimalFormat format;
 
-        if (null != locale) {
-            format = (DecimalFormat) DecimalFormat.getInstance(locale);
-        }
-        else {
-            format = (DecimalFormat) DecimalFormat.getInstance();
+        if ( null != locale ) {
+            format = ( DecimalFormat ) DecimalFormat.getInstance( locale );
+        } else {
+            format = ( DecimalFormat ) DecimalFormat.getInstance();
         }
 
         try {
             retValue = new BigDecimal(
-                    format.parse( getParameters().get(PARAMS_KEY__FLOAT_STRING).toString() ).toString()
-            ).floatValue();
-        }
-        catch (ParseException pe) {
+                    format.parse( getParameters().get( PARAMS_KEY__FLOAT_STRING ).toString() ).toString() )
+                    .floatValue();
+        } catch ( ParseException pe ) {
             pe.printStackTrace();
         }
         return retValue;
@@ -199,34 +206,35 @@ class IFloatMapperTest {
 
     /**
      * getDefaultInteger
+     *
      * @return
      */
     private Float getDefaultInteger() {
-        return ((Integer) getParameters().get(PARAMS_KEY__INTEGER)).floatValue();
+        return ( ( Integer ) getParameters().get( PARAMS_KEY__INTEGER ) ).floatValue();
     }
 
     /**
      * getDefaultInteger
+     *
      * @param locale
+     *
      * @return
      */
-    private Float getDefaultInteger(Locale locale) {
+    private Float getDefaultInteger( Locale locale ) {
         Float retValue = null;
         DecimalFormat format;
 
-        if (null != locale) {
-            format = (DecimalFormat) DecimalFormat.getInstance(locale);
-        }
-        else {
-            format = (DecimalFormat) DecimalFormat.getInstance();
+        if ( null != locale ) {
+            format = ( DecimalFormat ) DecimalFormat.getInstance( locale );
+        } else {
+            format = ( DecimalFormat ) DecimalFormat.getInstance();
         }
 
         try {
             retValue = new BigDecimal(
-                    format.parse( getParameters().get(PARAMS_KEY__INTEGER_STRING).toString() ).toString()
-            ).floatValue();
-        }
-        catch (ParseException pe) {
+                    format.parse( getParameters().get( PARAMS_KEY__INTEGER_STRING ).toString() ).toString() )
+                    .floatValue();
+        } catch ( ParseException pe ) {
             pe.printStackTrace();
         }
         return retValue;
@@ -234,34 +242,34 @@ class IFloatMapperTest {
 
     /**
      * getDefaultLong
+     *
      * @return
      */
     private Float getDefaultLong() {
-        return ((Long) getParameters().get(PARAMS_KEY__LONG)).floatValue();
+        return ( ( Long ) getParameters().get( PARAMS_KEY__LONG ) ).floatValue();
     }
 
     /**
      * getDefaultLong
+     *
      * @param locale
+     *
      * @return
      */
-    private Float getDefaultLong(Locale locale) {
+    private Float getDefaultLong( Locale locale ) {
         Float retValue = null;
         DecimalFormat format;
 
-        if (null != locale) {
-            format = (DecimalFormat) DecimalFormat.getInstance(locale);
-        }
-        else {
-            format = (DecimalFormat) DecimalFormat.getInstance();
+        if ( null != locale ) {
+            format = ( DecimalFormat ) DecimalFormat.getInstance( locale );
+        } else {
+            format = ( DecimalFormat ) DecimalFormat.getInstance();
         }
 
         try {
             retValue = new BigDecimal(
-                    format.parse( getParameters().get(PARAMS_KEY__LONG_STRING).toString() ).toString()
-            ).floatValue();
-        }
-        catch (ParseException pe) {
+                    format.parse( getParameters().get( PARAMS_KEY__LONG_STRING ).toString() ).toString() ).floatValue();
+        } catch ( ParseException pe ) {
             pe.printStackTrace();
         }
         return retValue;
@@ -269,34 +277,35 @@ class IFloatMapperTest {
 
     /**
      * getDefaultShort
+     *
      * @return
      */
     private Float getDefaultShort() {
-        return ((Short) getParameters().get(PARAMS_KEY__SHORT)).floatValue();
+        return ( ( Short ) getParameters().get( PARAMS_KEY__SHORT ) ).floatValue();
     }
 
     /**
      * getDefaultShort
+     *
      * @param locale
+     *
      * @return
      */
-    private Float getDefaultShort(Locale locale) {
+    private Float getDefaultShort( Locale locale ) {
         Float retValue = null;
         DecimalFormat format;
 
-        if (null != locale) {
-            format = (DecimalFormat) DecimalFormat.getInstance(locale);
-        }
-        else {
-            format = (DecimalFormat) DecimalFormat.getInstance();
+        if ( null != locale ) {
+            format = ( DecimalFormat ) DecimalFormat.getInstance( locale );
+        } else {
+            format = ( DecimalFormat ) DecimalFormat.getInstance();
         }
 
         try {
             retValue = new BigDecimal(
-                    format.parse( getParameters().get(PARAMS_KEY__SHORT_STRING).toString() ).toString()
-            ).floatValue();
-        }
-        catch (ParseException pe) {
+                    format.parse( getParameters().get( PARAMS_KEY__SHORT_STRING ).toString() ).toString() )
+                    .floatValue();
+        } catch ( ParseException pe ) {
             pe.printStackTrace();
         }
         return retValue;
@@ -308,22 +317,22 @@ class IFloatMapperTest {
      */
     @Test
     void map() {
-        Float defaultBigDecimal        = this.getDefaultBigDecimal();
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigInteger        = this.getDefaultBigInteger();
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByte              = this.getDefaultByte();
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDouble            = this.getDefaultDouble();
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloat             = this.getDefaultFloat();
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultInteger           = this.getDefaultInteger();
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLong              = this.getDefaultLong();
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShort             = this.getDefaultShort();
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimal = this.getDefaultBigDecimal();
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigInteger = this.getDefaultBigInteger();
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByte = this.getDefaultByte();
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDouble = this.getDefaultDouble();
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloat = this.getDefaultFloat();
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultInteger = this.getDefaultInteger();
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLong = this.getDefaultLong();
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShort = this.getDefaultShort();
+        Float defaultShortString = this.getDefaultShort( null );
 
         assertEquals( defaultBigDecimal, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL ) );
         assertEquals( defaultBigDecimalString, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING ) );
@@ -357,22 +366,22 @@ class IFloatMapperTest {
      */
     @Test
     void map1() {
-        Float defaultBigDecimal        = this.getDefaultBigDecimal();
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigInteger        = this.getDefaultBigInteger();
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByte              = this.getDefaultByte();
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDouble            = this.getDefaultDouble();
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloat             = this.getDefaultFloat();
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultInteger           = this.getDefaultInteger();
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLong              = this.getDefaultLong();
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShort             = this.getDefaultShort();
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimal = this.getDefaultBigDecimal();
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigInteger = this.getDefaultBigInteger();
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByte = this.getDefaultByte();
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDouble = this.getDefaultDouble();
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloat = this.getDefaultFloat();
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultInteger = this.getDefaultInteger();
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLong = this.getDefaultLong();
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShort = this.getDefaultShort();
+        Float defaultShortString = this.getDefaultShort( locale );
 
         assertEquals( defaultBigDecimal, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, locale ) );
         assertEquals( defaultBigDecimalString, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, locale ) );
@@ -397,7 +406,8 @@ class IFloatMapperTest {
         assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING, locale ) );
         assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, locale ) );
         assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, locale ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, locale ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, locale ) );
         assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, locale ) );
     }
 
@@ -406,27 +416,29 @@ class IFloatMapperTest {
      */
     @Test
     void map2() {
-        Float defaultBigDecimal        = this.getDefaultBigDecimal();
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigInteger        = this.getDefaultBigInteger();
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByte              = this.getDefaultByte();
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDouble            = this.getDefaultDouble();
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloat             = this.getDefaultFloat();
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultInteger           = this.getDefaultInteger();
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLong              = this.getDefaultLong();
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShort             = this.getDefaultShort();
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimal = this.getDefaultBigDecimal();
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigInteger = this.getDefaultBigInteger();
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByte = this.getDefaultByte();
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDouble = this.getDefaultDouble();
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloat = this.getDefaultFloat();
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultInteger = this.getDefaultInteger();
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLong = this.getDefaultLong();
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShort = this.getDefaultShort();
+        Float defaultShortString = this.getDefaultShort( null );
 
         assertEquals( defaultBigDecimal, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, FORMAT_PATTERN ) );
-        assertEquals( defaultBigDecimalString, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, FORMAT_PATTERN ) );
+        assertEquals( defaultBigDecimalString,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, FORMAT_PATTERN ) );
         assertEquals( defaultBigInteger, mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, FORMAT_PATTERN ) );
-        assertEquals( defaultBigIntegerString, mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, FORMAT_PATTERN ) );
+        assertEquals( defaultBigIntegerString,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, FORMAT_PATTERN ) );
         assertEquals( defaultByte, mapper.map( getParameters(), PARAMS_KEY__BYTE, FORMAT_PATTERN ) );
         assertEquals( defaultByteString, mapper.map( getParameters(), PARAMS_KEY__BYTE_STRING, FORMAT_PATTERN ) );
         assertEquals( defaultDouble, mapper.map( getParameters(), PARAMS_KEY__DOUBLE, FORMAT_PATTERN ) );
@@ -444,10 +456,14 @@ class IFloatMapperTest {
         assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__NO_VALUE, FORMAT_PATTERN ) );
         assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__OBJECT, FORMAT_PATTERN ) );
         assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING, FORMAT_PATTERN ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, FORMAT_PATTERN ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, FORMAT_PATTERN ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, FORMAT_PATTERN ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, FORMAT_PATTERN  ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, FORMAT_PATTERN ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, FORMAT_PATTERN ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, FORMAT_PATTERN ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, FORMAT_PATTERN ) );
     }
 
     /**
@@ -455,48 +471,66 @@ class IFloatMapperTest {
      */
     @Test
     void map3() {
-        Float defaultBigDecimal        = this.getDefaultBigDecimal();
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigInteger        = this.getDefaultBigInteger();
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByte              = this.getDefaultByte();
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDouble            = this.getDefaultDouble();
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloat             = this.getDefaultFloat();
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultInteger           = this.getDefaultInteger();
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLong              = this.getDefaultLong();
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShort             = this.getDefaultShort();
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimal = this.getDefaultBigDecimal();
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigInteger = this.getDefaultBigInteger();
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByte = this.getDefaultByte();
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDouble = this.getDefaultDouble();
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloat = this.getDefaultFloat();
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultInteger = this.getDefaultInteger();
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLong = this.getDefaultLong();
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShort = this.getDefaultShort();
+        Float defaultShortString = this.getDefaultShort( locale );
 
-        assertEquals( defaultBigDecimal, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, locale, FORMAT_PATTERN ) );
-        assertEquals( defaultBigDecimalString, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, locale, FORMAT_PATTERN ) );
-        assertEquals( defaultBigInteger, mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, locale, FORMAT_PATTERN ) );
-        assertEquals( defaultBigIntegerString, mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultBigDecimal,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultBigDecimalString,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultBigInteger,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultBigIntegerString,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, locale, FORMAT_PATTERN ) );
         assertEquals( defaultByte, mapper.map( getParameters(), PARAMS_KEY__BYTE, locale, FORMAT_PATTERN ) );
-        assertEquals( defaultByteString, mapper.map( getParameters(), PARAMS_KEY__BYTE_STRING, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultByteString,
+                mapper.map( getParameters(), PARAMS_KEY__BYTE_STRING, locale, FORMAT_PATTERN ) );
         assertEquals( defaultDouble, mapper.map( getParameters(), PARAMS_KEY__DOUBLE, locale, FORMAT_PATTERN ) );
-        assertEquals( defaultDoubleString, mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultDoubleString,
+                mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, locale, FORMAT_PATTERN ) );
         assertEquals( defaultFloat, mapper.map( getParameters(), PARAMS_KEY__FLOAT, locale, FORMAT_PATTERN ) );
-        assertEquals( defaultFloatString, mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultFloatString,
+                mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, locale, FORMAT_PATTERN ) );
         assertEquals( defaultInteger, mapper.map( getParameters(), PARAMS_KEY__INTEGER, locale, FORMAT_PATTERN ) );
-        assertEquals( defaultIntegerString, mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultIntegerString,
+                mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, locale, FORMAT_PATTERN ) );
         assertEquals( defaultLong, mapper.map( getParameters(), PARAMS_KEY__LONG, locale, FORMAT_PATTERN ) );
-        assertEquals( defaultLongString, mapper.map( getParameters(), PARAMS_KEY__LONG_STRING, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultLongString,
+                mapper.map( getParameters(), PARAMS_KEY__LONG_STRING, locale, FORMAT_PATTERN ) );
         assertEquals( defaultShort, mapper.map( getParameters(), PARAMS_KEY__SHORT, locale, FORMAT_PATTERN ) );
-        assertEquals( defaultShortString, mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, locale, FORMAT_PATTERN ) );
+        assertEquals( defaultShortString,
+                mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, locale, FORMAT_PATTERN ) );
 
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__NO_KEY, locale, FORMAT_PATTERN ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__NO_VALUE, locale, FORMAT_PATTERN ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__OBJECT, locale, FORMAT_PATTERN ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING, locale, FORMAT_PATTERN ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, locale, FORMAT_PATTERN ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, locale, FORMAT_PATTERN ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, locale, FORMAT_PATTERN ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, locale, FORMAT_PATTERN ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__NO_KEY, locale, FORMAT_PATTERN ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__NO_VALUE, locale, FORMAT_PATTERN ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__OBJECT, locale, FORMAT_PATTERN ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING, locale, FORMAT_PATTERN ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, locale, FORMAT_PATTERN ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, locale, FORMAT_PATTERN ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, locale, FORMAT_PATTERN ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, locale, FORMAT_PATTERN ) );
     }
 
     /**
@@ -504,50 +538,70 @@ class IFloatMapperTest {
      */
     @Test
     void map4() {
-        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(locale);
+        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance( locale );
 
-        Float defaultBigDecimal        = this.getDefaultBigDecimal();
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigInteger        = this.getDefaultBigInteger();
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByte              = this.getDefaultByte();
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDouble            = this.getDefaultDouble();
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloat             = this.getDefaultFloat();
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultInteger           = this.getDefaultInteger();
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLong              = this.getDefaultLong();
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShort             = this.getDefaultShort();
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimal = this.getDefaultBigDecimal();
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigInteger = this.getDefaultBigInteger();
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByte = this.getDefaultByte();
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDouble = this.getDefaultDouble();
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloat = this.getDefaultFloat();
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultInteger = this.getDefaultInteger();
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLong = this.getDefaultLong();
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShort = this.getDefaultShort();
+        Float defaultShortString = this.getDefaultShort( locale );
 
-        assertEquals( defaultBigDecimal, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultBigDecimalString, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultBigInteger, mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultBigIntegerString, mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultBigDecimal,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultBigDecimalString,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultBigInteger,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultBigIntegerString,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, locale, FORMAT_PATTERN, symbols ) );
         assertEquals( defaultByte, mapper.map( getParameters(), PARAMS_KEY__BYTE, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultByteString, mapper.map( getParameters(), PARAMS_KEY__BYTE_STRING, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultDouble, mapper.map( getParameters(), PARAMS_KEY__DOUBLE, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultDoubleString, mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultByteString,
+                mapper.map( getParameters(), PARAMS_KEY__BYTE_STRING, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultDouble,
+                mapper.map( getParameters(), PARAMS_KEY__DOUBLE, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultDoubleString,
+                mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, locale, FORMAT_PATTERN, symbols ) );
         assertEquals( defaultFloat, mapper.map( getParameters(), PARAMS_KEY__FLOAT, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultFloatString, mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultInteger, mapper.map( getParameters(), PARAMS_KEY__INTEGER, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultIntegerString, mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultFloatString,
+                mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultInteger,
+                mapper.map( getParameters(), PARAMS_KEY__INTEGER, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultIntegerString,
+                mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, locale, FORMAT_PATTERN, symbols ) );
         assertEquals( defaultLong, mapper.map( getParameters(), PARAMS_KEY__LONG, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultLongString, mapper.map( getParameters(), PARAMS_KEY__LONG_STRING, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultLongString,
+                mapper.map( getParameters(), PARAMS_KEY__LONG_STRING, locale, FORMAT_PATTERN, symbols ) );
         assertEquals( defaultShort, mapper.map( getParameters(), PARAMS_KEY__SHORT, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultShortString, mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultShortString,
+                mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, locale, FORMAT_PATTERN, symbols ) );
 
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__NO_KEY, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__NO_VALUE, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__OBJECT, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__NO_KEY, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__NO_VALUE, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__OBJECT, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, locale, FORMAT_PATTERN, symbols ) );
     }
 
     /**
@@ -557,48 +611,66 @@ class IFloatMapperTest {
     void map5() {
         DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
 
-        Float defaultBigDecimal        = this.getDefaultBigDecimal();
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigInteger        = this.getDefaultBigInteger();
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByte              = this.getDefaultByte();
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDouble            = this.getDefaultDouble();
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloat             = this.getDefaultFloat();
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultInteger           = this.getDefaultInteger();
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLong              = this.getDefaultLong();
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShort             = this.getDefaultShort();
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimal = this.getDefaultBigDecimal();
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigInteger = this.getDefaultBigInteger();
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByte = this.getDefaultByte();
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDouble = this.getDefaultDouble();
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloat = this.getDefaultFloat();
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultInteger = this.getDefaultInteger();
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLong = this.getDefaultLong();
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShort = this.getDefaultShort();
+        Float defaultShortString = this.getDefaultShort( null );
 
-        assertEquals( defaultBigDecimal, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultBigDecimalString, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultBigInteger, mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultBigIntegerString, mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultBigDecimal,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultBigDecimalString,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultBigInteger,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultBigIntegerString,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, FORMAT_PATTERN, symbols ) );
         assertEquals( defaultByte, mapper.map( getParameters(), PARAMS_KEY__BYTE, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultByteString, mapper.map( getParameters(), PARAMS_KEY__BYTE_STRING, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultByteString,
+                mapper.map( getParameters(), PARAMS_KEY__BYTE_STRING, FORMAT_PATTERN, symbols ) );
         assertEquals( defaultDouble, mapper.map( getParameters(), PARAMS_KEY__DOUBLE, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultDoubleString, mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultDoubleString,
+                mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, FORMAT_PATTERN, symbols ) );
         assertEquals( defaultFloat, mapper.map( getParameters(), PARAMS_KEY__FLOAT, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultFloatString, mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultFloatString,
+                mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, FORMAT_PATTERN, symbols ) );
         assertEquals( defaultInteger, mapper.map( getParameters(), PARAMS_KEY__INTEGER, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultIntegerString, mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultIntegerString,
+                mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, FORMAT_PATTERN, symbols ) );
         assertEquals( defaultLong, mapper.map( getParameters(), PARAMS_KEY__LONG, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultLongString, mapper.map( getParameters(), PARAMS_KEY__LONG_STRING, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultLongString,
+                mapper.map( getParameters(), PARAMS_KEY__LONG_STRING, FORMAT_PATTERN, symbols ) );
         assertEquals( defaultShort, mapper.map( getParameters(), PARAMS_KEY__SHORT, FORMAT_PATTERN, symbols ) );
-        assertEquals( defaultShortString, mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, FORMAT_PATTERN, symbols ) );
+        assertEquals( defaultShortString,
+                mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, FORMAT_PATTERN, symbols ) );
 
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__NO_KEY, FORMAT_PATTERN, symbols ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__NO_VALUE, FORMAT_PATTERN, symbols ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__OBJECT, FORMAT_PATTERN, symbols ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING, FORMAT_PATTERN, symbols ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, FORMAT_PATTERN, symbols ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, FORMAT_PATTERN, symbols ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, FORMAT_PATTERN, symbols ) );
-        assertEquals( mapper.getDefaultValue(), mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, FORMAT_PATTERN, symbols ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__NO_KEY, FORMAT_PATTERN, symbols ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__NO_VALUE, FORMAT_PATTERN, symbols ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__OBJECT, FORMAT_PATTERN, symbols ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING, FORMAT_PATTERN, symbols ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, FORMAT_PATTERN, symbols ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, FORMAT_PATTERN, symbols ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, FORMAT_PATTERN, symbols ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, FORMAT_PATTERN, symbols ) );
     }
 
     /**
@@ -606,48 +678,63 @@ class IFloatMapperTest {
      */
     @Test
     void map6() {
-        Float defaultBigDecimal        = this.getDefaultBigDecimal();
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigInteger        = this.getDefaultBigInteger();
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByte              = this.getDefaultByte();
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDouble            = this.getDefaultDouble();
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloat             = this.getDefaultFloat();
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultInteger           = this.getDefaultInteger();
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLong              = this.getDefaultLong();
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShort             = this.getDefaultShort();
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimal = this.getDefaultBigDecimal();
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigInteger = this.getDefaultBigInteger();
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByte = this.getDefaultByte();
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDouble = this.getDefaultDouble();
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloat = this.getDefaultFloat();
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultInteger = this.getDefaultInteger();
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLong = this.getDefaultLong();
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShort = this.getDefaultShort();
+        Float defaultShortString = this.getDefaultShort( null );
 
-        assertEquals( defaultBigDecimal, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigDecimalString, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigInteger, mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigIntegerString, mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimal,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimalString,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigInteger,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigIntegerString,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultByte, mapper.map( getParameters(), PARAMS_KEY__BYTE, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultByteString, mapper.map( getParameters(), PARAMS_KEY__BYTE_STRING, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultByteString,
+                mapper.map( getParameters(), PARAMS_KEY__BYTE_STRING, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultDouble, mapper.map( getParameters(), PARAMS_KEY__DOUBLE, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultDoubleString, mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultDoubleString,
+                mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultFloat, mapper.map( getParameters(), PARAMS_KEY__FLOAT, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultFloatString, mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultFloatString,
+                mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultInteger, mapper.map( getParameters(), PARAMS_KEY__INTEGER, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultIntegerString, mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultIntegerString,
+                mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultLong, mapper.map( getParameters(), PARAMS_KEY__LONG, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultLongString, mapper.map( getParameters(), PARAMS_KEY__LONG_STRING, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultLongString,
+                mapper.map( getParameters(), PARAMS_KEY__LONG_STRING, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultShort, mapper.map( getParameters(), PARAMS_KEY__SHORT, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultShortString, mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultShortString,
+                mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, ANOTHER_DEFAULT_VALUE ) );
 
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__NO_KEY, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__NO_VALUE, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__NO_VALUE, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__OBJECT, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__STRING, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, ANOTHER_DEFAULT_VALUE ) );
     }
 
     /**
@@ -655,48 +742,67 @@ class IFloatMapperTest {
      */
     @Test
     void map7() {
-        Float defaultBigDecimal        = this.getDefaultBigDecimal();
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigInteger        = this.getDefaultBigInteger();
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByte              = this.getDefaultByte();
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDouble            = this.getDefaultDouble();
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloat             = this.getDefaultFloat();
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultInteger           = this.getDefaultInteger();
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLong              = this.getDefaultLong();
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShort             = this.getDefaultShort();
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimal = this.getDefaultBigDecimal();
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigInteger = this.getDefaultBigInteger();
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByte = this.getDefaultByte();
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDouble = this.getDefaultDouble();
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloat = this.getDefaultFloat();
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultInteger = this.getDefaultInteger();
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLong = this.getDefaultLong();
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShort = this.getDefaultShort();
+        Float defaultShortString = this.getDefaultShort( locale );
 
-        assertEquals( defaultBigDecimal, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigDecimalString, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigInteger, mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigIntegerString, mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimal,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimalString,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigInteger,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigIntegerString,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, locale, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultByte, mapper.map( getParameters(), PARAMS_KEY__BYTE, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultByteString, mapper.map( getParameters(), PARAMS_KEY__BYTE_STRING, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultByteString,
+                mapper.map( getParameters(), PARAMS_KEY__BYTE_STRING, locale, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultDouble, mapper.map( getParameters(), PARAMS_KEY__DOUBLE, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultDoubleString, mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultDoubleString,
+                mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, locale, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultFloat, mapper.map( getParameters(), PARAMS_KEY__FLOAT, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultFloatString, mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultInteger, mapper.map( getParameters(), PARAMS_KEY__INTEGER, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultIntegerString, mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultFloatString,
+                mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultInteger,
+                mapper.map( getParameters(), PARAMS_KEY__INTEGER, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultIntegerString,
+                mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, locale, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultLong, mapper.map( getParameters(), PARAMS_KEY__LONG, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultLongString, mapper.map( getParameters(), PARAMS_KEY__LONG_STRING, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultLongString,
+                mapper.map( getParameters(), PARAMS_KEY__LONG_STRING, locale, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultShort, mapper.map( getParameters(), PARAMS_KEY__SHORT, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultShortString, mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultShortString,
+                mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, locale, ANOTHER_DEFAULT_VALUE ) );
 
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__NO_KEY, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__NO_VALUE, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__OBJECT, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__STRING, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, locale, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__NO_KEY, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__NO_VALUE, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__OBJECT, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__STRING, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, locale, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, locale, ANOTHER_DEFAULT_VALUE ) );
     }
 
     /**
@@ -704,48 +810,73 @@ class IFloatMapperTest {
      */
     @Test
     void map8() {
-        Float defaultBigDecimal        = this.getDefaultBigDecimal();
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigInteger        = this.getDefaultBigInteger();
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByte              = this.getDefaultByte();
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDouble            = this.getDefaultDouble();
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloat             = this.getDefaultFloat();
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultInteger           = this.getDefaultInteger();
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLong              = this.getDefaultLong();
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShort             = this.getDefaultShort();
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimal = this.getDefaultBigDecimal();
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigInteger = this.getDefaultBigInteger();
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByte = this.getDefaultByte();
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDouble = this.getDefaultDouble();
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloat = this.getDefaultFloat();
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultInteger = this.getDefaultInteger();
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLong = this.getDefaultLong();
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShort = this.getDefaultShort();
+        Float defaultShortString = this.getDefaultShort( null );
 
-        assertEquals( defaultBigDecimal, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigDecimalString, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigInteger, mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigIntegerString, mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultByte, mapper.map( getParameters(), PARAMS_KEY__BYTE, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultByteString, mapper.map( getParameters(), PARAMS_KEY__BYTE_STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultDouble, mapper.map( getParameters(), PARAMS_KEY__DOUBLE, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultDoubleString, mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultFloat, mapper.map( getParameters(), PARAMS_KEY__FLOAT, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultFloatString, mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultInteger, mapper.map( getParameters(), PARAMS_KEY__INTEGER, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultIntegerString, mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultLong, mapper.map( getParameters(), PARAMS_KEY__LONG, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultLongString, mapper.map( getParameters(), PARAMS_KEY__LONG_STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultShort, mapper.map( getParameters(), PARAMS_KEY__SHORT, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultShortString, mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimal,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimalString,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigInteger,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigIntegerString,
+                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultByte,
+                mapper.map( getParameters(), PARAMS_KEY__BYTE, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultByteString,
+                mapper.map( getParameters(), PARAMS_KEY__BYTE_STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultDouble,
+                mapper.map( getParameters(), PARAMS_KEY__DOUBLE, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultDoubleString,
+                mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultFloat,
+                mapper.map( getParameters(), PARAMS_KEY__FLOAT, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultFloatString,
+                mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultInteger,
+                mapper.map( getParameters(), PARAMS_KEY__INTEGER, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultIntegerString,
+                mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultLong,
+                mapper.map( getParameters(), PARAMS_KEY__LONG, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultLongString,
+                mapper.map( getParameters(), PARAMS_KEY__LONG_STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultShort,
+                mapper.map( getParameters(), PARAMS_KEY__SHORT, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultShortString,
+                mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
 
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__NO_KEY, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__NO_VALUE, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__OBJECT, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__NO_KEY, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__NO_VALUE, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__OBJECT, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__STRING, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, FORMAT_PATTERN,
+                        ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
     }
 
     /**
@@ -753,31 +884,33 @@ class IFloatMapperTest {
      */
     @Test
     void map9() {
-        Float defaultBigDecimal        = this.getDefaultBigDecimal();
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigInteger        = this.getDefaultBigInteger();
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByte              = this.getDefaultByte();
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDouble            = this.getDefaultDouble();
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloat             = this.getDefaultFloat();
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultInteger           = this.getDefaultInteger();
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLong              = this.getDefaultLong();
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShort             = this.getDefaultShort();
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimal = this.getDefaultBigDecimal();
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigInteger = this.getDefaultBigInteger();
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByte = this.getDefaultByte();
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDouble = this.getDefaultDouble();
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloat = this.getDefaultFloat();
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultInteger = this.getDefaultInteger();
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLong = this.getDefaultLong();
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShort = this.getDefaultShort();
+        Float defaultShortString = this.getDefaultShort( locale );
 
         assertEquals( defaultBigDecimal,
                 mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultBigDecimalString,
-                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, locale, FORMAT_PATTERN,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultBigInteger,
                 mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultBigIntegerString,
-                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, locale, FORMAT_PATTERN,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultByte,
                 mapper.map( getParameters(), PARAMS_KEY__BYTE, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultByteString,
@@ -785,23 +918,25 @@ class IFloatMapperTest {
         assertEquals( defaultDouble,
                 mapper.map( getParameters(), PARAMS_KEY__DOUBLE, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultDoubleString,
-                mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, locale, FORMAT_PATTERN,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultFloat,
                 mapper.map( getParameters(), PARAMS_KEY__FLOAT, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultFloatString,
-                mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultFloatString, mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, locale, FORMAT_PATTERN,
+                ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultInteger,
                 mapper.map( getParameters(), PARAMS_KEY__INTEGER, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultIntegerString,
-                mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, locale, FORMAT_PATTERN,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultLong,
                 mapper.map( getParameters(), PARAMS_KEY__LONG, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultLongString,
                 mapper.map( getParameters(), PARAMS_KEY__LONG_STRING, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultShort,
                 mapper.map( getParameters(), PARAMS_KEY__SHORT, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultShortString,
-                mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultShortString, mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, locale, FORMAT_PATTERN,
+                ANOTHER_DEFAULT_VALUE ) );
 
         assertEquals( ANOTHER_DEFAULT_VALUE,
                 mapper.map( getParameters(), PARAMS_KEY__NO_KEY, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
@@ -812,13 +947,17 @@ class IFloatMapperTest {
         assertEquals( ANOTHER_DEFAULT_VALUE,
                 mapper.map( getParameters(), PARAMS_KEY__STRING, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, locale, FORMAT_PATTERN,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, locale, FORMAT_PATTERN,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, locale, FORMAT_PATTERN,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, locale, FORMAT_PATTERN,
+                        ANOTHER_DEFAULT_VALUE ) );
     }
 
     /**
@@ -828,55 +967,61 @@ class IFloatMapperTest {
     void map10() {
         DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
 
-        Float defaultBigDecimal        = this.getDefaultBigDecimal();
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigInteger        = this.getDefaultBigInteger();
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByte              = this.getDefaultByte();
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDouble            = this.getDefaultDouble();
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloat             = this.getDefaultFloat();
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultInteger           = this.getDefaultInteger();
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLong              = this.getDefaultLong();
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShort             = this.getDefaultShort();
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimal = this.getDefaultBigDecimal();
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigInteger = this.getDefaultBigInteger();
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByte = this.getDefaultByte();
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDouble = this.getDefaultDouble();
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloat = this.getDefaultFloat();
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultInteger = this.getDefaultInteger();
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLong = this.getDefaultLong();
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShort = this.getDefaultShort();
+        Float defaultShortString = this.getDefaultShort( null );
 
-        assertEquals( defaultBigDecimal,
-                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimal, mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, FORMAT_PATTERN, symbols,
+                ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultBigDecimalString,
-                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigInteger,
-                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigInteger, mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, FORMAT_PATTERN, symbols,
+                ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultBigIntegerString,
-                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultByte,
                 mapper.map( getParameters(), PARAMS_KEY__BYTE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultByteString,
-                mapper.map( getParameters(), PARAMS_KEY__BYTE_STRING, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultByteString, mapper.map( getParameters(), PARAMS_KEY__BYTE_STRING, FORMAT_PATTERN, symbols,
+                ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultDouble,
                 mapper.map( getParameters(), PARAMS_KEY__DOUBLE, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultDoubleString,
-                mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultFloat,
                 mapper.map( getParameters(), PARAMS_KEY__FLOAT, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultFloatString,
-                mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultInteger,
                 mapper.map( getParameters(), PARAMS_KEY__INTEGER, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultIntegerString,
-                mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultLong,
                 mapper.map( getParameters(), PARAMS_KEY__LONG, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultLongString,
-                mapper.map( getParameters(), PARAMS_KEY__LONG_STRING, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultLongString, mapper.map( getParameters(), PARAMS_KEY__LONG_STRING, FORMAT_PATTERN, symbols,
+                ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultShort,
                 mapper.map( getParameters(), PARAMS_KEY__SHORT, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultShortString,
-                mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
 
         assertEquals( ANOTHER_DEFAULT_VALUE,
                 mapper.map( getParameters(), PARAMS_KEY__NO_KEY, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
@@ -887,13 +1032,17 @@ class IFloatMapperTest {
         assertEquals( ANOTHER_DEFAULT_VALUE,
                 mapper.map( getParameters(), PARAMS_KEY__STRING, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
     }
 
     /**
@@ -901,74 +1050,92 @@ class IFloatMapperTest {
      */
     @Test
     void map11() {
-        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(locale);
+        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance( locale );
 
-        Float defaultBigDecimal        = this.getDefaultBigDecimal();
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigInteger        = this.getDefaultBigInteger();
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByte              = this.getDefaultByte();
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDouble            = this.getDefaultDouble();
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloat             = this.getDefaultFloat();
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultInteger           = this.getDefaultInteger();
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLong              = this.getDefaultLong();
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShort             = this.getDefaultShort();
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimal = this.getDefaultBigDecimal();
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigInteger = this.getDefaultBigInteger();
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByte = this.getDefaultByte();
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDouble = this.getDefaultDouble();
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloat = this.getDefaultFloat();
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultInteger = this.getDefaultInteger();
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLong = this.getDefaultLong();
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShort = this.getDefaultShort();
+        Float defaultShortString = this.getDefaultShort( locale );
 
         assertEquals( defaultBigDecimal,
-                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultBigDecimalString,
-                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__BIG_DECIMAL_STRING, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultBigInteger,
-                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultBigIntegerString,
-                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultByte,
-                mapper.map( getParameters(), PARAMS_KEY__BYTE, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__BIG_INTEGER_STRING, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultByte, mapper.map( getParameters(), PARAMS_KEY__BYTE, locale, FORMAT_PATTERN, symbols,
+                ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultByteString,
-                mapper.map( getParameters(), PARAMS_KEY__BYTE_STRING, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultDouble,
-                mapper.map( getParameters(), PARAMS_KEY__DOUBLE, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__BYTE_STRING, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultDouble, mapper.map( getParameters(), PARAMS_KEY__DOUBLE, locale, FORMAT_PATTERN, symbols,
+                ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultDoubleString,
-                mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultFloat,
-                mapper.map( getParameters(), PARAMS_KEY__FLOAT, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__DOUBLE_STRING, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultFloat, mapper.map( getParameters(), PARAMS_KEY__FLOAT, locale, FORMAT_PATTERN, symbols,
+                ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultFloatString,
-                mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultInteger,
-                mapper.map( getParameters(), PARAMS_KEY__INTEGER, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__FLOAT_STRING, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultInteger, mapper.map( getParameters(), PARAMS_KEY__INTEGER, locale, FORMAT_PATTERN, symbols,
+                ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultIntegerString,
-                mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultLong,
-                mapper.map( getParameters(), PARAMS_KEY__LONG, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__INTEGER_STRING, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultLong, mapper.map( getParameters(), PARAMS_KEY__LONG, locale, FORMAT_PATTERN, symbols,
+                ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultLongString,
-                mapper.map( getParameters(), PARAMS_KEY__LONG_STRING, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultShort,
-                mapper.map( getParameters(), PARAMS_KEY__SHORT, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__LONG_STRING, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultShort, mapper.map( getParameters(), PARAMS_KEY__SHORT, locale, FORMAT_PATTERN, symbols,
+                ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultShortString,
-                mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__SHORT_STRING, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
 
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.map( getParameters(), PARAMS_KEY__NO_KEY, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__NO_KEY, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.map( getParameters(), PARAMS_KEY__NO_VALUE, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__NO_VALUE, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.map( getParameters(), PARAMS_KEY__OBJECT, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__OBJECT, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.map( getParameters(), PARAMS_KEY__STRING, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__STRING, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__STRING__EMPTY, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__STRING__UNTRIMMED_EMPTY, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE,
-                mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+                mapper.map( getParameters(), PARAMS_KEY__STRING_BUILDER, locale, FORMAT_PATTERN, symbols,
+                        ANOTHER_DEFAULT_VALUE ) );
     }
 
     /**
@@ -976,31 +1143,31 @@ class IFloatMapperTest {
      */
     @Test
     void map12() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShortString = this.getDefaultShort( null );
 
         assertEquals( defaultBigDecimalString, mapper.map( sBigDecimalString ) );
         assertEquals( defaultBigIntegerString, mapper.map( sBigIntegerString ) );
@@ -1025,31 +1192,31 @@ class IFloatMapperTest {
      */
     @Test
     void map13() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShortString = this.getDefaultShort( null );
 
         assertEquals( defaultBigDecimalString, mapper.map( sBigDecimalString, true, true, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultBigIntegerString, mapper.map( sBigIntegerString, true, true, ANOTHER_DEFAULT_VALUE ) );
@@ -1074,31 +1241,31 @@ class IFloatMapperTest {
      */
     @Test
     void map14() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShortString = this.getDefaultShort( locale );
 
         assertEquals( defaultBigDecimalString, mapper.map( sBigDecimalString, locale ) );
         assertEquals( defaultBigIntegerString, mapper.map( sBigIntegerString, locale ) );
@@ -1123,31 +1290,31 @@ class IFloatMapperTest {
      */
     @Test
     void map15() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShortString = this.getDefaultShort( null );
 
         assertEquals( defaultBigDecimalString, mapper.map( sBigDecimalString, FORMAT_PATTERN ) );
         assertEquals( defaultBigIntegerString, mapper.map( sBigIntegerString, FORMAT_PATTERN ) );
@@ -1172,31 +1339,31 @@ class IFloatMapperTest {
      */
     @Test
     void map16() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShortString = this.getDefaultShort( locale );
 
         assertEquals( defaultBigDecimalString, mapper.map( sBigDecimalString, locale, FORMAT_PATTERN ) );
         assertEquals( defaultBigIntegerString, mapper.map( sBigIntegerString, locale, FORMAT_PATTERN ) );
@@ -1221,33 +1388,33 @@ class IFloatMapperTest {
      */
     @Test
     void map17() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(locale);
+        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance( locale );
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShortString = this.getDefaultShort( locale );
 
         assertEquals( defaultBigDecimalString, mapper.map( sBigDecimalString, locale, FORMAT_PATTERN, symbols ) );
         assertEquals( defaultBigIntegerString, mapper.map( sBigIntegerString, locale, FORMAT_PATTERN, symbols ) );
@@ -1272,33 +1439,33 @@ class IFloatMapperTest {
      */
     @Test
     void map18() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
         DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShortString = this.getDefaultShort( null );
 
         assertEquals( defaultBigDecimalString, mapper.map( sBigDecimalString, FORMAT_PATTERN, symbols ) );
         assertEquals( defaultBigIntegerString, mapper.map( sBigIntegerString, FORMAT_PATTERN, symbols ) );
@@ -1323,31 +1490,31 @@ class IFloatMapperTest {
      */
     @Test
     void map19() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShortString = this.getDefaultShort( null );
 
         assertEquals( defaultBigDecimalString, mapper.map( sBigDecimalString, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultBigIntegerString, mapper.map( sBigIntegerString, ANOTHER_DEFAULT_VALUE ) );
@@ -1372,31 +1539,31 @@ class IFloatMapperTest {
      */
     @Test
     void map20() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShortString = this.getDefaultShort( locale );
 
         assertEquals( defaultBigDecimalString, mapper.map( sBigDecimalString, locale, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultBigIntegerString, mapper.map( sBigIntegerString, locale, ANOTHER_DEFAULT_VALUE ) );
@@ -1421,31 +1588,31 @@ class IFloatMapperTest {
      */
     @Test
     void map21() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShortString = this.getDefaultShort( null );
 
         assertEquals( defaultBigDecimalString, mapper.map( sBigDecimalString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultBigIntegerString, mapper.map( sBigIntegerString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
@@ -1461,7 +1628,8 @@ class IFloatMapperTest {
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sStringEmpty, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sStringUntrimmed, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sStringUntrimmedEmpty, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( sStringUntrimmedEmpty, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sStringBuilder, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
     }
 
@@ -1470,48 +1638,55 @@ class IFloatMapperTest {
      */
     @Test
     void map22() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShortString = this.getDefaultShort( locale );
 
-        assertEquals( defaultBigDecimalString, mapper.map( sBigDecimalString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigIntegerString, mapper.map( sBigIntegerString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimalString,
+                mapper.map( sBigDecimalString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigIntegerString,
+                mapper.map( sBigIntegerString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultByteString, mapper.map( sByteString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultDoubleString, mapper.map( sDoubleString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultFloatString, mapper.map( sFloatString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultIntegerString, mapper.map( sIntegerString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultIntegerString,
+                mapper.map( sIntegerString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultLongString, mapper.map( sLongString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultShortString, mapper.map( sShortString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
 
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sNull, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sObject, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sStringEmpty, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sStringUntrimmed, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sStringUntrimmedEmpty, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sStringBuilder, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( sStringEmpty, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( sStringUntrimmed, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( sStringUntrimmedEmpty, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( sStringBuilder, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
     }
 
     /**
@@ -1519,50 +1694,58 @@ class IFloatMapperTest {
      */
     @Test
     void map23() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
         DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShortString = this.getDefaultShort( null );
 
-        assertEquals( defaultBigDecimalString, mapper.map( sBigDecimalString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigIntegerString, mapper.map( sBigIntegerString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimalString,
+                mapper.map( sBigDecimalString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigIntegerString,
+                mapper.map( sBigIntegerString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultByteString, mapper.map( sByteString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultDoubleString, mapper.map( sDoubleString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultDoubleString,
+                mapper.map( sDoubleString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultFloatString, mapper.map( sFloatString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultIntegerString, mapper.map( sIntegerString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultIntegerString,
+                mapper.map( sIntegerString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultLongString, mapper.map( sLongString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultShortString, mapper.map( sShortString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
 
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sNull, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sObject, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sStringEmpty, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sStringUntrimmed, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sStringUntrimmedEmpty, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sStringBuilder, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( sStringEmpty, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( sStringUntrimmed, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( sStringUntrimmedEmpty, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( sStringBuilder, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
     }
 
     /**
@@ -1570,50 +1753,65 @@ class IFloatMapperTest {
      */
     @Test
     void map24() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(locale);
+        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance( locale );
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShortString = this.getDefaultShort( locale );
 
-        assertEquals( defaultBigDecimalString, mapper.map( sBigDecimalString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigIntegerString, mapper.map( sBigIntegerString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultByteString, mapper.map( sByteString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultDoubleString, mapper.map( sDoubleString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultFloatString, mapper.map( sFloatString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultIntegerString, mapper.map( sIntegerString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultLongString, mapper.map( sLongString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultShortString, mapper.map( sShortString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimalString,
+                mapper.map( sBigDecimalString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigIntegerString,
+                mapper.map( sBigIntegerString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultByteString,
+                mapper.map( sByteString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultDoubleString,
+                mapper.map( sDoubleString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultFloatString,
+                mapper.map( sFloatString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultIntegerString,
+                mapper.map( sIntegerString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultLongString,
+                mapper.map( sLongString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultShortString,
+                mapper.map( sShortString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
 
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sNull, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sObject, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sStringEmpty, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sStringUntrimmed, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sStringUntrimmedEmpty, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.map( sStringBuilder, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( sNull, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( sObject, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( sString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( sStringEmpty, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( sStringUntrimmed, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( sStringUntrimmedEmpty, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.map( sStringBuilder, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
     }
 
     /**
@@ -1621,31 +1819,31 @@ class IFloatMapperTest {
      */
     @Test
     void unformat() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShortString = this.getDefaultShort( null );
 
         assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString ) );
         assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString ) );
@@ -1670,31 +1868,31 @@ class IFloatMapperTest {
      */
     @Test
     void unformat1() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShortString = this.getDefaultShort( locale );
 
         assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, locale ) );
         assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, locale ) );
@@ -1719,31 +1917,31 @@ class IFloatMapperTest {
      */
     @Test
     void unformat2() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShortString = this.getDefaultShort( null );
 
         assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, FORMAT_PATTERN ) );
         assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, FORMAT_PATTERN ) );
@@ -1768,31 +1966,31 @@ class IFloatMapperTest {
      */
     @Test
     void unformat3() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShortString = this.getDefaultShort( locale );
 
         assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, locale, FORMAT_PATTERN ) );
         assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, locale, FORMAT_PATTERN ) );
@@ -1817,33 +2015,33 @@ class IFloatMapperTest {
      */
     @Test
     void unformat4() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(locale);
+        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance( locale );
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShortString = this.getDefaultShort( locale );
 
         assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, locale, FORMAT_PATTERN, symbols ) );
         assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, locale, FORMAT_PATTERN, symbols ) );
@@ -1859,7 +2057,8 @@ class IFloatMapperTest {
         assertEquals( mapper.getDefaultValue(), mapper.unformat( sString, locale, FORMAT_PATTERN, symbols ) );
         assertEquals( mapper.getDefaultValue(), mapper.unformat( sStringEmpty, locale, FORMAT_PATTERN, symbols ) );
         assertEquals( mapper.getDefaultValue(), mapper.unformat( sStringUntrimmed, locale, FORMAT_PATTERN, symbols ) );
-        assertEquals( mapper.getDefaultValue(), mapper.unformat( sStringUntrimmedEmpty, locale, FORMAT_PATTERN, symbols ) );
+        assertEquals( mapper.getDefaultValue(),
+                mapper.unformat( sStringUntrimmedEmpty, locale, FORMAT_PATTERN, symbols ) );
         assertEquals( mapper.getDefaultValue(), mapper.unformat( sStringBuilder, locale, FORMAT_PATTERN, symbols ) );
     }
 
@@ -1868,33 +2067,33 @@ class IFloatMapperTest {
      */
     @Test
     void unformat5() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(locale);
+        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance( locale );
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShortString = this.getDefaultShort( null );
 
         assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, FORMAT_PATTERN, symbols ) );
         assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, FORMAT_PATTERN, symbols ) );
@@ -1919,31 +2118,31 @@ class IFloatMapperTest {
      */
     @Test
     void unformat6() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShortString = this.getDefaultShort( null );
 
         assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, ANOTHER_DEFAULT_VALUE ) );
@@ -1968,31 +2167,31 @@ class IFloatMapperTest {
      */
     @Test
     void unformat7() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShortString = this.getDefaultShort( locale );
 
         assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, locale, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, locale, ANOTHER_DEFAULT_VALUE ) );
@@ -2017,34 +2216,36 @@ class IFloatMapperTest {
      */
     @Test
     void unformat8() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShortString = this.getDefaultShort( null );
 
-        assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimalString,
+                mapper.unformat( sBigDecimalString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigIntegerString,
+                mapper.unformat( sBigIntegerString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultByteString, mapper.unformat( sByteString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultDoubleString, mapper.unformat( sDoubleString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( defaultFloatString, mapper.unformat( sFloatString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
@@ -2056,8 +2257,10 @@ class IFloatMapperTest {
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sObject, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sString, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sStringEmpty, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sStringUntrimmed, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sStringUntrimmedEmpty, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sStringUntrimmed, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sStringUntrimmedEmpty, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sStringBuilder, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
     }
 
@@ -2066,48 +2269,62 @@ class IFloatMapperTest {
      */
     @Test
     void unformat9() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShortString = this.getDefaultShort( locale );
 
-        assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultByteString, mapper.unformat( sByteString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultDoubleString, mapper.unformat( sDoubleString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultFloatString, mapper.unformat( sFloatString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultIntegerString, mapper.unformat( sIntegerString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultLongString, mapper.unformat( sLongString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultShortString, mapper.unformat( sShortString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimalString,
+                mapper.unformat( sBigDecimalString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigIntegerString,
+                mapper.unformat( sBigIntegerString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultByteString,
+                mapper.unformat( sByteString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultDoubleString,
+                mapper.unformat( sDoubleString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultFloatString,
+                mapper.unformat( sFloatString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultIntegerString,
+                mapper.unformat( sIntegerString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultLongString,
+                mapper.unformat( sLongString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultShortString,
+                mapper.unformat( sShortString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
 
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sNull, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sObject, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sStringEmpty, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sStringUntrimmed, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sStringUntrimmedEmpty, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sStringBuilder, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sObject, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sString, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sStringEmpty, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sStringUntrimmed, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sStringUntrimmedEmpty, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sStringBuilder, locale, FORMAT_PATTERN, ANOTHER_DEFAULT_VALUE ) );
     }
 
     /**
@@ -2115,50 +2332,64 @@ class IFloatMapperTest {
      */
     @Test
     void unformat10() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(locale);
+        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance( locale );
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(null);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(null);
-        Float defaultByteString        = this.getDefaultByte(null);
-        Float defaultDoubleString      = this.getDefaultDouble(null);
-        Float defaultFloatString       = this.getDefaultFloat(null);
-        Float defaultIntegerString     = this.getDefaultInteger(null);
-        Float defaultLongString        = this.getDefaultLong(null);
-        Float defaultShortString       = this.getDefaultShort(null);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( null );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( null );
+        Float defaultByteString = this.getDefaultByte( null );
+        Float defaultDoubleString = this.getDefaultDouble( null );
+        Float defaultFloatString = this.getDefaultFloat( null );
+        Float defaultIntegerString = this.getDefaultInteger( null );
+        Float defaultLongString = this.getDefaultLong( null );
+        Float defaultShortString = this.getDefaultShort( null );
 
-        assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultByteString, mapper.unformat( sByteString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultDoubleString, mapper.unformat( sDoubleString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultFloatString, mapper.unformat( sFloatString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultIntegerString, mapper.unformat( sIntegerString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultLongString, mapper.unformat( sLongString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultShortString, mapper.unformat( sShortString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimalString,
+                mapper.unformat( sBigDecimalString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigIntegerString,
+                mapper.unformat( sBigIntegerString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultByteString,
+                mapper.unformat( sByteString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultDoubleString,
+                mapper.unformat( sDoubleString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultFloatString,
+                mapper.unformat( sFloatString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultIntegerString,
+                mapper.unformat( sIntegerString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultLongString,
+                mapper.unformat( sLongString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultShortString,
+                mapper.unformat( sShortString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
 
         assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sNull, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sObject, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sStringEmpty, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sStringUntrimmed, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sStringUntrimmedEmpty, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sStringBuilder, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sObject, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sString, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sStringEmpty, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sStringUntrimmed, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sStringUntrimmedEmpty, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sStringBuilder, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
     }
 
     /**
@@ -2166,50 +2397,65 @@ class IFloatMapperTest {
      */
     @Test
     void unformat11() {
-        String sBigDecimalString        = (String) getParameters().get(PARAMS_KEY__BIG_DECIMAL_STRING);
-        String sBigIntegerString        = (String) getParameters().get(PARAMS_KEY__BIG_INTEGER_STRING);
-        String sByteString              = (String) getParameters().get(PARAMS_KEY__BYTE_STRING);
-        String sDoubleString            = (String) getParameters().get(PARAMS_KEY__DOUBLE_STRING);
-        String sFloatString             = (String) getParameters().get(PARAMS_KEY__FLOAT_STRING);
-        String sIntegerString           = (String) getParameters().get(PARAMS_KEY__INTEGER_STRING);
-        String sLongString              = (String) getParameters().get(PARAMS_KEY__LONG_STRING);
-        String sShortString             = (String) getParameters().get(PARAMS_KEY__SHORT_STRING);
+        String sBigDecimalString = ( String ) getParameters().get( PARAMS_KEY__BIG_DECIMAL_STRING );
+        String sBigIntegerString = ( String ) getParameters().get( PARAMS_KEY__BIG_INTEGER_STRING );
+        String sByteString = ( String ) getParameters().get( PARAMS_KEY__BYTE_STRING );
+        String sDoubleString = ( String ) getParameters().get( PARAMS_KEY__DOUBLE_STRING );
+        String sFloatString = ( String ) getParameters().get( PARAMS_KEY__FLOAT_STRING );
+        String sIntegerString = ( String ) getParameters().get( PARAMS_KEY__INTEGER_STRING );
+        String sLongString = ( String ) getParameters().get( PARAMS_KEY__LONG_STRING );
+        String sShortString = ( String ) getParameters().get( PARAMS_KEY__SHORT_STRING );
 
-        String sNull                    = null;
-        String sObject                  = getParameters().get(PARAMS_KEY__OBJECT).toString();
-        String sString                  = (String) getParameters().get(PARAMS_KEY__STRING);
-        String sStringEmpty             = (String) getParameters().get(PARAMS_KEY__STRING__EMPTY);
-        String sStringUntrimmed         = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED);
-        String sStringUntrimmedEmpty    = (String) getParameters().get(PARAMS_KEY__STRING__UNTRIMMED_EMPTY);
-        String sStringBuilder           = getParameters().get(PARAMS_KEY__STRING_BUILDER).toString();
+        String sNull = null;
+        String sObject = getParameters().get( PARAMS_KEY__OBJECT ).toString();
+        String sString = ( String ) getParameters().get( PARAMS_KEY__STRING );
+        String sStringEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__EMPTY );
+        String sStringUntrimmed = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED );
+        String sStringUntrimmedEmpty = ( String ) getParameters().get( PARAMS_KEY__STRING__UNTRIMMED_EMPTY );
+        String sStringBuilder = getParameters().get( PARAMS_KEY__STRING_BUILDER ).toString();
 
-        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(locale);
+        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance( locale );
 
-        Float defaultBigDecimalString  = this.getDefaultBigDecimal(locale);
-        Float defaultBigIntegerString  = this.getDefaultBigInteger(locale);
-        Float defaultByteString        = this.getDefaultByte(locale);
-        Float defaultDoubleString      = this.getDefaultDouble(locale);
-        Float defaultFloatString       = this.getDefaultFloat(locale);
-        Float defaultIntegerString     = this.getDefaultInteger(locale);
-        Float defaultLongString        = this.getDefaultLong(locale);
-        Float defaultShortString       = this.getDefaultShort(locale);
+        Float defaultBigDecimalString = this.getDefaultBigDecimal( locale );
+        Float defaultBigIntegerString = this.getDefaultBigInteger( locale );
+        Float defaultByteString = this.getDefaultByte( locale );
+        Float defaultDoubleString = this.getDefaultDouble( locale );
+        Float defaultFloatString = this.getDefaultFloat( locale );
+        Float defaultIntegerString = this.getDefaultInteger( locale );
+        Float defaultLongString = this.getDefaultLong( locale );
+        Float defaultShortString = this.getDefaultShort( locale );
 
-        assertEquals( defaultBigDecimalString, mapper.unformat( sBigDecimalString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultBigIntegerString, mapper.unformat( sBigIntegerString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultByteString, mapper.unformat( sByteString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultDoubleString, mapper.unformat( sDoubleString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultFloatString, mapper.unformat( sFloatString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultIntegerString, mapper.unformat( sIntegerString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultLongString, mapper.unformat( sLongString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( defaultShortString, mapper.unformat( sShortString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigDecimalString,
+                mapper.unformat( sBigDecimalString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultBigIntegerString,
+                mapper.unformat( sBigIntegerString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultByteString,
+                mapper.unformat( sByteString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultDoubleString,
+                mapper.unformat( sDoubleString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultFloatString,
+                mapper.unformat( sFloatString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultIntegerString,
+                mapper.unformat( sIntegerString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultLongString,
+                mapper.unformat( sLongString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( defaultShortString,
+                mapper.unformat( sShortString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
 
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sNull, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sObject, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sStringEmpty, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sStringUntrimmed, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sStringUntrimmedEmpty, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
-        assertEquals( ANOTHER_DEFAULT_VALUE, mapper.unformat( sStringBuilder, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sNull, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sObject, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sString, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sStringEmpty, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sStringUntrimmed, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sStringUntrimmedEmpty, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
+        assertEquals( ANOTHER_DEFAULT_VALUE,
+                mapper.unformat( sStringBuilder, locale, FORMAT_PATTERN, symbols, ANOTHER_DEFAULT_VALUE ) );
     }
 
 }

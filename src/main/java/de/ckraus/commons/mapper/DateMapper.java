@@ -7,14 +7,12 @@ import lombok.Setter;
 import java.util.Date;
 
 @Getter
-@Setter(AccessLevel.PROTECTED)
-@SuppressWarnings({"javadoc", "unused"})
-public class DateMapper
-        extends AbstractTypeMapper<Date>
-        implements IDateMapper {
+@Setter( AccessLevel.PROTECTED )
+@SuppressWarnings( { "javadoc", "unused" } )
+public class DateMapper extends AbstractTypeMapper<Date> implements IDateMapper {
 
-    private final static String CLASS   = DateMapper.class.getSimpleName();
-//    protected static Logger log = LoggerFactory.getLogger(IntegerMapper.class);
+    private final static String CLASS = DateMapper.class.getSimpleName();
+    //    protected static Logger log = LoggerFactory.getLogger(IntegerMapper.class);
 
 
     /**
@@ -26,10 +24,11 @@ public class DateMapper
 
     /**
      * Constructor
+     *
      * @param defaultValue
      */
-    public DateMapper(Date defaultValue) {
-        super(defaultValue);
+    public DateMapper( Date defaultValue ) {
+        super( defaultValue );
     }
 
 }
