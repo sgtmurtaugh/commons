@@ -9,4 +9,5 @@ class ByteMapperTest {
     @Test
     void map() {
     }
+
 }

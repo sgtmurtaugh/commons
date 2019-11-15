@@ -3,7 +3,7 @@ package de.ckraus.commons.mapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class TypeMapperUtilsTest {
 
@@ -16,7 +16,7 @@ class TypeMapperUtilsTest {
 
     @Test
     void initializationSuccessful() {
-        assertNotNull(typeMapperUtils);
+        assertNotNull( typeMapperUtils );
     }
 
     @Test
@@ -50,4 +50,5 @@ class TypeMapperUtilsTest {
     @Test
     void getTypeMapper() {
     }
+
 }

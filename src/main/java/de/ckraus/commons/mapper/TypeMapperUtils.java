@@ -13,11 +13,11 @@ import java.util.concurrent.ConcurrentMap;
 /**
  * Created by ckraus on 07.08.15.
  */
-@SuppressWarnings({"WeakerAccess", "javadoc", "unused"})
+@SuppressWarnings( { "WeakerAccess", "javadoc", "unused" } )
 public class TypeMapperUtils {
 
     private final static String CLASS = TypeMapperUtils.class.getSimpleName();
-    protected static Logger log = LoggerFactory.getLogger(TypeMapperUtils.class);
+    protected static Logger log = LoggerFactory.getLogger( TypeMapperUtils.class );
 
     private static TypeMapperUtils instance = null;
 
@@ -35,20 +35,20 @@ public class TypeMapperUtils {
 
     /**
      * getInstance
+     *
      * @return
      */
     protected static synchronized TypeMapperUtils getInstance() {
-        if (null == instance) {
+        if ( null == instance ) {
             // TODO Application Context ermitteln nicht erzeugen!
             try {
                 ApplicationContext context = CommonsUtils.getInstance().getApplicationContext();
-                instance = (TypeMapperUtils) context.getBean("typeMapperUtils");
-            }
-            catch (BeansException be) {
+                instance = ( TypeMapperUtils ) context.getBean( "typeMapperUtils" );
+            } catch ( BeansException be ) {
                 // TODO: logging
             }
 
-            if (null == instance) {
+            if ( null == instance ) {
                 // TODO: logging
                 instance = new TypeMapperUtils();
             }
@@ -62,6 +62,7 @@ public class TypeMapperUtils {
 
     /**
      * get
+     *
      * @return
      */
     public static <T extends ITypeMapper<?>> T get( Class<T> clazz ) {
@@ -70,56 +71,14 @@ public class TypeMapperUtils {
         T mapper = null;
 
         if ( null != clazz ) {
-            mapper = clazz.cast(
-                    getInstance().getTypeMapper( clazz )
-            );
+            mapper = clazz.cast( getInstance().getTypeMapper( clazz ) );
         }
         return mapper;
     }
 
     /**
-     * getRegisteredTypeMappers
-     * @return
-     */
-    public ConcurrentMap<Class<? extends ITypeMapper>, ITypeMapper> getRegisteredTypeMappers() {
-        if ( null == mapRegistredTypeMappers ) {
-//            this.setRegisteredTypeMappers(
-//                    new ConcurrentHashMap<>()
-//            );
-            mapRegistredTypeMappers = new ConcurrentHashMap<>();
-        }
-        return mapRegistredTypeMappers;
-    }
-
-    /**
-     * setRegisteredTypeMappers
-     * @param mapMappers
-     */
-    private void setRegisteredTypeMappers(
-            ConcurrentMap<Class<? extends ITypeMapper>, ITypeMapper> mapMappers) {
-        this.mapRegistredTypeMappers = mapMappers;
-    }
-
-
-    /* ### additional Methods ############ */
-
-
-    /**
-     * addRegisteredTypeMapper
-     * @param typeMapper
-     */
-    protected ITypeMapper addRegisteredTypeMapper(ITypeMapper typeMapper) {
-        if (null != typeMapper) {
-            this.getRegisteredTypeMappers().put(
-                    typeMapper.getClass(),
-                    typeMapper
-            );
-        }
-        return typeMapper;
-    }
-
-    /**
      * getDefaults
+     *
      * @return
      */
     public static DefaultTypeMappers getDefaults() {
@@ -127,11 +86,51 @@ public class TypeMapperUtils {
     }
 
     /**
+     * getRegisteredTypeMappers
+     *
+     * @return
+     */
+    public ConcurrentMap<Class<? extends ITypeMapper>, ITypeMapper> getRegisteredTypeMappers() {
+        if ( null == mapRegistredTypeMappers ) {
+            //            this.setRegisteredTypeMappers(
+            //                    new ConcurrentHashMap<>()
+            //            );
+            mapRegistredTypeMappers = new ConcurrentHashMap<>();
+        }
+        return mapRegistredTypeMappers;
+    }
+
+
+    /* ### additional Methods ############ */
+
+    /**
+     * setRegisteredTypeMappers
+     *
+     * @param mapMappers
+     */
+    private void setRegisteredTypeMappers( ConcurrentMap<Class<? extends ITypeMapper>, ITypeMapper> mapMappers ) {
+        this.mapRegistredTypeMappers = mapMappers;
+    }
+
+    /**
+     * addRegisteredTypeMapper
+     *
+     * @param typeMapper
+     */
+    protected ITypeMapper addRegisteredTypeMapper( ITypeMapper typeMapper ) {
+        if ( null != typeMapper ) {
+            this.getRegisteredTypeMappers().put( typeMapper.getClass(), typeMapper );
+        }
+        return typeMapper;
+    }
+
+    /**
      * getDefaultTypeMappers
+     *
      * @return
      */
     public DefaultTypeMappers getDefaultTypeMappers() {
-        if (null == defaultTypeMappers) {
+        if ( null == defaultTypeMappers ) {
             defaultTypeMappers = new DefaultTypeMappers();
         }
         return defaultTypeMappers;
@@ -139,33 +138,32 @@ public class TypeMapperUtils {
 
     /**
      * getTypeMapper
+     *
      * @param clazzTypeMapper
      * @param <T>
+     *
      * @return
      */
-    @SuppressWarnings("unchecked")
-    public <T extends ITypeMapper> T getTypeMapper(Class<T> clazzTypeMapper ) {
+    @SuppressWarnings( "unchecked" )
+    public <T extends ITypeMapper> T getTypeMapper( Class<T> clazzTypeMapper ) {
         final String METHOD = CLASS + ".getTypeMapper(Class<T>)";
-//        log.logEnter(METHOD, clazzTypeMapper);
+        //        log.logEnter(METHOD, clazzTypeMapper);
 
         T typeMapper = null;
 
-        if ( null != clazzTypeMapper) {
+        if ( null != clazzTypeMapper ) {
             if ( this.getRegisteredTypeMappers().containsKey( clazzTypeMapper ) ) {
-                typeMapper = (T) this.getRegisteredTypeMappers().get(clazzTypeMapper);
-            }
-            else {
+                typeMapper = ( T ) this.getRegisteredTypeMappers().get( clazzTypeMapper );
+            } else {
                 try {
-                    typeMapper = (T) this.addRegisteredTypeMapper(
-                            clazzTypeMapper.getDeclaredConstructor().newInstance()
-                    );
-                }
-                catch ( InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e ) {
+                    typeMapper = ( T ) this
+                            .addRegisteredTypeMapper( clazzTypeMapper.getDeclaredConstructor().newInstance() );
+                } catch ( InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e ) {
                     e.printStackTrace();
                 }
             }
         }
-//        log.logReturn(METHOD, typeMapper);
+        //        log.logReturn(METHOD, typeMapper);
         return typeMapper;
     }
 
@@ -184,6 +182,7 @@ public class TypeMapperUtils {
 
         /**
          * getBigDecimalMapper
+         *
          * @return
          */
         public BigDecimalMapper getBigDecimalMapper() {
@@ -192,6 +191,7 @@ public class TypeMapperUtils {
 
         /**
          * getBigIntegerMapper
+         *
          * @return
          */
         public BigIntegerMapper getBigIntegerMapper() {
@@ -200,6 +200,7 @@ public class TypeMapperUtils {
 
         /**
          * getBooleanMapper
+         *
          * @return
          */
         public BooleanMapper getBooleanMapper() {
@@ -208,6 +209,7 @@ public class TypeMapperUtils {
 
         /**
          * getByteMapper
+         *
          * @return
          */
         public ByteMapper getByteMapper() {
@@ -216,6 +218,7 @@ public class TypeMapperUtils {
 
         /**
          * getCharacterMapper
+         *
          * @return
          */
         public CharacterMapper getCharacterMapper() {
@@ -224,6 +227,7 @@ public class TypeMapperUtils {
 
         /**
          * getDateMapper
+         *
          * @return
          */
         public DateMapper getDateMapper() {
@@ -232,6 +236,7 @@ public class TypeMapperUtils {
 
         /**
          * getDoubleMapper
+         *
          * @return
          */
         public DoubleMapper getDoubleMapper() {
@@ -240,6 +245,7 @@ public class TypeMapperUtils {
 
         /**
          * getFloatMapper
+         *
          * @return
          */
         public FloatMapper getFloatMapper() {
@@ -248,6 +254,7 @@ public class TypeMapperUtils {
 
         /**
          * getGregorianCalendarMapper
+         *
          * @return
          */
         public GregorianCalendarMapper getGregorianCalendarMapper() {
@@ -256,6 +263,7 @@ public class TypeMapperUtils {
 
         /**
          * getIntegerMapper
+         *
          * @return
          */
         public IntegerMapper getIntegerMapper() {
@@ -264,6 +272,7 @@ public class TypeMapperUtils {
 
         /**
          * getLocalDateMapper
+         *
          * @return
          */
         public LocalDateMapper getLocalDateMapper() {
@@ -272,6 +281,7 @@ public class TypeMapperUtils {
 
         /**
          * getLocalDateTimeMapper
+         *
          * @return
          */
         public LocalDateTimeMapper getLocalDateTimeMapper() {
@@ -280,6 +290,7 @@ public class TypeMapperUtils {
 
         /**
          * getLocalTimeMapper
+         *
          * @return
          */
         public LocalTimeMapper getLocalTimeMapper() {
@@ -288,6 +299,7 @@ public class TypeMapperUtils {
 
         /**
          * getLongMapper
+         *
          * @return
          */
         public LongMapper getLongMapper() {
@@ -296,6 +308,7 @@ public class TypeMapperUtils {
 
         /**
          * getShortMapper
+         *
          * @return
          */
         public ShortMapper getShortMapper() {
@@ -304,11 +317,13 @@ public class TypeMapperUtils {
 
         /**
          * getStringMapper
+         *
          * @return
          */
         public StringMapper getStringMapper() {
             return get( StringMapper.class );
         }
+
     }
 
 }

@@ -7,14 +7,13 @@ import lombok.Setter;
 import java.util.GregorianCalendar;
 
 @Getter
-@Setter(AccessLevel.PROTECTED)
-@SuppressWarnings({"javadoc", "unused"})
-public class GregorianCalendarMapper
-        extends AbstractCalendarMapper<GregorianCalendar>
+@Setter( AccessLevel.PROTECTED )
+@SuppressWarnings( { "javadoc", "unused" } )
+public class GregorianCalendarMapper extends AbstractCalendarMapper<GregorianCalendar>
         implements IGregorianCalendarMapper {
 
-    private final static String CLASS   = GregorianCalendarMapper.class.getSimpleName();
-//    protected static Logger log = LoggerFactory.getLogger(IntegerMapper.class);
+    private final static String CLASS = GregorianCalendarMapper.class.getSimpleName();
+    //    protected static Logger log = LoggerFactory.getLogger(IntegerMapper.class);
 
 
     /**
@@ -26,10 +25,11 @@ public class GregorianCalendarMapper
 
     /**
      * Constructor
+     *
      * @param defaultValue
      */
-    public GregorianCalendarMapper(GregorianCalendar defaultValue) {
-        super(defaultValue);
+    public GregorianCalendarMapper( GregorianCalendar defaultValue ) {
+        super( defaultValue );
     }
 
 }

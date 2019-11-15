@@ -3,11 +3,12 @@ package de.ckraus.commons.mapper;
 import java.util.Map;
 import java.util.function.Predicate;
 
-@SuppressWarnings({"javadoc", "unused"})
+@SuppressWarnings( { "javadoc", "unused" } )
 public interface ITypeMapper<E> {
 
     /**
      * getDefaultValue
+     *
      * @return
      */
     default E getDefaultValue() {
@@ -16,6 +17,7 @@ public interface ITypeMapper<E> {
 
     /**
      * isTrimStrings
+     *
      * @return
      */
     default boolean isTrimStrings() {
@@ -24,6 +26,7 @@ public interface ITypeMapper<E> {
 
     /**
      * isEmptyStringNull
+     *
      * @return
      */
     default boolean isEmptyStringNull() {
@@ -32,18 +35,19 @@ public interface ITypeMapper<E> {
 
     /**
      * prepareStringToMap
-     * @param s the string to prepare if necessary
-     * @param bTrim flag for trimming the string
-     * @param bEmptyIsNull flag for using null, when the given string is empty
+     *
+     * @param s
+     *         the string to prepare if necessary
+     * @param bTrim
+     *         flag for trimming the string
+     * @param bEmptyIsNull
+     *         flag for using null, when the given string is empty
+     *
      * @return a prepared String for mapping. The flags are evaluated and the string is reworked if necessary. When the
-     * trim param is true, trim is performed on the string. When the string is empty and the emptyIsNull param is
-     * true, null will be returned.
+     *         trim param is true, trim is performed on the string. When the string is empty and the emptyIsNull param
+     *         is true, null will be returned.
      */
-    default String prepareStringToMap(
-            String s,
-            boolean bTrim,
-            boolean bEmptyIsNull
-    ) {
+    default String prepareStringToMap( String s, boolean bTrim, boolean bEmptyIsNull ) {
         String sRetVal = s;
 
         if ( null != sRetVal ) {
@@ -62,22 +66,25 @@ public interface ITypeMapper<E> {
 
     /**
      * evalPredicate
+     *
      * @param predicate
      * @param t
      * @param <T>
      */
-    default  <T> boolean evalPredicate(Predicate<T> predicate, T t) {
+    default <T> boolean evalPredicate( Predicate<T> predicate, T t ) {
         boolean bSuccess = false;
 
-        if (null != predicate) {
-            bSuccess = predicate.test(t);
+        if ( null != predicate ) {
+            bSuccess = predicate.test( t );
         }
         return bSuccess;
     }
 
     /**
      * isMappable
+     *
      * @param o
+     *
      * @return
      */
     default boolean isMappable( Object o ) {
@@ -85,17 +92,9 @@ public interface ITypeMapper<E> {
 
         if ( null == o ) {
             bIsMappable = false;
-        }
-        else
-        if ( o instanceof String ) {
-            bIsMappable = (
-                    null != this.map(
-                            (String) o,
-                            null
-                    )
-            );
-        }
-        else {
+        } else if ( o instanceof String ) {
+            bIsMappable = ( null != this.map( ( String ) o, null ) );
+        } else {
             bIsMappable = this.isMappable( o.toString() );
         }
         return bIsMappable;
@@ -103,43 +102,38 @@ public interface ITypeMapper<E> {
 
     /**
      * map
-     * @param map parameter map
-     * @param key map access key
+     *
+     * @param map
+     *         parameter map
+     * @param key
+     *         map access key
+     *
      * @return
      */
-    default E map(
-            Map<String, ?> map,
-            String key
-    ) {
-        return this.map(
-                map,
-                key,
-                this.getDefaultValue()
-        );
+    default E map( Map<String, ?> map, String key ) {
+        return this.map( map, key, this.getDefaultValue() );
     }
 
     /**
      * map
-     * @param map parameter map
-     * @param key map access key
-     * @param defaultValue default value used, when the given map is null, the key cannot be found in map, or the map
-     *                    value cannot be mapped to Number type
+     *
+     * @param map
+     *         parameter map
+     * @param key
+     *         map access key
+     * @param defaultValue
+     *         default value used, when the given map is null, the key cannot be found in map, or the map value cannot
+     *         be mapped to Number type
+     *
      * @return
      */
-    default E map(
-            Map<String, ?> map,
-            String key,
-            E defaultValue
-    ) {
+    default E map( Map<String, ?> map, String key, E defaultValue ) {
         E retVal = defaultValue;
 
         if ( null != map ) {
             if ( null != key ) {
-                if ( map.containsKey(key) ) {
-                    retVal = this.map(
-                            map.get(key),
-                            defaultValue
-                    );
+                if ( map.containsKey( key ) ) {
+                    retVal = this.map( map.get( key ), defaultValue );
                 }
             }
         }
@@ -148,111 +142,91 @@ public interface ITypeMapper<E> {
 
     /**
      * map
+     *
      * @param obj
+     *
      * @return
      */
     default E map( Object obj ) {
-        return this.map(
-                obj,
-                this.getDefaultValue()
-        );
+        return this.map( obj, this.getDefaultValue() );
     }
 
     /**
      * map
+     *
      * @param obj
      * @param defaultValue
+     *
      * @return
      */
-    default E map(
-            Object obj,
-            E defaultValue
-    ) {
+    default E map( Object obj, E defaultValue ) {
         E e;
 
-        if (null == obj) {
-           e = defaultValue;
-        }
-        else
-        if ( obj instanceof String ) {
-            e = this.map(
-                    (String) obj,
-                    defaultValue
-            );
-        }
-        else {
-            e = this.map(
-                    obj.toString(),
-                    defaultValue
-            );
+        if ( null == obj ) {
+            e = defaultValue;
+        } else if ( obj instanceof String ) {
+            e = this.map( ( String ) obj, defaultValue );
+        } else {
+            e = this.map( obj.toString(), defaultValue );
         }
         return e;
     }
 
     /**
      * map
-     * @param s - string to map
+     *
+     * @param s
+     *         - string to map
+     *
      * @return
      */
     default E map( String s ) {
-        return this.map(
-                s,
-                this.getDefaultValue()
-        );
+        return this.map( s, this.getDefaultValue() );
     }
 
     /**
      * map
-     * @param s - string to map
+     *
+     * @param s
+     *         - string to map
      * @param defaultValue
+     *
      * @return
      */
-    default E map(
-            String s,
-            E defaultValue
-    ) {
-        return this.map(
-                s,
-                this.isTrimStrings(),
-                this.isEmptyStringNull(),
-                defaultValue
-        );
+    default E map( String s, E defaultValue ) {
+        return this.map( s, this.isTrimStrings(), this.isEmptyStringNull(), defaultValue );
     }
 
     /**
      * map
-     * @param s - string to map
-     * @param bTrim - default flag for string handling
-     * @param bEmptyIsNull - default flag for empty string handling
+     *
+     * @param s
+     *         - string to map
+     * @param bTrim
+     *         - default flag for string handling
+     * @param bEmptyIsNull
+     *         - default flag for empty string handling
+     *
      * @return
      */
-    default E map(
-            String s,
-            boolean bTrim,
-            boolean bEmptyIsNull
-    ) {
-        return this.map(
-                s,
-                bTrim,
-                bEmptyIsNull,
-                this.getDefaultValue()
-        );
+    default E map( String s, boolean bTrim, boolean bEmptyIsNull ) {
+        return this.map( s, bTrim, bEmptyIsNull, this.getDefaultValue() );
     }
 
     /**
      * map
-     * @param s - string to map
-     * @param bTrim - default flag for string handling
-     * @param bEmptyIsNull - default flag for empty string handling
-     * @param defaultValue - The default value
-     * @return
-     * <p>This method should be overwritten individually.
+     *
+     * @param s
+     *         - string to map
+     * @param bTrim
+     *         - default flag for string handling
+     * @param bEmptyIsNull
+     *         - default flag for empty string handling
+     * @param defaultValue
+     *         - The default value
+     *
+     * @return <p>This method should be overwritten individually.
      */
-    E map(
-            String s,
-            boolean bTrim,
-            boolean bEmptyIsNull,
-            E defaultValue
-    );
+    E map( String s, boolean bTrim, boolean bEmptyIsNull, E defaultValue );
 
 }

@@ -5,14 +5,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter(AccessLevel.PROTECTED)
-@SuppressWarnings({"javadoc", "unused"})
-public class IntegerMapper
-        extends AbstractNumericTypeMapper<Integer>
-        implements IIntegerMapper {
+@Setter( AccessLevel.PROTECTED )
+@SuppressWarnings( { "javadoc", "unused" } )
+public class IntegerMapper extends AbstractNumericTypeMapper<Integer> implements IIntegerMapper {
 
-    private final static String CLASS   = IntegerMapper.class.getSimpleName();
-//    protected static Logger log = LoggerFactory.getLogger(IntegerMapper.class);
+    private final static String CLASS = IntegerMapper.class.getSimpleName();
+    //    protected static Logger log = LoggerFactory.getLogger(IntegerMapper.class);
 
 
     /**
@@ -24,10 +22,11 @@ public class IntegerMapper
 
     /**
      * Constructor
+     *
      * @param defaultValue
      */
-    public IntegerMapper(Integer defaultValue) {
-        super(defaultValue);
+    public IntegerMapper( Integer defaultValue ) {
+        super( defaultValue );
     }
 
 }

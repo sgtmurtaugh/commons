@@ -9,4 +9,5 @@ class LongMapperTest {
     @Test
     void map() {
     }
+
 }

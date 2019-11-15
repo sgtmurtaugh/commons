@@ -5,14 +5,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter(AccessLevel.PROTECTED)
-@SuppressWarnings({"javadoc", "unused"})
-public class StringMapper
-        extends AbstractTypeMapper<String>
-        implements IStringMapper {
+@Setter( AccessLevel.PROTECTED )
+@SuppressWarnings( { "javadoc", "unused" } )
+public class StringMapper extends AbstractTypeMapper<String> implements IStringMapper {
 
-    private final static String CLASS   = StringMapper.class.getSimpleName();
-//    protected static Logger log = LoggerFactory.getLogger(StringMapper.class);
+    private final static String CLASS = StringMapper.class.getSimpleName();
+    //    protected static Logger log = LoggerFactory.getLogger(StringMapper.class);
 
 
     /**
@@ -24,10 +22,11 @@ public class StringMapper
 
     /**
      * Constructor
+     *
      * @param defaultValue
      */
-    public StringMapper(String defaultValue) {
-        super(defaultValue);
+    public StringMapper( String defaultValue ) {
+        super( defaultValue );
     }
 
 }

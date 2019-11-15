@@ -2,6 +2,7 @@ package de.ckraus.commons.mapper;
 
 public class IDateMapperTest {
 
-    IDateMapper mapper = new IDateMapper() {};
+    IDateMapper mapper = new IDateMapper() {
+    };
 
 }

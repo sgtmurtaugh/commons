@@ -9,4 +9,5 @@ class FloatMapperTest {
     @Test
     void map() {
     }
+
 }

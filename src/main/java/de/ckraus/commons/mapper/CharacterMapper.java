@@ -3,17 +3,14 @@ package de.ckraus.commons.mapper;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.commons.lang3.ArrayUtils;
 
 @Getter
-@Setter(AccessLevel.PROTECTED)
-@SuppressWarnings({"javadoc", "unused"})
-public class CharacterMapper
-        extends AbstractTypeMapper<Character>
-        implements ICharacterMapper {
+@Setter( AccessLevel.PROTECTED )
+@SuppressWarnings( { "javadoc", "unused" } )
+public class CharacterMapper extends AbstractTypeMapper<Character> implements ICharacterMapper {
 
-    private final static String CLASS   = CharacterMapper.class.getSimpleName();
-//    protected static Logger log = LoggerFactory.getLogger(CharacterMapper.class);
+    private final static String CLASS = CharacterMapper.class.getSimpleName();
+    //    protected static Logger log = LoggerFactory.getLogger(CharacterMapper.class);
 
     private final boolean evaluateCodePoints;
 
@@ -22,36 +19,35 @@ public class CharacterMapper
      * Constructor
      */
     public CharacterMapper() {
-        this(null);
+        this( null );
     }
 
     /**
      * Constructor
      */
-    public CharacterMapper(Character defaultValue) {
-        super(defaultValue);
+    public CharacterMapper( Character defaultValue ) {
+        super( defaultValue );
 
         this.evaluateCodePoints = ICharacterMapper.super.isEvaluateCodePoints();
     }
 
     /**
      * Constructor
+     *
      * @param bIsEvaluateCodePoints
      */
-    public CharacterMapper(boolean bIsEvaluateCodePoints) {
-        this(null, bIsEvaluateCodePoints);
+    public CharacterMapper( boolean bIsEvaluateCodePoints ) {
+        this( null, bIsEvaluateCodePoints );
     }
 
     /**
      * Constructor
+     *
      * @param defaultValue
      * @param bIsEvaluateCodePoints
      */
-    public CharacterMapper(
-            Character defaultValue,
-            boolean bIsEvaluateCodePoints
-    ) {
-        super(defaultValue);
+    public CharacterMapper( Character defaultValue, boolean bIsEvaluateCodePoints ) {
+        super( defaultValue );
 
         this.evaluateCodePoints = bIsEvaluateCodePoints;
     }

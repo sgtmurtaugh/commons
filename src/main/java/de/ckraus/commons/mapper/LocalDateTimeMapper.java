@@ -7,14 +7,12 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Getter
-@Setter(AccessLevel.PROTECTED)
-@SuppressWarnings({"javadoc", "unused"})
-public class LocalDateTimeMapper
-        extends AbstractTemporalTypeMapper<LocalDateTime>
-        implements ILocalDateTimeMapper {
+@Setter( AccessLevel.PROTECTED )
+@SuppressWarnings( { "javadoc", "unused" } )
+public class LocalDateTimeMapper extends AbstractTemporalTypeMapper<LocalDateTime> implements ILocalDateTimeMapper {
 
-    private final static String CLASS   = LocalDateTimeMapper.class.getSimpleName();
-//    protected static Logger log = LoggerFactory.getLogger(StringMapper.class);
+    private final static String CLASS = LocalDateTimeMapper.class.getSimpleName();
+    //    protected static Logger log = LoggerFactory.getLogger(StringMapper.class);
 
 
     /**
@@ -26,10 +24,11 @@ public class LocalDateTimeMapper
 
     /**
      * Constructor
+     *
      * @param defaultValue
      */
-    public LocalDateTimeMapper(LocalDateTime defaultValue) {
-        super(defaultValue);
+    public LocalDateTimeMapper( LocalDateTime defaultValue ) {
+        super( defaultValue );
     }
 
 }

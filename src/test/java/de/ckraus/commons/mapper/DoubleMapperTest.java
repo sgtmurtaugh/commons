@@ -9,4 +9,5 @@ class DoubleMapperTest {
     @Test
     void map() {
     }
+
 }

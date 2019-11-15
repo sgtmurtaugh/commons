@@ -5,14 +5,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter(AccessLevel.PROTECTED)
-@SuppressWarnings({"javadoc", "unused"})
-public class ShortMapper
-        extends AbstractNumericTypeMapper<Short>
-        implements IShortMapper {
+@Setter( AccessLevel.PROTECTED )
+@SuppressWarnings( { "javadoc", "unused" } )
+public class ShortMapper extends AbstractNumericTypeMapper<Short> implements IShortMapper {
 
-    private final static String CLASS   = ShortMapper.class.getSimpleName();
-//    protected static Logger log = LoggerFactory.getLogger(ShortMapper.class);
+    private final static String CLASS = ShortMapper.class.getSimpleName();
+    //    protected static Logger log = LoggerFactory.getLogger(ShortMapper.class);
 
 
     /**
@@ -24,10 +22,11 @@ public class ShortMapper
 
     /**
      * Constructor
+     *
      * @param defaultValue
      */
-    public ShortMapper(Short defaultValue) {
-        super(defaultValue);
+    public ShortMapper( Short defaultValue ) {
+        super( defaultValue );
     }
 
 }

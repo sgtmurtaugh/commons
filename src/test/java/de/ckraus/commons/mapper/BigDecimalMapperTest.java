@@ -9,4 +9,5 @@ class BigDecimalMapperTest {
     @Test
     void map() {
     }
+
 }
